@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -17,18 +17,18 @@ protected $fillable = [
 
     public function patient_id()
     {
-        return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+        return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
     }
 
     public function dep_id()
     {
-        return $this->hasOne(\App\Model\Department::class, 'id', 'dep_id');
+        return $this->hasOne(\App\Models\Department::class, 'id', 'dep_id');
     }
 
 
     public function dr_id()
     {
-        return $this->hasOne(\App\User::class, 'id', 'doc_id');
+        return $this->hasOne(\App\Models\User::class, 'id', 'doc_id');
     }
     public function items(){
         return $this->hasMany(invoice_detail::class,'invoice_main_id','id');
@@ -38,6 +38,6 @@ protected $fillable = [
 
     public function accountant_id()
     {
-        return $this->hasOne(\App\User::class, 'id', 'user_id');
+        return $this->hasOne(\App\Models\User::class, 'id', 'user_id');
     }
 }

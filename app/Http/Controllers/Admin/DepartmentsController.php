@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Department;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Storage;
 

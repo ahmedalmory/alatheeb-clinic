@@ -57,7 +57,7 @@ $(document).ready(function(){
                       <input type="hidden" id="title" name="title" value="{{ $patients->title }}" placeholder="{{ trans('admin.title') }}">
                       {!! Form::select('gender',['male'=>trans('admin.male'),'female'=>trans('admin.female'),],$patients->gender,['placeholder'=>trans('admin.gender'),'class'=>'gender']) !!}
                       <input type="hidden" id="mobile_nearby" name="mobile_nearby" value="{{ $patients->mobile_nearby }}" placeholder="{{ trans('admin.mobile_nearby') }}">
-                       {!! Form::select('nationality',App\Model\Nationalities::pluck('nat_name','id'),$patients->nationality,['class'=>'form-control','placeholder'=>trans('admin.nationality')]) !!}
+                       {!! Form::select('nationality',App\Models\Nationalities::pluck('nat_name','id'),$patients->nationality,['class'=>'form-control','placeholder'=>trans('admin.nationality')]) !!}
                     </div><!-- end col-lg-6 -->
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                       <input type="text" id="civil" value="{{ $patients->civil }}" name="civil" placeholder="{{ trans('admin.civil') }}">

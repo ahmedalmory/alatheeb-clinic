@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Model\Patient;
-use App\Model\Patients_files;
+use App\Models\Patient;
+use App\Models\Patients_files;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

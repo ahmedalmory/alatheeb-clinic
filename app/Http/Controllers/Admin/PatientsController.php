@@ -3,8 +3,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\PatientsDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
-use App\Model\Patient;
+use App\Models\Appoint;
+use App\Models\Patient;
 use Form;
 use Illuminate\Http\Request;
 use Up;

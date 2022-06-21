@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Model\Appoint;
+use App\Models\Appoint;
 
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;

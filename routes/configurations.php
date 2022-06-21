@@ -170,7 +170,7 @@ if (!function_exists('load_dep')) {
    function load_dep($select = null, $dep_hide = null)
    {
 
-      $departments = \App\Model\Department::selectRaw('dep_name as text')
+      $departments = \App\Models\Department::selectRaw('dep_name as text')
          ->selectRaw('id as id')
          ->selectRaw('parent as parent')
          ->get(['text', 'parent', 'id']);

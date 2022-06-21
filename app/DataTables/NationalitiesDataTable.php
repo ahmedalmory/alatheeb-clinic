@@ -1,6 +1,6 @@
 <?php
 namespace App\DataTables;
-use App\Model\Nationalities;
+use App\Models\Nationalities;
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;

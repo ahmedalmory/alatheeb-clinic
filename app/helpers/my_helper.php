@@ -1,6 +1,6 @@
 <?php
 
-use App\Model\Appoint;
+use App\Models\Appoint;
 
 
 function modelBox($modal_id = '', $boxTitle = '', $boxid, $status_msg = '', $form_name = '', $m_id = 'abc')

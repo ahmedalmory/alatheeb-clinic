@@ -3,13 +3,13 @@ namespace App\Http\Controllers;
 
 use App\DatatableFrontEnd\InvoicesDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
-use App\Model\Diagnos;
-use App\Model\invoice_detail;
-use App\Model\invoice_main;
-use App\Model\Patient;
-use App\Model\Product;
-use App\User;
+use App\Models\Appoint;
+use App\Models\Diagnos;
+use App\Models\invoice_detail;
+use App\Models\invoice_main;
+use App\Models\Patient;
+use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Form;
 use Illuminate\Http\Request;
@@ -233,7 +233,7 @@ class Invoices extends Controller
     {
         if (request()->has('group_id')) {
             $select = request('select');
-            return Form::select('dr_id', \App\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.dr_id')]);
+            return Form::select('dr_id', \App\Models\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.dr_id')]);
         }
     }
 
@@ -241,7 +241,7 @@ class Invoices extends Controller
     {
         if (request()->has('group_id')) {
             $select = request('select');
-            return Form::select('accountant_id', \App\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.accountant_id')]);
+            return Form::select('accountant_id', \App\Models\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.accountant_id')]);
         }
     }
 

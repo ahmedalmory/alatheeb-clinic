@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Model\Appoint;
+use App\Models\Appoint;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

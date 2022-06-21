@@ -17,7 +17,7 @@ class Receptionist
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (auth()->user()->isReceptionist()) {
+        if (auth()->check() &&  auth()->user()->isReceptionist()) {
             return $next($request);
         }
         return redirect(url('login'));

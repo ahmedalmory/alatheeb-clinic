@@ -3,8 +3,8 @@ namespace App\Http\Controllers;
 
 use App\DatatableFrontEnd\DiagnosisDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
-use App\Model\Diagnos;
+use App\Models\Appoint;
+use App\Models\Diagnos;
 use Form;
 use Illuminate\Http\Request;
 use Up;
@@ -181,7 +181,7 @@ class Diagnosis extends Controller
    {
       if (request()->has('group_id')) {
          $select = request('select');
-         return Form::select('dr_id', \App\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.dr_id')]);
+         return Form::select('dr_id', \App\Models\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.dr_id')]);
       }
    }
 

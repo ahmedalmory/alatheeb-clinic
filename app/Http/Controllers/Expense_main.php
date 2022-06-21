@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\DatatableFrontEnd\Expense_mainDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Expenses_main;
+use App\Models\Expenses_main;
 use Form;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

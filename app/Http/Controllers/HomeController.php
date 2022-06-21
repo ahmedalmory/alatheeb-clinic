@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
-use App\Model\Forms;
-use App\Model\Page;
-use App\Model\Patient;
-use App\Model\Product;
-use App\Model\Appoint;
-use App\Model\Diagnos;
-use App\Model\invoice_main;
-use App\Model\invoice_detail;
+use App\Models\Forms;
+use App\Models\Page;
+use App\Models\Patient;
+use App\Models\Product;
+use App\Models\Appoint;
+use App\Models\Diagnos;
+use App\Models\invoice_main;
+use App\Models\invoice_detail;
 use Carbon\Carbon;
-use App\Model\Patients_files;
-use App\User;
+use App\Models\Patients_files;
+use App\Models\User;
 use Validator;
 
 date_default_timezone_set('Asia/Riyadh');

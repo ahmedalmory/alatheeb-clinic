@@ -1,7 +1,7 @@
 <?php
 namespace App\DataTables;
 
-use App\Model\Page;
+use App\Models\Page;
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;

@@ -1,6 +1,6 @@
 <?php
 namespace App\DataTables;
-use App\Model\Group;
+use App\Models\Group;
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;

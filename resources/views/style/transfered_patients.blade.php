@@ -1,7 +1,7 @@
 @extends('style.index')
 @section('content')
 @php
-  $appointments =  \App\Model\Appoint::query()->where(function ($q){
+  $appointments =  \App\Models\Appoint::query()->where(function ($q){
     if (request()->dep_id){
         $q->where('dep_id',request('dep_id'));
     }
@@ -31,9 +31,9 @@
                 <br>
                 <a class="btn btn-success btn-sm " style="margin:5px" href="{{url()->current()}}">
                        {{__('app.departments_all')}}
-                    <span class="badge badge-danger btn-sm">{{\App\Model\Appoint::query()->count()}}</span>
+                    <span class="badge badge-danger btn-sm">{{\App\Models\Appoint::query()->count()}}</span>
                 </a>
-                @foreach(\App\Model\Department::all() as $department)
+                @foreach(\App\Models\Department::all() as $department)
                     <a class="btn btn-success btn-sm " style="margin:5px" href="?dep_id={{$department->id}}">
                         {{$department->dep_name}}
                         <span class="badge badge-danger btn-sm">{{$department->appointments()->count()}}</span>

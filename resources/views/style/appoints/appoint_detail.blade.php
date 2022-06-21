@@ -113,7 +113,7 @@
           </td>
           <td>
               <?php if($s != '0'){
-                  $message = " تنبية : هناك موعد يوم ".$appoint_date." الساعة ".$period_time." مع الدكتور ".\App\User::query()->find($doctor)->name." في عيادة ".\App\Model\Department::find($clinic)->dep_name." الرجاء الحضور .";
+                  $message = " تنبية : هناك موعد يوم ".$appoint_date." الساعة ".$period_time." مع الدكتور ".\App\Models\User::query()->find($doctor)->name." في عيادة ".\App\Models\Department::find($clinic)->dep_name." الرجاء الحضور .";
                   ?>
                   <a class="btn btn-success btn-sm" target="_blank" href="https://wa.me/966500876876/?text={{urlencode($message)}}">
                       <i class="fab fa-whatsapp" aria-hidden="true"></i>

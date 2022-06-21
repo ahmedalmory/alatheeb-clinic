@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $invoices = \App\Model\invoice_main::query()
+        $invoices = \App\Models\invoice_main::query()
         ->join('invoice_detail','invoice_detail.invoice_main_id','=','invoice_main.id')
         ->where(function ($q){
             if (request()->product_id)
@@ -28,7 +28,7 @@
     </script>
     <h2>{{trans('app.financial_report')}}</h2>
     @if(request()->product_id)
-        <h3> للخدمة : {{\App\Model\Product::query()->find(request()->product_id)->p_name}}</h3>
+        <h3> للخدمة : {{\App\Models\Product::query()->find(request()->product_id)->p_name}}</h3>
         <a class="btn btn-primary" href="{{url('report')}}"> عرض تقرير لكل المنتجات </a>
     @endif
     <div class="mt-5 "

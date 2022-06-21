@@ -12,7 +12,7 @@
                             {!! Form::label('dep_id',"العيادة",['class'=>'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <select name="dep_id" class="form-control">
-                                    @foreach(\App\Model\Department::all() as $dep)
+                                    @foreach(\App\Models\Department::all() as $dep)
                                         <option {{$dep->id == $appointment->dep_id ? "selected" : ""}} value="{{$dep->id}}">{{$dep->dep_name}}</option>
                                     @endforeach
                                 </select>
@@ -22,7 +22,7 @@
                             {!! Form::label('dep_id',"الطبيب",['class'=>'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <select name="user_id" class="form-control">
-                                    @foreach(\App\User::query()->where('group_id',1)->get() as $user)
+                                    @foreach(\App\Models\User::query()->where('group_id',1)->get() as $user)
                                         <option {{$user->id == $appointment->user_id ? "selected" : ""}} value="{{$user->id}}">{{$user->name}}</option>
                                     @endforeach
                                 </select>

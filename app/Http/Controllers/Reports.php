@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
-use App\Model\Expenses_main;
-use App\Model\invoice_main;
+use App\Models\Appoint;
+use App\Models\Expenses_main;
+use App\Models\invoice_main;
 use Form;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +62,7 @@ public function get_report_khazina(Request $request){
                     $q->where('paid_car','>',0);
         })
         ->get();
-    $expenses = \App\Model\expense_main::query()->where(function ($q) use ($request){
+    $expenses = \App\Models\expense_main::query()->where(function ($q) use ($request){
         if ($request->from_date and $request->to_date)
             $q->whereBetween('in_day',[$request->from_date,$request->to_date]);
     })->get();

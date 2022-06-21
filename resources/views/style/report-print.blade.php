@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $invoices = \App\Model\invoice_main::query()
+        $invoices = \App\Models\invoice_main::query()
         ->join('invoice_detail','invoice_detail.invoice_main_id','=','invoice_main.id')
         ->where(function ($q){
             if (request()->product_id)

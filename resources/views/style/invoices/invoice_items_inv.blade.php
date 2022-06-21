@@ -1,5 +1,5 @@
 <?php foreach ($product as $product) {
-    $product = \App\Model\Product::query()->find($product->id);
+    $product = \App\Models\Product::query()->find($product->id);
     ?>
     <td>
         <input type="hidden" id="p_id" name="p_id[]" value="<?= $product->id ?>">

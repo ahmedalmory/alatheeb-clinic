@@ -239,7 +239,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						{!! Form::label('patient_id',trans('admin.patient_id'),['class'=>'col-md-3 control-label']) !!}
 						<div class="col-md-9">
-							{!! Form::select('patient_id',App\Model\Patient::selectRaw('id as id')
+							{!! Form::select('patient_id',App\Models\Patient::selectRaw('id as id')
 							->selectRaw('CONCAT("' . trans('admin.name') . ': ",first_name,"  ",father_name,"  ",grand_name,"  - ' . trans('admin.civil') . ': ",civil)  as text')
 							->where('id',$diagnosis->patient_id)->pluck('text','id'),$diagnosis->patient_id,['class'=>'form-control get_patient','placeholder'=>trans('admin.patient_id')]) !!}
 							<small style="color:#c33"><i class="fa fa-info"></i> {{ trans('admin.search_patient_at') }}</small>

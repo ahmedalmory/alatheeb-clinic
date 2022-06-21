@@ -157,7 +157,7 @@ $(document).ready(function(){
 <div class="form-group">
 	{!! Form::label('patient_id',trans('admin.patient_id'),['class'=>'col-md-3 control-label']) !!}
 	<div class="col-md-9">
-		{!! Form::select('patient_id',App\Model\Patient::selectRaw('id as id')
+		{!! Form::select('patient_id',App\Models\Patient::selectRaw('id as id')
 ->selectRaw('CONCAT("' . trans('admin.name') . ': ",first_name,"  ",father_name,"  ",grand_name,"  - ' . trans('admin.civil') . ': ",civil)  as text')
 		->where('id',$appointments->patient_id)->pluck('text','id')
 		,$appointments->patient_id,['class'=>'form-control get_patient','placeholder'=>trans('admin.patient_id')]) !!}
@@ -186,7 +186,7 @@ $(document).ready(function(){
 <div class="form-group">
 	{!! Form::label('group_id',trans('admin.group_id'),['class'=>'col-md-3 control-label']) !!}
 	<div class="col-md-9">
-		{!! Form::select('group_id',App\Model\Group::pluck('group_name','id'),$appointments->group_id,['class'=>'form-control group_id','placeholder'=>trans('admin.group_id')]) !!}
+		{!! Form::select('group_id',App\Models\Group::pluck('group_name','id'),$appointments->group_id,['class'=>'form-control group_id','placeholder'=>trans('admin.group_id')]) !!}
 	</div>
 </div>
 

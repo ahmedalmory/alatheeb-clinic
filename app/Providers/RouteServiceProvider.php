@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
-    public const HOME = '/home';
+    public const HOME = '/';
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -79,6 +79,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web'])
             ->middleware(['doctor','Lang'])
+            ->as('doctor.')
             ->namespace("")
             ->group(base_path('routes/doctor.php'));
     }
@@ -87,14 +88,15 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web'])
             ->middleware(['accountant','Lang'])
+            ->as('accountant.')
             ->namespace("")
             ->group(base_path('routes/accountant.php'));
     }
 
     protected function mapReceptionistRoutes()
     {
-        Route::middleware(['web'])
-            ->middleware(['receptionist','Lang'])
+        Route::middleware(['web','receptionist','Lang'])
+            ->as('receptionist.')
             ->namespace("")
             ->group(base_path('routes/receptionist.php'));
     }

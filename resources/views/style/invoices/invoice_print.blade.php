@@ -185,7 +185,7 @@
                     <span dir="ltr" class="lef"><strong>Patinet Nam</strong>:{{ patient_name($inv_main->patient_id) }}</span>
                 </div>
             </td>
-            <td colspan="2">{{nationality_name(\App\Model\Patient::findOrFail($inv_main->patient_id)->nationality)}}</td>
+            <td colspan="2">{{nationality_name(\App\Models\Patient::findOrFail($inv_main->patient_id)->nationality)}}</td>
             <td colspan="1">
                 <span class="rig"><strong>رقم الملف</strong></span>
                 <span class="cen">{{$inv_main->patient_id}}</span>
@@ -304,7 +304,7 @@
             </td>
             <td colspan="2">
                 <span class="rig"><strong>هويةالمريض</strong></span>
-                <span>{{\App\Model\Patient::findOrFail($inv_main->patient_id)->civil}}</span>
+                <span>{{\App\Models\Patient::findOrFail($inv_main->patient_id)->civil}}</span>
                 <span dir="ltr" class="lef"><strong>Id</strong></span>
             </td>
         </tr>

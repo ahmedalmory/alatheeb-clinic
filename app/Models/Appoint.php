@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,52 +30,52 @@ class Appoint extends Model
 
    public function patient_id()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function dep_id()
    {
-      return $this->hasOne(\App\Model\Department::class, 'id', 'dep_id');
+      return $this->hasOne(\App\Models\Department::class, 'id', 'dep_id');
    }
     public function dep()
     {
-        return $this->belongsTo(\App\Model\Department::class, 'dep_id','id');
+        return $this->belongsTo(\App\Models\Department::class, 'dep_id','id');
     }
 
    public function patient()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function group()
    {
-      return $this->hasOne(\App\Model\Group::class, 'id', 'group_id');
+      return $this->hasOne(\App\Models\Group::class, 'id', 'group_id');
    }
 
    public function group_id()
    {
-      return $this->hasOne(\App\Model\Group::class, 'id', 'group_id');
+      return $this->hasOne(\App\Models\Group::class, 'id', 'group_id');
    }
 
    public function user_id()
    {
-      return $this->hasOne(\App\User::class, 'id', 'user_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'user_id');
    }
 
    public function user()
    {
-      return $this->hasOne(\App\User::class, 'id', 'user_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'user_id');
    }
 
    public function invoice_count()
    {
 
-      return $this->hasMany('App\Model\Invoice', 'patient_id', 'patient_id')->where('in_day', $this->in_day)->where('in_time', $this->in_time)->count();
+      return $this->hasMany('App\Models\Invoice', 'patient_id', 'patient_id')->where('in_day', $this->in_day)->where('in_time', $this->in_time)->count();
    }
 
    public function diagnos_count()
    {
-      return $this->hasMany('App\Model\Diagnos', 'appoint_id', 'id')->where('patient_id', $this->patient_id)->count();
+      return $this->hasMany('App\Models\Diagnos', 'appoint_id', 'id')->where('patient_id', $this->patient_id)->count();
    }
 
 }

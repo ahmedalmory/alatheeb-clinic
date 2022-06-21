@@ -51,7 +51,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Patient::count() }}</span>
+                                <span>{{ App\Models\Patient::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المرضى الاجمالى</small>
@@ -67,7 +67,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\User::count() }}</span>
+                                <span>{{ App\Models\User::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> الموظفين</small>
@@ -83,7 +83,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Group::count() }}</span>
+                                <span>{{ App\Models\Group::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>مجموعات الموظفين</small>
@@ -115,7 +115,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Group::count() }}</span>
+                                <span>{{ App\Models\Group::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> مجموعات الموظفين</small>
@@ -131,7 +131,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Page::count() }}</span>
+                                <span>{{ App\Models\Page::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> الصفحات الخاصة</small>
@@ -147,7 +147,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Forms::count() }}</span>
+                                <span>{{ App\Models\Forms::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> النماذج</small>
@@ -163,7 +163,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Department::count() }}</span>
+                                <span>{{ App\Models\Department::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>اقسام العيادات</small>
@@ -179,7 +179,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Appoint::count() }}</span>
+                                <span>{{ App\Models\Appoint::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المواعيد الاجمالى</small>
@@ -195,7 +195,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Appoint::where('attend_status','pending')->count() }}</span>
+                                <span>{{ App\Models\Appoint::where('attend_status','pending')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المواعيد بالانتظار</small>
@@ -211,7 +211,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Appoint::where('attend_status','unattended')->count() }}</span>
+                                <span>{{ App\Models\Appoint::where('attend_status','unattended')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المواعيد - لم يحضر</small>
@@ -227,7 +227,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Appoint::where('attend_status','attend')->count() }}</span>
+                                <span>{{ App\Models\Appoint::where('attend_status','attend')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المواعيد - حضر</small>
@@ -243,7 +243,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Appoint::where('attend_status','confirmed')->count() }}</span>
+                                <span>{{ App\Models\Appoint::where('attend_status','confirmed')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small> المواعيد - مؤكدة</small>
@@ -259,7 +259,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Diagnos::count() }}</span>
+                                <span>{{ App\Models\Diagnos::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>التشخيصات</small>
@@ -275,7 +275,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Invoice::count() }}</span>
+                                <span>{{ App\Models\Invoice::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>كل الفواتير</small>
@@ -291,7 +291,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Invoice::where('invoice_status','paid')->count() }}</span>
+                                <span>{{ App\Models\Invoice::where('invoice_status','paid')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>الفواتير المسددة</small>
@@ -307,7 +307,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Invoice::where('invoice_status','unpaid')->count() }}</span>
+                                <span>{{ App\Models\Invoice::where('invoice_status','unpaid')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>الفواتير غير المسددة</small>
@@ -323,7 +323,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Invoice::where('invoice_status','paid')->where('pay_at','visa')->count() }}</span>
+                                <span>{{ App\Models\Invoice::where('invoice_status','paid')->where('pay_at','visa')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>الفواتير المسددة - بالبطاقة الشبكةة</small>
@@ -339,7 +339,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Invoice::where('invoice_status','paid')->where('pay_at','cash')->count() }}</span>
+                                <span>{{ App\Models\Invoice::where('invoice_status','paid')->where('pay_at','cash')->count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>الفواتير المسددة - نقدا / كاش</small>
@@ -355,7 +355,7 @@
                         <div class="display">
                             <div class="number">
                                 <h3 class="text-white">
-                                <span>{{ App\Model\Diagnos::count() }}</span>
+                                <span>{{ App\Models\Diagnos::count() }}</span>
                                 <small class="text-white"></small>
                                 </h3>
                                 <small>التشخيصات</small>

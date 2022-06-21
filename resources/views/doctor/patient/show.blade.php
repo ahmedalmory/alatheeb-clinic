@@ -147,7 +147,7 @@
                             <th>حالة الحضور</th>
                         </tr>
                         </thead>
-                        @foreach(App\Model\Appoint::where('patient_id',$patients->id)->orderBy('id',
+                        @foreach(App\Models\Appoint::where('patient_id',$patients->id)->orderBy('id',
                         'desc')->get() as $appoint)
                             <tr>
 
@@ -182,7 +182,7 @@
                             <th>إدارة</th>
                         </tr>
                         </thead>
-                        @foreach(App\Model\invoice_main::where('patient_id',$patients->id)->where(function($q){
+                        @foreach(App\Models\invoice_main::where('patient_id',$patients->id)->where(function($q){
         if (request()->status){
             $q->where('invoice_status',request('status'));
         }
@@ -237,7 +237,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach(App\Model\Diagnos::where('patient_id',
+                        @foreach(App\Models\Diagnos::where('patient_id',
                         $patients->id)->with('dr_id_other')->with('patient_id_other')
                         ->orderBy('id', 'desc')->select('diagnos.*')->get() as
                         $diagnos)

@@ -15,7 +15,7 @@
                                 <div class="col-md-2">
                                     <select name="department_id" class="form-control" style="padding: 0">
                                         <option value="">كل العيادات</option>
-                                        @foreach(\App\Model\Department::all() as $department)
+                                        @foreach(\App\Models\Department::all() as $department)
                                             <option {{request()->department_id == $department->id ? "selected":""}} value="{{$department->id}}">{{$department->dep_name}}</option>
                                         @endforeach
                                     </select>
@@ -23,7 +23,7 @@
                                 <div class="col-md-2">
                                     <select name="user_id" class="form-control" style="padding: 0">
                                         <option value="">كل الاطباء</option>
-                                        @foreach(\App\User::query()->where('group_id',1)->get() as $user)
+                                        @foreach(\App\Models\User::query()->where('group_id',1)->get() as $user)
                                             <option {{request()->user_id == $user->id ? "selected":""}} value="{{$user->id}}">{{$user->name}}</option>
                                         @endforeach
                                     </select>

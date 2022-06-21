@@ -46,7 +46,7 @@ Route::group(['middleware' => 'Lang'], function () {
         })->name('report_print');
         ###
         Route::get('/search/patient', 'HomeController@searchPatient');
-        Route::get('/dashboard', 'HomeController@dashboard');
+        // Route::get('/dashboard', 'HomeController@dashboard');
         Route::get('/dashboard_doctor', 'HomeController@dashboard_doctor');
         Route::get('/', 'HomeController@dashboard');
         Route::get('/home', 'HomeController@home');

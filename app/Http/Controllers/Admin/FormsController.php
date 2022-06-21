@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\FormsDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Forms;
+use App\Models\Forms;
 use Form;
 use Illuminate\Http\Request;
 use Up;

@@ -108,7 +108,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						{!! Form::label('group_id',trans('admin.group_id'),['class'=>'col-md-3 control-label']) !!}
 						<div class="col-md-9">
-							{!! Form::select('group_id',App\Model\Group::pluck('group_name','id'), $users->group_id ,['class'=>'form-control','placeholder'=>trans('admin.group_id')]) !!}
+							{!! Form::select('group_id',App\Models\Group::pluck('group_name','id'), $users->group_id ,['class'=>'form-control','placeholder'=>trans('admin.group_id')]) !!}
 						</div>
 					</div>
 					<br>

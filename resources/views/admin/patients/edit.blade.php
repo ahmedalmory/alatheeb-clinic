@@ -274,7 +274,7 @@ $(document).ready(function(){
                     <div class="form-group col-md-3">
                         {!! Form::label('relation_id',trans('admin.relation_id'),['class'=>'control-label']) !!}
                         <div class="">
-                            {!! Form::select('relation_id',App\Model\Relationship::pluck('re_name','id'),$patients->relation_id,['class'=>'form-control','placeholder'=>trans('admin.relation_id')]) !!}
+                            {!! Form::select('relation_id',App\Models\Relationship::pluck('re_name','id'),$patients->relation_id,['class'=>'form-control','placeholder'=>trans('admin.relation_id')]) !!}
                         </div>
                     </div>
 
@@ -294,7 +294,7 @@ $(document).ready(function(){
                     <div class="form-group col-md-3">
                         {!! Form::label('nationality',trans('admin.nationality'),['class'=>'control-label']) !!}
                         <div class="">
-                            {!! Form::select('nationality',App\Model\Nationalities::pluck('nat_name','id'),$patients->nationality,['class'=>'form-control','placeholder'=>trans('admin.nationality')]) !!}
+                            {!! Form::select('nationality',App\Models\Nationalities::pluck('nat_name','id'),$patients->nationality,['class'=>'form-control','placeholder'=>trans('admin.nationality')]) !!}
                         </div>
                     </div>
                     <div class="clearfix"></div>

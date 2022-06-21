@@ -72,7 +72,7 @@ foreach($invoices as $inv) { $count ++;
     $total_cash += $inv->paid_cash;
     $total_card += $inv->paid_card;
     $total_due += $inv->due;
-    $items = \App\Model\invoice_detail::query()->where('invoice_main_id',$inv->id)->get();
+    $items = \App\Models\invoice_detail::query()->where('invoice_main_id',$inv->id)->get();
     ?>
 
 <tr>
