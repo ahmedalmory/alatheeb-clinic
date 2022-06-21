@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,42 +34,42 @@ class Diagnos extends Model
    }
    public function dr_id()
    {
-      return $this->hasOne(\App\User::class, 'id', 'dr_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'dr_id');
    }
 
    public function dr_id_other()
    {
-      return $this->hasOne(\App\User::class, 'id', 'dr_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'dr_id');
    }
 
    public function dep_id()
    {
-      return $this->hasOne(\App\Model\Department::class, 'id', 'dep_id');
+      return $this->hasOne(\App\Models\Department::class, 'id', 'dep_id');
    }
 
    public function dr()
    {
-      return $this->hasOne(\App\User::class, 'id', 'dr_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'dr_id');
    }
 
    public function patient_id()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function patient_id_other()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function patient()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function appoint_id()
    {
-      return $this->hasOne(\App\Model\Appoint::class, 'id', 'appoint_id');
+      return $this->hasOne(\App\Models\Appoint::class, 'id', 'appoint_id');
    }
 
 }

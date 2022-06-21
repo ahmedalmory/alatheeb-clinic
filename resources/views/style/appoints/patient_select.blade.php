@@ -49,7 +49,7 @@
         <p class="col-md-6">
             <select name="dep_id" id="patient_dep_id" class="form-control" onchange="get_doctors('#patient_dep_id')">
                 <option value="">اختر العيادة</option>
-                @foreach(\App\Model\Department::all() as $dep)
+                @foreach(\App\Models\Department::all() as $dep)
                     <option value="{{$dep->id}}">{{$dep->dep_name}}</option>
                 @endforeach
             </select>

@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -43,42 +43,42 @@ class Invoice extends Model
 
    public function patient_id()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function dep_id()
    {
-      return $this->hasOne(\App\Model\Department::class, 'id', 'dep_id');
+      return $this->hasOne(\App\Models\Department::class, 'id', 'dep_id');
    }
 
    public function patient()
    {
-      return $this->hasOne(\App\Model\Patient::class, 'id', 'patient_id');
+      return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
    }
 
    public function dr_id()
    {
-      return $this->hasOne(\App\User::class, 'id', 'dr_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'dr_id');
    }
 
    public function dr()
    {
-      return $this->hasOne(\App\User::class, 'id', 'dr_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'dr_id');
    }
 
    public function accountant_id()
    {
-      return $this->hasOne(\App\User::class, 'id', 'accountant_id');
+      return $this->hasOne(\App\Models\User::class, 'id', 'accountant_id');
    }
 
    public function accountant_group_id()
    {
-      return $this->hasOne(\App\Model\Group::class, 'id', 'accountant_group_id');
+      return $this->hasOne(\App\Models\Group::class, 'id', 'accountant_group_id');
    }
 
    public function dr_group_id()
    {
-      return $this->hasOne(\App\Model\Group::class, 'id', 'dr_group_id');
+      return $this->hasOne(\App\Models\Group::class, 'id', 'dr_group_id');
    }
 
 }

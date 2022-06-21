@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
+use App\Models\Appoint;
 use Form;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

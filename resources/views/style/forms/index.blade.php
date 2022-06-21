@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach(\App\Model\Forms::all() as $form)
+            @foreach(\App\Models\Forms::all() as $form)
                 <div class="col-md-3">
                     <h4>{{$form->form_name}}</h4>
                     <a href="#">

@@ -217,7 +217,7 @@
                             <div class="col-md-9">
                                 <select name="dep_id" id="dep_id" class="form-control" v-model="dep_id">
                                     <option :value="null">احتر العيادة</option>
-                                    @foreach (\App\Model\Department::all() as $dep)
+                                    @foreach (\App\Models\Department::all() as $dep)
                                         <option value="{{ $dep->id }}">{{ $dep->dep_name }}</option>
                                     @endforeach
                                 </select>
@@ -227,7 +227,7 @@
                             {!! Form::label('user_id', 'الطبيب', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <select name="user_id" id="user_id" class="form-control">
-                                    @foreach (\App\User::query()->where('group_id', 1)->get()
+                                    @foreach (\App\Models\User::query()->where('group_id', 1)->get()
         as $doc)
                                         <option v-if="dep_id == '{{ $doc->dep_id }}'" value="{{ $doc->id }}" @if (old('user_id') && old('user_id')==$doc->id)
                                             selected

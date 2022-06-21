@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\DataTables\GroupsDataTable;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Model\Group;
+use App\Models\Group;
 use Validator;
 use Set;
 use Up;

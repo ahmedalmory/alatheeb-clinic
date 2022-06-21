@@ -2,7 +2,7 @@
 namespace App\DatatableFrontEnd;
 
 //use Yajra\DataTables\EloquentDataTable;
-use App\Model\invoice_main;
+use App\Models\invoice_main;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
 

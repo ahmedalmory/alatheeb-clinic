@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
-use App\Model\Slide;
+use App\Models\Slide;
 use Set;
-use App\User;
+use App\Models\User;
 use Upload;
 class Slides extends Controller
 {

@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -16,7 +16,7 @@ protected $fillable = [
 
     public function exp_m_id()
     {
-        return $this->hasOne(\App\Model\Expenses_main::class, 'id', 'exp_m_id');
+        return $this->hasOne(\App\Models\Expenses_main::class, 'id', 'exp_m_id');
     }
 
 }

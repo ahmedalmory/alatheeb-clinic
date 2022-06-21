@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\RelationshipDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Relationship;
+use App\Models\Relationship;
 use Form;
 use Illuminate\Http\Request;
 use Up;

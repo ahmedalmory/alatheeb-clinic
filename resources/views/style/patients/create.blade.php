@@ -311,7 +311,7 @@
                                             placeholder="{{ trans('admin.date_birh_hijri') }}">
                                         <input type="number" id="age" name="age" class="age"
                                             value="{{ old('age') }}" placeholder="{{ trans('admin.age') }}">
-                                        {!! Form::select('nationality', App\Model\Nationalities::pluck('nat_name', 'id'), old('nationality'), ['class' => 'form-control', 'placeholder' => trans('admin.nationality'), 'id' => 'national']) !!}
+                                        {!! Form::select('nationality', App\Models\Nationalities::pluck('nat_name', 'id'), old('nationality'), ['class' => 'form-control', 'placeholder' => trans('admin.nationality'), 'id' => 'national']) !!}
                                         <input type="file" name="image" id="image" class="form-control">
 
                                     </div><!-- end col-lg-6 -->

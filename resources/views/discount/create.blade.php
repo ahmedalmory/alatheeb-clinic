@@ -35,7 +35,7 @@
                             <label for="">{{_the('app.product')}}</label>
                             <select class="form-control" name="product_id">
                                 <option {{old('product_id') == 0 ? "selected":""}} value="0">{{__('app.for_all').__('app.products')}}</option>
-                                @foreach(\App\Model\Product::all() as $product)
+                                @foreach(\App\Models\Product::all() as $product)
                                 <option {{old('product_id') == $product->id ? "selected":""}} value="{{$product->id}}">{{$product->p_name}}</option>
                                 @endforeach
                             </select>

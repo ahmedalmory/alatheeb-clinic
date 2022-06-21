@@ -1,8 +1,8 @@
 <?php
 namespace App\DatatableFrontEnd;
 
-use App\Model\expense_main;
-use App\Model\invoice_main;
+use App\Models\expense_main;
+use App\Models\invoice_main;
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;

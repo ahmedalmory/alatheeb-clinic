@@ -28,7 +28,7 @@ for ($i = $open_time; $i < $close_time; $i += (60 * setting()->patient_exposure)
    $period_time = date("h:i", $i);
 
    $select_old = $select == $period_time ? 'checked' : '';
-   $check      = App\Model\Appoint::whereDate('in_day', $day)->where('in_time', $period_time)->first();
+   $check      = App\Models\Appoint::whereDate('in_day', $day)->where('in_time', $period_time)->first();
    $output .= '<div class="md-radio">';
    if (!empty($check)) {
       $output .= "

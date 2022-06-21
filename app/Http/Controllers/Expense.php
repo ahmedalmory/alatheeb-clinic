@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use App\DatatableFrontEnd\ExpenseDataTable;
 use App\Http\Controllers\Controller;
 
-use App\Model\expense_detail;
-use App\Model\expense_main;
-use App\Model\Expense_sub;
-use App\User;
+use App\Models\expense_detail;
+use App\Models\expense_main;
+use App\Models\Expense_sub;
+use App\Models\User;
 use Carbon\Carbon;
 use Form;
 use Illuminate\Http\Request;

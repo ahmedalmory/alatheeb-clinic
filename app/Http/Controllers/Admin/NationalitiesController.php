@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\DataTables\NationalitiesDataTable;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Model\Nationalities;
+use App\Models\Nationalities;
 use Validator;
 use Set;
 use Up;

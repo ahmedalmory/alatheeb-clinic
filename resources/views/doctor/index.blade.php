@@ -98,7 +98,7 @@
                     <span class="translate">{{trans('admin.All patients')}}
         </span>
                     <span
-                        class="badge bg-success-lt mx-2 mt-0">{{\App\Model\Appoint::query()->where('user_id',auth()->id())->count()}}</span>
+                        class="badge bg-success-lt mx-2 mt-0">{{\App\Models\Appoint::query()->where('user_id',auth()->id())->count()}}</span>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2 w-all mb-3">
@@ -107,7 +107,7 @@
                     <span class="translate">{{trans("admin.Today's dates")}}
         </span>
                     <span
-                        class="badge bg-success-lt mx-2 mt-0">{{\App\Model\Appoint::query()->where('user_id',auth()->id())->where('in_day',\Carbon\Carbon::today()->toDateString())->count()}}</span>
+                        class="badge bg-success-lt mx-2 mt-0">{{\App\Models\Appoint::query()->where('user_id',auth()->id())->where('in_day',\Carbon\Carbon::today()->toDateString())->count()}}</span>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2 w-all mb-3">
@@ -116,7 +116,7 @@
                     <span class="translate">{{trans('admin.Available patients')}}
         </span>
                     <span
-                        class="badge bg-success-lt mx-2 mt-0">{{\App\Model\Appoint::query()->where('user_id',auth()->id())->whereBetween('in_time',[\Carbon\Carbon::now()->subHour()->format('h:i'),\Carbon\Carbon::now()->addHour()->format('h:i')])->where('in_day',\Carbon\Carbon::today()->toDateString())->count()}}</span>
+                        class="badge bg-success-lt mx-2 mt-0">{{\App\Models\Appoint::query()->where('user_id',auth()->id())->whereBetween('in_time',[\Carbon\Carbon::now()->subHour()->format('h:i'),\Carbon\Carbon::now()->addHour()->format('h:i')])->where('in_day',\Carbon\Carbon::today()->toDateString())->count()}}</span>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2 w-all mb-3">
@@ -125,7 +125,7 @@
                     <span class="translate"> {{trans('admin.Invoices')}}
         </span>
                     <span
-                        class="badge bg-success-lt mx-2 mt-0">{{\App\Model\invoice_main::query()->where('doc_id',auth()->id())->count()}}</span>
+                        class="badge bg-success-lt mx-2 mt-0">{{\App\Models\invoice_main::query()->where('doc_id',auth()->id())->count()}}</span>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2 w-all mb-3">
@@ -134,7 +134,7 @@
                     <span class="translate"> {{trans('admin.Unpaid invoices')}}
         </span>
                     <span
-                        class="badge bg-success-lt mx-2 mt-0">{{\App\Model\invoice_main::query()->where('doc_id',auth()->id())->where('due','<>',0)->count()}}</span>
+                        class="badge bg-success-lt mx-2 mt-0">{{\App\Models\invoice_main::query()->where('doc_id',auth()->id())->where('due','<>',0)->count()}}</span>
                 </div>
             </div>
 

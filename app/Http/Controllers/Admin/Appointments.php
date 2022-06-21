@@ -3,11 +3,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\AppointmentsDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Appoint;
-use App\Model\Diagnos;
-use App\Model\Invoice;
-use App\Model\Patient;
-use App\User;
+use App\Models\Appoint;
+use App\Models\Diagnos;
+use App\Models\Invoice;
+use App\Models\Patient;
+use App\Models\User;
 use Form;
 use Illuminate\Http\Request;
 use Up;
@@ -217,7 +217,7 @@ class Appointments extends Controller
    {
       if (request()->has('group_id')) {
          $select = request('select');
-         return Form::select('user_id', \App\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.user_id')]);
+         return Form::select('user_id', \App\Models\User::where('group_id', request('group_id'))->pluck('name', 'id'), $select, ['class' => 'form-control', 'placeholder' => trans('admin.user_id')]);
       }
    }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +14,7 @@ class Department extends Model
 
    public function parents()
    {
-      return $this->hasMany('App\Model\Department', 'id', 'parent');
+      return $this->hasMany('App\Models\Department', 'id', 'parent');
    }
    public function appointments(){
        return $this->hasMany(Appoint::class,'dep_id','id');

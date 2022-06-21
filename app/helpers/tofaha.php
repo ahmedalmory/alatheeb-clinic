@@ -1,10 +1,10 @@
 <?php
 
-use App\User;
+use App\Models\User;
 
 function doctor(){
     if (auth()->check() and auth()->user()->level == 'dr')
-        return \App\User::query()->find(auth()->id());
+        return \App\Models\User::query()->find(auth()->id());
     return null;
 }
 function canDo( $user_id,$department,$action = null){

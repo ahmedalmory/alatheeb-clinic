@@ -71,7 +71,7 @@
                                         <div class="col-md-12">
                                             <h4>صلاحيات التصنيفات</h4>
                                         </div>
-                                    @foreach(\App\Model\Tasnefat::all() as $category)
+                                    @foreach(\App\Models\Tasnefat::all() as $category)
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <input name="permissions[categories][{{$category->id}}]" class="" type="hidden" value="0">

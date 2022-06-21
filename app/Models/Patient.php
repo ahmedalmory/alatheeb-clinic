@@ -1,7 +1,7 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -72,32 +72,32 @@ class Patient extends Model
 
    public function dep_id()
    {
-      return $this->hasOne('App\Model\Department', 'id', 'dep_id');
+      return $this->hasOne('App\Models\Department', 'id', 'dep_id');
    }
 
    public function relation()
    {
-      return $this->hasOne('App\Model\Relationship', 'id', 'relation_id');
+      return $this->hasOne('App\Models\Relationship', 'id', 'relation_id');
    }
 
    public function national()
    {
-      return $this->hasOne('App\Model\Nationalities', 'id', 'nationality');
+      return $this->hasOne('App\Models\Nationalities', 'id', 'nationality');
    }
 
    public function user()
    {
-      return $this->hasOne('App\User', 'id', 'user_id');
+      return $this->hasOne('App\Models\User', 'id', 'user_id');
    }
 
    public function user_id()
    {
-      return $this->hasOne('App\User', 'id', 'user_id');
+      return $this->hasOne('App\Models\User', 'id', 'user_id');
    }
 
    public function last_update_user_id()
    {
-      return $this->hasOne('App\User', 'id', 'last_update_user_id');
+      return $this->hasOne('App\Models\User', 'id', 'last_update_user_id');
    }
    public function last_update_user()
    {
@@ -106,7 +106,7 @@ class Patient extends Model
 
    public function update_user_id()
    {
-      return $this->hasOne('App\User', 'id', 'last_update_user_id');
+      return $this->hasOne('App\Models\User', 'id', 'last_update_user_id');
    }
    ###
     public function diagnos(){

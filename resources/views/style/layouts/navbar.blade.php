@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     @if(auth()->user())
-                        @foreach(\App\Model\Page::all() as $page)
+                        @foreach(\App\Models\Page::all() as $page)
                             <li class="">
                                 <a href="{{ url('page/'.$page->id) }}" class="white">{{$page->page_title}}</a>
                             </li>

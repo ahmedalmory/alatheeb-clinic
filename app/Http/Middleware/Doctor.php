@@ -17,7 +17,7 @@ class Doctor
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (auth()->user()->isDoctor()) {
+        if (auth()->check() && auth()->user()->isDoctor()) {
             return $next($request);
         }
         return redirect(url('login'));

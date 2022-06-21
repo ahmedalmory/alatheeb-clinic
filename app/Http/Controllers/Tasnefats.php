@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\DatatableFrontEnd\TasnefatDataTable;
 use App\Http\Controllers\Controller;
-use App\Model\Tasnefat;
+use App\Models\Tasnefat;
 use Form;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

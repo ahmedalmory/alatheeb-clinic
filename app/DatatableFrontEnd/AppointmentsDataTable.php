@@ -1,7 +1,7 @@
 <?php
 namespace App\DatatableFrontEnd;
 
-use App\Model\Appoint;
+use App\Models\Appoint;
 //use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;

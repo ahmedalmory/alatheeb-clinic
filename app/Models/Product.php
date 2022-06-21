@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 use App\Discount;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +20,7 @@ protected $fillable = [
 
     public function cat_id()
     {
-        return $this->hasOne(\App\Model\Tasnefat::class, 'id', 'cat_id');
+        return $this->hasOne(\App\Models\Tasnefat::class, 'id', 'cat_id');
     }
     public function totalDiscountAmount(){
         $discounts = Discount::query()
