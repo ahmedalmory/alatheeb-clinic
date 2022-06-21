@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
                 Schema::disableForeignKeyConstraints();
             }
         }
+
+        $this->registerBladeDirectives();
     }
 
     /**
@@ -33,5 +35,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+    }
+
+    private function registerBladeDirectives()
+    {
+        Blade::directive('receptionist', function ($expression) {
+            return auth()->user()->isReceptionist();
+        });
+
+        Blade::directive('doctor', function ($expression) {
+            return auth()->user()->isDoctor();
+        });
+
+        Blade::directive('accountant', function ($expression) {
+            return auth()->user()->isAccountant();
+        });
     }
 }
