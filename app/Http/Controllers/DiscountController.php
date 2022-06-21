@@ -15,4 +15,5 @@ class DiscountController extends Controller
         'end_at'        =>  'required',
         'product_id'        =>  'required',
     ];
+
 }
