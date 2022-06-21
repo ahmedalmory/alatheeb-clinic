@@ -5,7 +5,8 @@ namespace App\Http;
 use App\Http\Middleware\LangLoc;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel {
+class Kernel extends HttpKernel
+{
     /**
      * The application's global HTTP middleware stack.
      *
@@ -63,5 +64,8 @@ class Kernel extends HttpKernel {
         'admin_guest'   => \App\Http\Middleware\AdminGuest::class,
         'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'Lang'          => LangLoc::class,
+        'doctor'        => \App\Http\Middleware\Doctor::class,
+        'accountant'    => \App\Http\Middleware\Accountant::class,
+        'receptionist'  => \App\Http\Middleware\Receptionist::class,
     ];
 }
