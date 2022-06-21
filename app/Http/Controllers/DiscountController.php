@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Ahmedjoda\JodaResources\JodaResource;
+use AhmedAlmory\JodaResources\JodaResource;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
