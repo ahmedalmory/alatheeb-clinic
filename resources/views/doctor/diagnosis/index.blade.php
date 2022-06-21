@@ -1,4 +1,4 @@
-@extends('style.index_doctor')
+@extends('doctor.layout.index')
 @section('content')
 <div class="row">
 	<div class="col-md-12">

@@ -36,6 +36,10 @@ class User extends Authenticatable
    {
       return $this->belongsTo('App\Model\Group', 'group_id','id');
    }
+    public function isDoctor()
+    {
+        return $this->level === 'dr';
+    }
 
 
    ### doctor

@@ -157,7 +157,6 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('confirm_change', 'Appoints@confirm_change');
         Route::post('confirm_call', 'Appoints@confirm_call');
 
-        Route::get('/doctor_layout', 'HomeController@doctor_layout');
         Route::post('get_patient_detail', 'HomeController@get_patient_detail');
         Route::post('get_products', 'HomeController@get_products');
         Route::post('invoice_items', 'HomeController@invoice_items');

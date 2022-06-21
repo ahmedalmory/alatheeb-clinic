@@ -1,8 +1,8 @@
-@include('style.layouts.header_doctor')
-@include('style.layouts.navbar_doctor')
+@include('doctor.layout.header')
+@include('doctor.layout.navbar')
 @include('style.layouts.message')
 <div class="" style="min-height:75vh">
-  @yield('content')
+    @yield('content')
 </div>
 </div>
 </div>

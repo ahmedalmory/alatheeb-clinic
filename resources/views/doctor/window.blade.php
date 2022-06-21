@@ -1,4 +1,4 @@
-@extends('style.index_doctor')
+@extends('doctor.layout.index')
 @section('content')
 <script>
 $(document).ready(function () {

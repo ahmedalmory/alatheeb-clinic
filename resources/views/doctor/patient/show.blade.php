@@ -1,4 +1,4 @@
-@extends('style.index_doctor') @section('content') @push('js')
+@extends('doctor.layout.index') @section('content') @push('js')
     <script
         type="text/javascript"
         src="https://printjs-4de6.kxcdn.com/print.min.js"

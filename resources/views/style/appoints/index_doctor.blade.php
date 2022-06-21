@@ -1,4 +1,4 @@
-@extends('style.index_doctor')
+@extends('doctor.layout.index')
 @section('content')
     @push('js')
         <script>
@@ -213,7 +213,7 @@
             };
             </script>
 
-            
+
     <div class="datespage">
         <div class="title">{{__('app.appointments')}}</div>
         <div class="content">

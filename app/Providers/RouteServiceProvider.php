@@ -77,9 +77,8 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapDoctorRoutes()
     {
-        Route::middleware(['web'])
-            ->middleware(['doctor','Lang'])
-            ->namespace("")
+        Route::middleware(['web','doctor','Lang'])
+            ->namespace($this->namespace."\\Doctor")
             ->group(base_path('routes/doctor.php'));
     }
 

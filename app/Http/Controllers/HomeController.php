@@ -55,17 +55,7 @@ class HomeController extends Controller
     public function dashboard()
     {
         if (Auth::user()->level == 'dr') {
-            $total_patient =  DB::table('patients')->get();
-            $total_patient = $total_patient->count();
-            $total_patient_today =  DB::table('patients')->whereDate('created_at', DB::raw('CURDATE()'))->get();
-            $total_patient_today = $total_patient_today->count();
-            $total_user =  DB::table('users')->where('group_id',  '<>', '1')->get();
-            $total_user = $total_user->count();
-            $total_doctor =  DB::table('users')->where('group_id', '1')->get();
-            $total_doctor = $total_doctor->count();
-            $total_departments =  DB::table('departments')->get();
-            $total_departments = $total_departments->count();
-            return view('style.dashboard_doctor', compact('total_patient', 'total_patient_today', 'total_user', 'total_doctor', 'total_departments'));
+            return redirect('/doctor');
         } else {
             $total_patient =  DB::table('patients')->get();
             $total_patient = $total_patient->count();
@@ -116,7 +106,7 @@ class HomeController extends Controller
      */
     public function store()
     {
-        
+
         $rules = [
             'f_number'               => 'numeric|nullable|sometimes',
             'record_date'            => 'nullable|sometimes|date|date_format:Y-m-d',
@@ -384,7 +374,7 @@ WHERE civil = $request->id"));
     }
     function file_add(Request $request)
     {
-        
+
         if (Patient::where('id', $request->id)->exists()) {
             $patient = DB::select(DB::raw("SELECT
   * FROM patients
@@ -433,7 +423,7 @@ WHERE id = $request->id"));
     }
     function savePatient(Request $request)
     {
-        
+
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -497,7 +487,7 @@ WHERE id = $request->id"));
 
     function saveFile(Request $request)
     {
-        
+
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'mimes:jpeg,png,jpg,gif,pdf,doc,docx|max:2048'
@@ -549,12 +539,7 @@ public function deleteFile(Request $r){
         $total_departments = $total_departments->count();
         return view('style.dashboard_doctor', compact('total_patient', 'total_patient_today', 'total_user', 'total_doctor', 'total_departments'));
     }
-    public function doctor_layout()
-    {
 
-
-        return view('style.doctor_layout');
-    }
     public function doctor_layout_1()
     {
         $doc_id = Auth::user()->id;
@@ -608,7 +593,7 @@ WHERE id = $request->id"));
     //save tratment by doctor
     function save_treatment(Request $request)
     {
-        
+
         $sum=0;
             for ($i = 0; $i < count($request->p_id); $i++) {
                 $p = Product::findOrFail($request->p_id[$i]);

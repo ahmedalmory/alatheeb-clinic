@@ -1,24 +1,5 @@
-@extends('style.index_doctor')
+@extends('doctor.layout.index')
 @section('content')
-    <!--	<div class="homepagetable">-->
-
-    <!--		<div class="row">-->
-    <!--        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-lg-offset-1">-->
-    <!--<h3>-->
-    <!--    عدد المرضى :    {{$total_patient}}</br>-->
-    <!--          مسجلين اليوم :    {{$total_patient_today}}</br>-->
-    <!--            عددالاطباء :    {{$total_doctor}}</br>-->
-    <!--            عددالعيادات :    {{$total_departments}}</br>-->
-    <!--            عدد المستخدمين :    {{$total_user}}</br>-->
-    <!--</h3>-->
-    <!--        </div><!-- end content -->
-    <!--          </div><!-- end block4 -->
-    <!--        </div><!-- end col-lg-10 -->
-    <!--      </div><!-- end row -->
-
-
-
-    <!--	</div><!-- end homepagetable -->
     <style media="screen">
         .d-block {
             display: block
