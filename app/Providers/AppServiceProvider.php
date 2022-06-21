@@ -8,30 +8,35 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+   /**
+    * Bootstrap any application services.
+    *
+    * @return void
+    */
 
-    public function boot()
-    {
-        if (file_exists(base_path('config/itconfiguration.php'))) {
-            Schema::defaultStringLength(config('itconfiguration.SchemadefaultStringLength'));
-            if (config('itconfiguration.ForeignKeyConstraints')) {
-                Schema::enableForeignKeyConstraints();
-            } else {
-                Schema::disableForeignKeyConstraints();
-            }
-        }
-    }
+   public function boot()
+   {
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-    }
+      if (file_exists(base_path('config/itconfiguration.php'))) {
+         Schema::defaultStringLength(config('itconfiguration.SchemadefaultStringLength'));
+         if (config('itconfiguration.ForeignKeyConstraints')) {
+            Schema::enableForeignKeyConstraints();
+         } else {
+            Schema::disableForeignKeyConstraints();
+         }
+      }
+   }
+
+   /**
+    * Register any application services.
+    *
+    * @return void
+    */
+   public function register()
+   {
+      app()->bind('path.public', function () {
+         return base_path('public_html');
+      });
+
+   }
 }
