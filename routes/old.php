@@ -47,19 +47,19 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('file/upload', 'HomeController@upload_files');
         Route::post('delete/file', 'HomeController@delete_files');
 
-        // Route::resource('appointments', 'Appointments');
+        Route::resource('appointments', 'Appointments');
         Route::post('appointments/multi_delete', 'Appointments@multi_delete');
         Route::post('get/patient', 'Appointments@get_patient');
         Route::post('load/users', 'Appointments@get_users');
         Route::post('load/period', 'Appointments@get_period');
 
-        // Route::resource('invoices', 'Invoices');
+        Route::resource('invoices', 'Invoices');
         Route::post('invoices/multi_delete', 'Invoices@multi_delete');
         Route::post('load/users/doctor', 'Invoices@get_doctors');
         Route::post('load/users/accountant', 'Invoices@get_accountant');
         Route::post('load/period/invoice', 'Invoices@get_period');
 
-        // Route::resource('diagnosis', 'Diagnosis');
+        Route::resource('diagnosis', 'Diagnosis');
         Route::post('diagnosis/multi_delete', 'Diagnosis@multi_delete');
         Route::post('load/period/diagnosis', 'Diagnosis@get_period');
         Route::post('load/users/doctor', 'Diagnosis@get_doctors');

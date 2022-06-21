@@ -49,19 +49,17 @@
 
 	@endif
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
-	<link href="{{ url(" design/admin_panel/assets/global/plugins/datatables/datatables.min.css") }}" rel="stylesheet"
+	<link href="{{ url('design/admin_panel/assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet"
 		type="text/css" />
-	<link rel="stylesheet" href="{{url(" design/admin_panel")}}/assets/global/css/components-rtl.min.css">
-	<link rel="stylesheet" href="{{url(" design/admin_panel")}}/assets/global/css/plugins-rtl.min.css">
-	<link href="{{ url("
-		design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css") }}"
+	<link rel="stylesheet" href="{{url('design/admin_panel')}}/assets/global/css/components-rtl.min.css">
+	<link rel="stylesheet" href="{{url('design/admin_panel')}}/assets/global/css/plugins-rtl.min.css">
+	<link href="{{ url('design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css') }}"
 		rel="stylesheet" type="text/css" />
 	@if(app("l") != 'ar')
-	<link href="{{ url("
-		design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css") }}"
+	<link href="{{ url('design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}"
 		rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="{{url(" design/admin_panel")}}/assets/global/css/components.min.css">
-	<link rel="stylesheet" href="{{url(" design/admin_panel")}}/assets/global/css/plugins.min.css">
+	<link rel="stylesheet" href="{{url('design/admin_panel')}}/assets/global/css/components.min.css">
+	<link rel="stylesheet" href="{{url('design/admin_panel')}}/assets/global/css/plugins.min.css">
 	<style media="screen">
 		.navbar-nav {}
 
@@ -81,7 +79,7 @@
 	@endif
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-	<link href="{{asset(" css/bootstrap-datetimepicker.min.css")}}" rel="stylesheet" />
+	<link href="{{asset('css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" />
 	<script type="text/javascript" src="{{url('design/style')}}/js/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="{{url('design/style')}}/js/notify.js"></script>
 	<script type="text/javascript" src="{{url('printer')}}/html5.min.js"></script>

@@ -60,18 +60,18 @@
 
 
 
-<script src="{{url(" design/calendar/js/jquery.calendars.min.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.plus.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.plugin.min.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.all.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.picker-ar.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.validation.min.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.islamic.min.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars.islamic-ar.js")}}"></script>
-<script src="{{url(" design/calendar/js/jquery.calendars-ar-EG.js")}}"></script>
-<link rel="stylesheet" type="text/css" href="{{url(" design/calendar/css/ui.calendars.picker.css")}}">
-<link rel="stylesheet" type="text/css" href="{{url(" design/calendar/css/jquery.calendars.picker.css")}}">
-<link rel="stylesheet" type="text/css" href="{{url(" design/calendar/css/smoothness.calendars.picker.css")}}">
+<script src="{{url('design/calendar/js/jquery.calendars.min.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.plus.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.plugin.min.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.all.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.picker-ar.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.validation.min.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.islamic.min.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars.islamic-ar.js')}}"></script>
+<script src="{{url('design/calendar/js/jquery.calendars-ar-EG.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{url('design/calendar/css/ui.calendars.picker.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('design/calendar/css/jquery.calendars.picker.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('design/calendar/css/smoothness.calendars.picker.css')}}">
 
 <link href="{{url('design/admin_panel')}}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
 	rel="stylesheet" type="text/css" />
@@ -89,18 +89,12 @@
 
 
 
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/js/jquery.dataTables.min.js")}}"></script>
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/js/dataTables.bootstrap.min.js")}}"></script>
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/js/dataTables.buttons.min.js")}}"></script>
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/js/selecta_all_checkbtn.js")}}"></script>
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/js/buttons.server-side.js")}}"></script>
-<script type="text/javascript" src="{{url("
-	design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js")}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/js/dataTables.bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/js/dataTables.buttons.min.js')}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/js/selecta_all_checkbtn.js')}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/js/buttons.server-side.js')}}"></script>
+<script type="text/javascript" src="{{url('design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}"></script>
 
 <!-- Javascript -->
 <script type="text/javascript" src="{{ url('design/style') }}/js/modernizr.custom.97442.js"></script>
@@ -109,7 +103,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 
-<script src="{{asset(" js/bootstrap-hijri-datetimepicker.js")}}"></script>
+<script src="{{asset('js/bootstrap-hijri-datetimepicker.js')}}"></script>
 
 
 <script type="text/javascript">
