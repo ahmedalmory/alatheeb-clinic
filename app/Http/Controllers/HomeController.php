@@ -23,31 +23,39 @@ date_default_timezone_set('Asia/Riyadh');
 
 class HomeController extends Controller
 {
-
-
     public function searchPatient(Request $request)
     {
-        if($request->type === "dossier")
+        if ($request->type === "dossier") {
             $query = Patient::where("id", $request->value)->first();
+        }
 
-        if($request->type === "number_id")
+        if ($request->type === "number_id") {
             $query = Patient::where("civil", $request->value)->first();
+        }
 
-        if($request->type === "phone")
+        if ($request->type === "phone") {
             $query = Patient::where("mobile", $request->value)->first();
+        }
 
-        if($query)
+        if ($query) {
             return Response()->json(["ok" => true, "message" => "تم تحديد {$query->first_name} بنجاح", "data" => $query]);
-        else
+        } else {
             return Response()->json(["ok" => false, "message" => "لم يعتر علي نتائج متطابقة للمدخلات"]);
+        }
     }
 
     public function home(Request $request)
     {
-         $patients = Patient::orderBy('id', 'desc')->where('status', 'default')->paginate(10);
-        if ($request->id) $filter = Patient::where('id', $request->id)->paginate(10);
-        if ($request->civil) $filter =  Patient::where('civil', $request->civil)->paginate(10);
-        if ($request->phone) $filter =  Patient::where('mobile', $request->phone)->paginate(10);
+        $patients = Patient::orderBy('id', 'desc')->where('status', 'default')->paginate(10);
+        if ($request->id) {
+            $filter = Patient::where('id', $request->id)->paginate(10);
+        }
+        if ($request->civil) {
+            $filter =  Patient::where('civil', $request->civil)->paginate(10);
+        }
+        if ($request->phone) {
+            $filter =  Patient::where('mobile', $request->phone)->paginate(10);
+        }
         return view('style.home', ['title' => trans('admin.patients'), 'patients' => ($request->id || $request->civil || $request->phone) ? $filter : $patients]);
     }
 
@@ -61,7 +69,7 @@ class HomeController extends Controller
             $total_patient = $total_patient->count();
             $total_patient_today =  DB::table('patients')->whereDate('created_at', DB::raw('CURDATE()'))->get();
             $total_patient_today = $total_patient_today->count();
-            $total_user =  DB::table('users')->where('group_id',  '<>', '1')->get();
+            $total_user =  DB::table('users')->where('group_id', '<>', '1')->get();
             $total_user = $total_user->count();
             $total_doctor =  DB::table('users')->where('group_id', '1')->get();
             $total_doctor = $total_doctor->count();
@@ -74,13 +82,11 @@ class HomeController extends Controller
 
     public function instructions()
     {
-
         return view('style.instructions', ['title' => trans('admin.instructions'), 'page' => Page::find(1)]);
     }
 
     public function forms()
     {
-
         return view('style.forms', ['title' => trans('admin.forms'), 'forms' => Forms::orderBy('id', 'desc')->paginate(100)]);
     }
 
@@ -106,7 +112,6 @@ class HomeController extends Controller
      */
     public function store()
     {
-
         $rules = [
             'f_number'               => 'numeric|nullable|sometimes',
             'record_date'            => 'nullable|sometimes|date|date_format:Y-m-d',
@@ -184,7 +189,6 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-
         $patients = Patient::find($id);
         $patient_files = DB::select(DB::raw("SELECT
   * FROM patients_files
@@ -273,7 +277,7 @@ WHERE patient_id = $id"));
 
         $data['user_id']             = auth()->user()->id;
         $data['last_update_user_id'] = auth()->user()->id;
-        if(request()->date_birh_hijri){
+        if (request()->date_birh_hijri) {
             $hijri       = explode('-', request('date_birh_hijri'));
             $data['age'] = calculate_age(Hijri2Greg($hijri[2], $hijri[1], $hijri[0], true));
         }
@@ -318,8 +322,9 @@ WHERE patient_id = $id"));
         $patients = Patient::where('id', $id)->update(
             ['status' => 'delete', 'reason' => $request->reason]
         );
-        if($patients)
+        if ($patients) {
             return Response()->json(["ok" => true, "message" => "تم نقل الملف للمحدوفات"]);
+        }
         // // it()->delete($id, 'patient');
         // @$patients->delete();
         // session()->flash('success', trans('admin.deleted'));
@@ -346,7 +351,7 @@ WHERE patient_id = $id"));
         }
     }
 
-    function company_edit(Request $request)
+    public function company_edit(Request $request)
     {
         if ($request->id) {
             if (Patient::where('civil', $request->id)->exists()) {
@@ -362,7 +367,7 @@ WHERE civil = $request->id"));
             echo "no1";
         }
     }
-    function get_doctors(Request $request)
+    public function get_doctors(Request $request)
     {
         if ($request->id) {
             // $doctors = DB::select(DB::raw("SELECT * FROM users WHERE dep_id = $request->id AND level = 'dr'"));
@@ -372,9 +377,8 @@ WHERE civil = $request->id"));
             }
         }
     }
-    function file_add(Request $request)
+    public function file_add(Request $request)
     {
-
         if (Patient::where('id', $request->id)->exists()) {
             $patient = DB::select(DB::raw("SELECT
   * FROM patients
@@ -384,11 +388,11 @@ WHERE id = $request->id"));
             echo "Record not found";
         }
     }
-    function save_tahveel_patient(Request $request)
+    public function save_tahveel_patient(Request $request)
     {
         if (Appoint::where('patient_id', $request->id)->where('appoint_status', '<>', 3)->exists()) {
             echo json_encode(array('text' => 'المريض قيد التحويل تحقق من صفحة التحويلات ', 'cls' => 'error'));
-        }else{
+        } else {
             $post = new Appoint;
             $post->patient_id = $request->id;
             $post->in_day = Carbon::now();
@@ -406,8 +410,7 @@ WHERE id = $request->id"));
         }
     }
 
-    function update_tahveel_patient(Request $request)
-
+    public function update_tahveel_patient(Request $request)
     {
         $post = Appoint::find($request->appoint_id);
         $post->in_day = Carbon::now();
@@ -421,16 +424,14 @@ WHERE id = $request->id"));
             echo json_encode(array('text' => 'not saved', 'cls' => 'error'));
         }
     }
-    function savePatient(Request $request)
+    public function savePatient(Request $request)
     {
-
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'nationality'=>'required'
         ]);
         if ($validation->passes()) {
-
             $image = $request->file('image');
             if ($image) {
                 $new_name = rand() . '.' . $image->getClientOriginalExtension();
@@ -476,7 +477,7 @@ WHERE id = $request->id"));
                     'patient' => $patient,
                     'departments' => $departments,
                 ]);
-                //echo json_encode(array('text' => 'تمت حفظ البيانات بنجاح', 'cls' => 'success'));
+            //echo json_encode(array('text' => 'تمت حفظ البيانات بنجاح', 'cls' => 'success'));
             } else {
                 //echo json_encode(array('text' => 'not saved', 'cls' => 'error'));
             }
@@ -485,20 +486,18 @@ WHERE id = $request->id"));
         }
     }
 
-    function saveFile(Request $request)
+    public function saveFile(Request $request)
     {
-
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'mimes:jpeg,png,jpg,gif,pdf,doc,docx|max:2048'
         ]);
         if ($validation->passes()) {
-
             $image = $request->file('image');
             if ($image) {
                 $new_name = rand() . '.' . $image->getClientOriginalExtension();
                 $extension = $image->getClientOriginalExtension();
-                $image->move(base_path('images/patient_files'), $new_name);
+                $image->move(storage_path('app/public/images/patient_files'), $new_name);
                 $post = new Patients_files;
                 $post->file_name = $request->file_name;
                 $post->patient_id = $request->pat_id;
@@ -518,11 +517,12 @@ WHERE id = $request->id"));
     }
 
 
-public function deleteFile(Request $r){
-    $file=Patients_files::findOrFail($r->file_id);
-    $file->delete();
-    return redirect()->back()->with('success','تم حذف الملف بنجاح');
-}
+    public function deleteFile(Request $r)
+    {
+        $file=Patients_files::findOrFail($r->file_id);
+        $file->delete();
+        return redirect()->back()->with('success', 'تم حذف الملف بنجاح');
+    }
 
     ///doctor start here
     public function dashboard_doctor()
@@ -531,7 +531,7 @@ public function deleteFile(Request $r){
         $total_patient = $total_patient->count();
         $total_patient_today =  DB::table('patients')->whereDate('created_at', DB::raw('CURDATE()'))->get();
         $total_patient_today = $total_patient_today->count();
-        $total_user =  DB::table('users')->where('group_id',  '<>', '1')->get();
+        $total_user =  DB::table('users')->where('group_id', '<>', '1')->get();
         $total_user = $total_user->count();
         $total_doctor =  DB::table('users')->where('group_id', '1')->get();
         $total_doctor = $total_doctor->count();
@@ -549,7 +549,7 @@ public function deleteFile(Request $r){
         return view('style.doctor_layout_1', compact('appoints', 'appoints_waiting'));
     }
 
-    function get_patient_detail(Request $request)
+    public function get_patient_detail(Request $request)
     {
         if (Patient::where('id', $request->id)->exists()) {
             $patient = DB::select(DB::raw("SELECT * FROM patients
@@ -566,20 +566,18 @@ WHERE patient_id = $request->id"));
         }
     }
     //get products based on category
-    function get_products(Request $request)
+    public function get_products(Request $request)
     {
         if ($request->id) {
             $products = DB::select(DB::raw("SELECT * FROM product WHERE cat_id = $request->id"));
             echo '<option value="">اختر الخدمة</option>';
             foreach ($products as $product) {
-
-
                 echo '<option value="' . $product->id . '">' . $product->p_name . '</option>';
             }
         }
     }
     //invoice items
-    function invoice_items(Request $request)
+    public function invoice_items(Request $request)
     {
         if (Product::where('id', $request->id)->exists()) {
             $product = DB::select(DB::raw("SELECT
@@ -591,14 +589,13 @@ WHERE id = $request->id"));
         }
     }
     //save tratment by doctor
-    function save_treatment(Request $request)
+    public function save_treatment(Request $request)
     {
-
         $sum=0;
-            for ($i = 0; $i < count($request->p_id); $i++) {
-                $p = Product::findOrFail($request->p_id[$i]);
-                $sum+=$p->p_price;
-            }
+        for ($i = 0; $i < count($request->p_id); $i++) {
+            $p = Product::findOrFail($request->p_id[$i]);
+            $sum+=$p->p_price;
+        }
 
         $post = new Diagnos;
         $post->patient_id = $request->patient_id;
@@ -658,7 +655,7 @@ WHERE id = $request->id"));
     {
         $t_tasdeed =  DB::table('invoice_main')->where('invoice_type', '2')->get();
         $t_tasdeed = $t_tasdeed->count();
-        echo ($t_tasdeed);
+        echo($t_tasdeed);
     }
 
     public function no_access()
