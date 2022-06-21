@@ -78,6 +78,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapDoctorRoutes()
     {
         Route::middleware(['web'])
+            ->middleware('doctor')
             ->namespace($this->namespace)
             ->group(base_path('routes/doctor.php'));
     }
@@ -85,6 +86,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAccountantRoutes()
     {
         Route::middleware(['web'])
+            ->middleware('accountant')
             ->namespace($this->namespace)
             ->group(base_path('routes/accountant.php'));
     }
@@ -92,6 +94,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapReceptionistRoutes()
     {
         Route::middleware(['web'])
+            ->middleware('receptionist')
             ->namespace($this->namespace)
             ->group(base_path('routes/receptionist.php'));
     }
