@@ -40,12 +40,15 @@ class LoginController extends Controller
    	protected function redirectTo()
 {
     $user=Auth::user();
-    if($user->level == 'dr'){
-        return '/dashboard_doctor';
+    if(auth()->user()->isDoctor()){
+        redirect('/doctor');
+    }elseif(auth()->user()->isReceptionist()){
+        redirect('/receptionist');
+    }elseif(auth()->user()->isAccountant()){
+        redirect('/accountant');
+    }  elseif(auth()->user()->isAdmin()){
+        redirect('/admin');
     }
-	else{
-		return '/dashboard';
-	}
 
 }
 }

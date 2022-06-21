@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapDoctorRoutes();
         $this->mapAccountantRoutes();
         $this->mapReceptionistRoutes();
+        $this->oldRoutes(); 
     }
 
     /**
@@ -77,25 +78,33 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapDoctorRoutes()
     {
-        Route::middleware(['web','doctor','Lang'])
+        Route::middleware(['web','auth','doctor','Lang'])
             ->namespace($this->namespace."\\Doctor")
             ->group(base_path('routes/doctor.php'));
     }
 
     protected function mapAccountantRoutes()
     {
-        Route::middleware(['web'])
-            ->middleware(['accountant','Lang'])
+        Route::middleware(['web','auth','accountant','Lang'])
             ->as('accountant.')
+            ->prefix('accountant')
             ->namespace("")
             ->group(base_path('routes/accountant.php'));
     }
 
     protected function mapReceptionistRoutes()
     {
-        Route::middleware(['web','receptionist','Lang'])
+        Route::middleware(['web','auth','receptionist','Lang'])
             ->as('receptionist.')
+            ->prefix('receptionist')
             ->namespace("")
             ->group(base_path('routes/receptionist.php'));
+    }
+
+    protected function oldRoutes()
+    {
+        Route::middleware(['web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/old.php'));
     }
 }

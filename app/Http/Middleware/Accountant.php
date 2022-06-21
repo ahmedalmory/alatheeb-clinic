@@ -17,9 +17,9 @@ class Accountant
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (auth()->check() && auth()->user()->isAccountant()) {
+        if (auth()->user()->isAccountant()) {
             return $next($request);
         }
-        return redirect(url('login'));
+        return abort(403);
     }
 }
