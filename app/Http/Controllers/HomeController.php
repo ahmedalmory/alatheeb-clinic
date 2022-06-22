@@ -16,7 +16,7 @@ use App\Models\invoice_main;
 use App\Models\invoice_detail;
 use Carbon\Carbon;
 use App\Models\Patients_files;
-use App\User;
+use App\Models\User;
 use Validator;
 
 date_default_timezone_set('Asia/Riyadh');
