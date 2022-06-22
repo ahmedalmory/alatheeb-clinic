@@ -9,7 +9,7 @@
     ><i class="fa fa-eye"></i> {{ trans("admin.show") }}</a
 >
 @user_can("files-create")
-<a href="#" onclick="add_file({{$patient->id}})" class="btn btn-xs btn-success"
+<a href="{{url('/patients/'.$patient->id.'?data=files')}}" class="btn btn-xs btn-success"
     ><i class="fa fa-file"></i> {{ trans("admin.file_add") }}</a
 >
 @end_user_can
