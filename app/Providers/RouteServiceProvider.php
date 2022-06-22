@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
-    public const HOME = '/';
+    public const HOME = '/home';
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -35,10 +35,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
         $this->mapWebRoutes();
-        $this->mapDoctorRoutes();
-        $this->mapAccountantRoutes();
-        $this->mapReceptionistRoutes();
-        $this->oldRoutes(); 
     }
 
     /**
@@ -74,37 +70,5 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
-    }
-
-    protected function mapDoctorRoutes()
-    {
-        Route::middleware(['web','auth','doctor','Lang'])
-            ->namespace($this->namespace."\\Doctor")
-            ->group(base_path('routes/doctor.php'));
-    }
-
-    protected function mapAccountantRoutes()
-    {
-        Route::middleware(['web','auth','accountant','Lang'])
-            ->as('accountant.')
-            ->prefix('accountant')
-            ->namespace("")
-            ->group(base_path('routes/accountant.php'));
-    }
-
-    protected function mapReceptionistRoutes()
-    {
-        Route::middleware(['web','auth','receptionist','Lang'])
-            ->as('receptionist.')
-            ->prefix('receptionist')
-            ->namespace("")
-            ->group(base_path('routes/receptionist.php'));
-    }
-
-    protected function oldRoutes()
-    {
-        Route::middleware(['web'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/old.php'));
     }
 }

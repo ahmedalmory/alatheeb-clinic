@@ -5,50 +5,46 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
-   /*
-   |--------------------------------------------------------------------------
-   | Login Controller
-   |--------------------------------------------------------------------------
-   |
-   | This controller handles authenticating users for the application and
-   | redirecting them to your home screen. The controller uses a trait
-   | to conveniently provide its functionality to your applications.
-   |
-    */
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+     */
 
-   use AuthenticatesUsers;
+    use AuthenticatesUsers;
 
-   /**
-    * Where to redirect users after login.
-    *
-    * @var string
-    */
-   protected $redirectTo = '/ddd';
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/ddd';
 
-   /**
-    * Create a new controller instance.
-    *
-    * @return void
-    */
-   public function __construct()
-   {
-      $this->middleware('guest')->except('logout');
-   }
-
-   	protected function redirectTo()
-{
-    $user=Auth::user();
-    if(auth()->user()->isDoctor()){
-        redirect('/doctor');
-    }elseif(auth()->user()->isReceptionist()){
-        redirect('/receptionist');
-    }elseif(auth()->user()->isAccountant()){
-        redirect('/accountant');
-    }  elseif(auth()->user()->isAdmin()){
-        redirect('/admin');
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
     }
 
-}
+    protected function redirectTo()
+    {
+        $user=Auth::user();
+        if ($user->level == 'dr') {
+            return '/dashboard_doctor';
+        } else {
+            return '/dashboard';
+        }
+    }
 }

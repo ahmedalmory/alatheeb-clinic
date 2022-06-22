@@ -64,8 +64,5 @@ class Kernel extends HttpKernel
         'admin_guest'   => \App\Http\Middleware\AdminGuest::class,
         'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'Lang'          => LangLoc::class,
-        'doctor'        => \App\Http\Middleware\Doctor::class,
-        'accountant'    => \App\Http\Middleware\Accountant::class,
-        'receptionist'  => \App\Http\Middleware\Receptionist::class,
     ];
 }

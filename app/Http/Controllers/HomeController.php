@@ -16,7 +16,7 @@ use App\Models\invoice_main;
 use App\Models\invoice_detail;
 use Carbon\Carbon;
 use App\Models\Patients_files;
-use App\Models\User;
+use App\User;
 use Validator;
 
 date_default_timezone_set('Asia/Riyadh');
@@ -63,7 +63,17 @@ class HomeController extends Controller
     public function dashboard()
     {
         if (Auth::user()->level == 'dr') {
-            return redirect('/doctor');
+            $total_patient =  DB::table('patients')->get();
+            $total_patient = $total_patient->count();
+            $total_patient_today =  DB::table('patients')->whereDate('created_at', DB::raw('CURDATE()'))->get();
+            $total_patient_today = $total_patient_today->count();
+            $total_user =  DB::table('users')->where('group_id', '<>', '1')->get();
+            $total_user = $total_user->count();
+            $total_doctor =  DB::table('users')->where('group_id', '1')->get();
+            $total_doctor = $total_doctor->count();
+            $total_departments =  DB::table('departments')->get();
+            $total_departments = $total_departments->count();
+            return view('style.dashboard_doctor', compact('total_patient', 'total_patient_today', 'total_user', 'total_doctor', 'total_departments'));
         } else {
             $total_patient =  DB::table('patients')->get();
             $total_patient = $total_patient->count();
@@ -497,7 +507,7 @@ WHERE id = $request->id"));
             if ($image) {
                 $new_name = rand() . '.' . $image->getClientOriginalExtension();
                 $extension = $image->getClientOriginalExtension();
-                $image->move(storage_path('app/public/images/patient_files'), $new_name);
+                $image->move(base_path('images/patient_files'), $new_name);
                 $post = new Patients_files;
                 $post->file_name = $request->file_name;
                 $post->patient_id = $request->pat_id;
@@ -539,7 +549,10 @@ WHERE id = $request->id"));
         $total_departments = $total_departments->count();
         return view('style.dashboard_doctor', compact('total_patient', 'total_patient_today', 'total_user', 'total_doctor', 'total_departments'));
     }
-
+    public function doctor_layout()
+    {
+        return view('style.doctor_layout');
+    }
     public function doctor_layout_1()
     {
         $doc_id = Auth::user()->id;

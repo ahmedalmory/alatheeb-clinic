@@ -23,16 +23,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-               
-                if(auth()->user()->isDoctor()){
-                    redirect('/doctor');
-                }elseif(auth()->user()->isReceptionist()){
-                    redirect('/receptionist');
-                }elseif(auth()->user()->isAccountant()){
-                    redirect('/accountant');
-                }  elseif(auth()->user()->isAdmin()){
-                    redirect('/admin');
-                }            }
+                return redirect(RouteServiceProvider::HOME);
+            }
         }
 
         return $next($request);
