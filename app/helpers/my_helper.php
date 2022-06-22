@@ -209,5 +209,10 @@ function get_appoint_data($time, $dep_id, $doc_id, $period, $date)
 
     return ($period === 'all_period') ?  $otherQuery->get() : $query->get();
 }
+function doctor(){
+    if (auth()->check() and auth()->user()->isDoctor()){
+        return \App\Models\User::query()->find(auth()->id());
+    }
+}
 
 require  __DIR__.'/tofaha.php';

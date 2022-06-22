@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Appoint;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -60,4 +61,13 @@ class User extends Authenticatable
     {
         return $this->level === 'recep';
     }
+    public function todayAppointments(){
+        return $this->appointments()->where('appoint_status', '1')
+            ->whereDate('in_day', Carbon::today()->toDateString())->get();
+    }
+    public function waitingAppointments(){
+        return $this->appointments()->whereNotIn('appoint_status',[1,3])
+            ->whereDate('in_day', Carbon::today()->toDateString())->get();
+    }
+
 }

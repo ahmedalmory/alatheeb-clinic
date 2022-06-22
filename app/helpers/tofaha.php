@@ -2,11 +2,6 @@
 
 use App\Models\User;
 
-function doctor(){
-    if (auth()->check() and auth()->user()->level == 'dr')
-        return \App\Models\User::query()->find(auth()->id());
-    return null;
-}
 function canDo( $user_id,$department,$action = null){
     $user = User::query()->find($user_id);
     if ($action){
