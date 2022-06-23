@@ -200,9 +200,10 @@ class HomeController extends Controller
     public function show($id)
     {
         $patients = Patient::find($id);
-        $patient_files = DB::select(DB::raw("SELECT
-  * FROM patients_files
-WHERE patient_id = $id"));
+        $patient_files = Patients_files::where('patient_id', $id)->paginate(10);
+//         DB::select(DB::raw("SELECT
+        //   * FROM patients_files
+        // WHERE patient_id = $id"));
         return view('style.patients.show', ['title' => trans('admin.show'), 'patients' => $patients, 'patient_files' => $patient_files]);
     }
 
@@ -439,7 +440,9 @@ WHERE id = $request->id"));
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'nationality'=>'required'
+            'nationality'=>'required',
+            'civil'=>'required',
+            'mobile' => 'required'
         ]);
         if ($validation->passes()) {
             $image = $request->file('image');

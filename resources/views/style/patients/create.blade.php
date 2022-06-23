@@ -283,7 +283,7 @@
                         autofocus placeholder="{{ trans('admin.civil') }}" onchange="search_patient()"> -->
                                         <input type="text" id="civil" class="numbers" maxlength="10"
                                             value="{{ old('civil') }}" name="civil" autofocus
-                                            placeholder="{{ __('app.id_number') }}" onchange="search_patient()">
+                                            placeholder="{{ __('app.id_number') }}" onchange="search_patient()" required>
 
 
                                         <input type="text" id="first_name" name="first_name"

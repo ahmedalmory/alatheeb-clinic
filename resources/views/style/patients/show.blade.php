@@ -287,7 +287,7 @@
                             request('data') != 'contact' ? 'hidden' : ''
                         }} table-hover table-bordered table-striped">
                         <thead>
-                            
+
                             <tr>
                                 <th>{{ trans("admin.mobile") }}</th>
                             </tr>
@@ -361,6 +361,7 @@
                                 <th style="text-align: right;">اسم الملف</th>
                                 <th style="text-align: right;">تاريخ</th>
                                 <th style="text-align: right;">مرفوع بواسطة</th>
+                                <th style="width: 8%;">الصورة</th>
                                 <th style="width: 8%;">معاينة</th>
                             </tr>
                         </thead>
@@ -373,6 +374,9 @@
                                 </td>
                                 <td>{{$file->created_at}}</td>
                                 <td>{{\App\Models\User::query()->find($file->user_id)->name ?? "لم يحدد"}}</td>
+                                <td>
+                                    <img src="{{ url('storage/images/patient_files/'.$file->image) }}"
+                                        alt="{{ $file->file_name }}" style="width: 100px;">
                                 <td>
                                     <a data-toggle="modal" data-target="#myModal-{{ $file->file_name }}" target="_blank"
                                         class="btn btn-primary"><i class="fa fa-eye"></i></a>
@@ -394,7 +398,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <img style="width:100%"
-                                                        src="{{ url('storage/images/patient_files/'.$file->image) }}" alt="">
+                                                        src="{{ url('storage/images/patient_files/'.$file->image) }}"
+                                                        alt="">
                                                 </div>
 
                                             </div>
@@ -433,6 +438,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$patient_files->appends($_GET)->links() }}
                 </div>
                 <!-- end table-responsive -->
                 <div class="clearfix"></div>
