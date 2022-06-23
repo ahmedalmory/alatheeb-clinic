@@ -440,9 +440,9 @@ WHERE id = $request->id"));
         $new_name = '';
         $validation = Validator::make($request->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'nationality'=>'required',
-            'civil'=>'required|unique:users,civil',
-            'mobile' => 'required|unique:users,mobile',
+            'civil'=>'required|unique:patients,civil',
+            'mobile' => 'required|unique:patients,mobile',
+            'first_name' => 'required',
             'nationality' => 'required'
         ]);
         if ($validation->passes()) {
@@ -496,7 +496,9 @@ WHERE id = $request->id"));
                 //echo json_encode(array('text' => 'not saved', 'cls' => 'error'));
             }
         } else {
-            echo json_encode(array('text' => $validation->errors()->all(), 'cls' => 'error'));
+            // return error with validation errors and code error
+            return response()->json(['errors' => $validation->errors()], 422);
+            // echo json_encode(array('text' => $validation->errors()->all(), 'cls' => 'error'));
         }
     }
 

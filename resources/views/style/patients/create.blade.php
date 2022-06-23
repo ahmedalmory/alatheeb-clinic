@@ -93,12 +93,12 @@
                 if (id.length != 10) {
                     $.notify("{{ __('app.id_number_should_be_10_digits') }}");
                     $("#civil").focus();
-                    $("#first_name").prop("disabled", true);
-                    $("#record_date").prop("disabled", true);
-                    $("#image").prop("disabled", true);
-                    $("#date_birh_hijri").prop("disabled", true);
-                    $("#age").prop("disabled", true);
-                    $("#gender").prop("disabled", true);
+                    // $("#first_name").prop("disabled", true);
+                    // $("#record_date").prop("disabled", true);
+                    // $("#image").prop("disabled", true);
+                    // $("#date_birh_hijri").prop("disabled", true);
+                    // $("#age").prop("disabled", true);
+                    // $("#gender").prop("disabled", true);
                 } else {
                     $.ajax({
                         url: '../company_edit',
@@ -111,11 +111,11 @@
                         cache: false,
                         success: function(frm) {
                             if (frm == "no") {
-                                $("#first_name").prop("disabled", false);
-                                $("#record_date").prop("disabled", false);
-                                $("#image").prop("disabled", false);
-                                $("#age").prop("disabled", false);
-                                $("#gender").prop("disabled", false);
+                                // $("#first_name").prop("disabled", false);
+                                // $("#record_date").prop("disabled", false);
+                                // $("#image").prop("disabled", false);
+                                // $("#age").prop("disabled", false);
+                                // $("#gender").prop("disabled", false);
                                 var first_name = $("#first_name").val();
                                 if (first_name === '') {
                                     $("#first_name").focus();
@@ -154,11 +154,11 @@
                     cache: false,
                     success: function(frm) {
                         if (frm == "no") {
-                            $("#first_name").prop("disabled", false);
-                            $("#record_date").prop("disabled", false);
-                            $("#image").prop("disabled", false);
-                            $("#age").prop("disabled", false);
-                            $("#gender").prop("disabled", false);
+                            // $("#first_name").prop("disabled", false);
+                            // $("#record_date").prop("disabled", false);
+                            // $("#image").prop("disabled", false);
+                            // $("#age").prop("disabled", false);
+                            // $("#gender").prop("disabled", false);
                             var first_name = $("#first_name").val();
                             if (first_name === '') {
                                 $("#first_name").focus();
@@ -195,34 +195,7 @@
                         alert(mobile);
                         e.preventDefault();
                     }
-
-                    if (civil === '') {
-                        $.notify("{{ __('app.please_enter_id_number') }}");
-                        $("#civil").focus();
-                        e.preventDefault();
-                    }
-                    if (national === '') {
-                        $.notify("يرجى تحديد الجنسية");
-                        $("#national").focus();
-                        e.preventDefault();
-                    }
-
-                    if (name === '') {
-                        $.notify("{{ __('app.please_enter_patient_name') }}");
-                        $("#first_name").focus();
-                        e.preventDefault();
-                    }
-                    if (name === '') {
-                        $.notify("{{ __('app.please_enter_patient_name') }}");
-                        $("#first_name").focus();
-                        e.preventDefault();
-                    }
-
-                    if (mobile === '') {
-                        $.notify("{{ __('app.please_enter_phone_number') }}");
-                        $("#mobile").focus();
-                        e.preventDefault();
-                    } else {
+                     else {
                         e.preventDefault();
                         var fd = new FormData(this);
                         $.ajax({
@@ -241,15 +214,18 @@
                                 // $("#editcompany").modal("show");
                                 // $("#box_edit").html(data);
                                 $('#add_patient')[0].reset();
-                                $("#first_name").prop("disabled", true);
-                                $("#record_date").prop("disabled", true);
-                                $("#image").prop("disabled", true);
-                                $("#age").prop("disabled", true);
-                                $("#gender").prop("disabled", true);
+                                // $("#first_name").prop("disabled", true);
+                                // $("#record_date").prop("disabled", true);
+                                // $("#image").prop("disabled", true);
+                                // $("#age").prop("disabled", true);
+                                // $("#gender").prop("disabled", true);
                                 $("#civil").focus();
                             },
                             error: function(xhr) {
-                                alert("Error: - " + xhr.status + " " + xhr.statusText);
+                                errors = xhr.responseJSON.errors;
+                                for (error in errors) {
+                                    $.notify(errors[error][0], 'error');
+                                }
                             }
                         });
                     }
@@ -288,9 +264,9 @@
 
                                         <input type="text" id="first_name" name="first_name"
                                             value="{{ old('first_name') }}"
-                                            placeholder="{{ trans('admin.first_name') }}">
+                                            placeholder="{{ trans('admin.first_name') }}" required>
                                         <input type="text" id="mobile" name="mobile" value="{{ old('mobile') }}"
-                                            placeholder="{{ trans('admin.mobile') }}">
+                                            placeholder="{{ trans('admin.mobile') }}" required>
 
                                         {!! Form::select('gender', ['male' => trans('admin.male'), 'female' => trans('admin.female')], old('gender'), ['placeholder' => trans('admin.gender'), 'class' => 'gender', 'id' => 'gender']) !!}
                                         <p>
@@ -311,7 +287,7 @@
                                             placeholder="{{ trans('admin.date_birh_hijri') }}">
                                         <input type="number" id="age" name="age" class="age"
                                             value="{{ old('age') }}" placeholder="{{ trans('admin.age') }}">
-                                        {!! Form::select('nationality', App\Models\Nationalities::pluck('nat_name', 'id'), old('nationality'), ['class' => 'form-control', 'placeholder' => trans('admin.nationality'), 'id' => 'national']) !!}
+                                        {!! Form::select('nationality', App\Models\Nationalities::pluck('nat_name', 'id'), old('nationality'), ['class' => 'form-control', 'placeholder' => trans('admin.nationality'), 'id' => 'national','required' => 'true']) !!}
                                         <input type="file" name="image" id="image" class="form-control">
 
                                     </div><!-- end col-lg-6 -->

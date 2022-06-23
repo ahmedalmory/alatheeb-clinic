@@ -83,7 +83,7 @@
                 <td style="padding:10px">{{$invoices->sum('paid_card')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">اجل</td>
+                <td style="width:200px;background-color:#36c6d3;color:#fff">المتبقي</td>
                 <td style="padding:10px">{{$invoices->sum('due')}}</td>
             </tr>
             <tr>
