@@ -26,5 +26,7 @@ return [
         'transferred_patients'       =>  'المرضي المحولون',
         'pay_invoice'       =>  'تسديد زيارة',
         'transfer_patients'  =>  'تحويل المرضي',
+        'read_phone_number'  =>  'عرض رقم الجوال',
+        'read_id_number'  =>  'عرض رقم الهوية',
     ]
 ];

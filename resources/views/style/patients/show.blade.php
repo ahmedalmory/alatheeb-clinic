@@ -252,7 +252,9 @@
                                 <th>{{ trans("admin.f_number") }}</th>
 
                                 <th>{{ trans("admin.name") }}</th>
+                                @user_can("specials-read_id_number")
                                 <th>{{ trans("admin.civil") }}</th>
+                                @end_user_can
                                 <th>{{ trans("admin.nationality") }}</th>
                                 <th>{{ trans("admin.gender") }}</th>
                                 <th>{{ trans("admin.date_birh_hijri") }}</th>
@@ -268,7 +270,9 @@
                                     $patients->father_name !!} {!!
                                     $patients->grand_name !!}
                                 </td>
+                                @user_can("specials-read_id_number")
                                 <td>{!! $patients->civil !!}</td>
+                                @end_user_can
                                 <td>{!! @$patients->national->nat_name !!}</td>
                                 <td>
                                     {!! trans('admin.'.$patients->gender) !!}
@@ -283,6 +287,7 @@
                             request('data') != 'contact' ? 'hidden' : ''
                         }} table-hover table-bordered table-striped">
                         <thead>
+                            
                             <tr>
                                 <th>{{ trans("admin.mobile") }}</th>
                             </tr>

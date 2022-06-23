@@ -68,8 +68,12 @@ asdasdasd
                                 <th>{{ __('app.f_number') }}</th>
                                 <th>{{ __('app.name') }}</th>
                                 <th>{{ __('app.nationality') }}</th>
+                                @user_can("specials-read_phone_number")
                                 <th>{{ __('app.mobile') }}</th>
+                                @end_user_can
+                                @user_can("specials-read_id_number")
                                 <th>{{ __('app.civil') }}</th>
+                                @end_user_can
                                 <th>{{__('app.last_edit_by')}}</th>
                                 <th></th>
                             </tr>
@@ -86,8 +90,12 @@ asdasdasd
                                         if ($national) echo $national->nat_name;
                                         ?>
                                     </td>
+                                    @user_can("specials-read_phone_number")
                                     <td>{{ $patient->mobile }}</td>
+                                    @end_user_can
+                                    @user_can("specials-read_id_number")
                                     <td>{{ $patient->civil }}</td>
+                                    @end_user_can
                                     <td>{{ $patient->last_update_user->name  ?? "لم يحدد" }}</td>
                                     <td>@include('style.patients.buttons.actions')
                                         @user_can("invoices-create")

@@ -87,16 +87,22 @@ foreach ($patient as $item) { ?>
     <table class="table table-bordered">
         <tr>
             <th>رقم السجل</th>
+            @user_can("specials-read_id_number")
             <th>رقم الهوية / الاقامة</th>
+            @end_user_can
             <th>اسم المريض</th>
             <th>رقم الجوال</th>
             <th></th>
         </tr>
         <tr>
             <td><?=$item->id;?></td>
+            @user_can("specials-read_id_number")
             <td><?=$item->civil;?></td>
+            @end_user_can
             <td><?=$item->first_name;?></td>
+            @user_can("specials-read_phone_number")
             <td><?=$item->mobile;?></td>
+            @end_user_can
             <td><a href="{{url('/doctor/patients/'.$item->id)}}" class="btn btn-info btn-sm">كامل البيانات</a></td>
         </tr>
     </table>
