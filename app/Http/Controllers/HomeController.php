@@ -441,8 +441,8 @@ WHERE id = $request->id"));
         $validation = Validator::make($request->all(), [
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'nationality'=>'required',
-            'civil'=>'required',
-            'mobile' => 'required'
+            'civil'=>'required|unique:users,civil',
+            'mobile' => 'required|unique:users,mobile',
         ]);
         if ($validation->passes()) {
             $image = $request->file('image');
