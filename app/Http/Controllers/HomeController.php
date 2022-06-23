@@ -443,6 +443,7 @@ WHERE id = $request->id"));
             'nationality'=>'required',
             'civil'=>'required|unique:users,civil',
             'mobile' => 'required|unique:users,mobile',
+            'nationality' => 'required'
         ]);
         if ($validation->passes()) {
             $image = $request->file('image');
