@@ -28,10 +28,10 @@
           justify-content: center;
           min-width: 798px;">
 
-                <li class="{{ Request::segment(1) == ''?'active':'' }}"><a href="{{ url('/doctor') }}" title="#"><span></span>
+                <li class="{{ Request::segment(1) == ''?'active':'' }}"><a href="{{ url('/') }}" title="#"><span></span>
                         <p>{{trans('admin.home')}}</p></a></li>
-                <li class="{{ Request::segment(1) == 'window'?'active':'' }}"><a
-                        href="{{ url('doctor/window') }}" title="#"><span></span>
+                <li class="{{ Request::segment(1) == 'doctor_layout'?'active':'' }}"><a
+                        href="{{ url('doctor_layout') }}" title="#"><span></span>
                         <p>{{ trans('admin.doctor_layout') }}</p></a></li>
                 <li class="{{ Request::segment(1) == 'appoints_doctor'?'active':'' }}"><a
                         href="{{ url('appoints_doctor') }}" title="#"><span></span>
