@@ -148,7 +148,7 @@ input[type="password"] {
                <!-- margin-right: 5px; margin-left: 5px; -->
                <div class="row email-login" style="">
                  <div class="" style="text-align: center;">
-                   <img class="logo-de" src="http://sjl.const-tech.biz/medical_complex/public_html/design/admin_panel/assets/layouts/layout4/img/logo-light.png" alt="">
+                   <img class="logo-de" src="{{url('images/logo-light.png')}}" alt="">
                  </div>
                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                         <div class="" style="display:flex;align-items:center;justify-content: space-between;">

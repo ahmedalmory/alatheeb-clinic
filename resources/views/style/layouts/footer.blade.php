@@ -12,7 +12,7 @@
                class="text-white mb-0 tech">
                   © Copyright 2022. Const-tech All Rights Reserved.
             </a>
-            <img style="width:70px" src="http://sjl.const-tech.biz/medical_complex/public_html/design/admin_panel/assets/layouts/layout4/img/logo-light.png" alt="">
+            <img style="width:70px" src="{{url('images/logo-light.png')}}" alt="">
 
           </div>
 

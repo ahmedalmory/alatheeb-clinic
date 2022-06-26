@@ -44,7 +44,7 @@
             <form class="login-form"  method="post">
                 {!! csrf_field() !!}
                 <div class="text-center">
-                  <img src="http://sjl.const-tech.biz/sa/public_html/design/admin_panel/assets/layouts/layout4/img/logo-light.png" alt="">
+                  <img src="{{url('images/logo-light.png')}}" alt="">
 
                 </div>
                 <h3 class="form-title font-green">{{ trans('admin.login_page') }}</h3>
