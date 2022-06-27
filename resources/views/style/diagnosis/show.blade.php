@@ -68,7 +68,9 @@
                                 <th>
                                     <center>{{ trans('admin.TREATMENT_RECORD') }}</center>
                                 </th>
-                                <th>{{ trans('admin.tooth') }} : {{ $diagnosis->tooth }}</th>
+                                <th>{{ trans('admin.tooth') }} : @foreach ($diagnosis->tooth as $tooth)
+                                    {{ $tooth }},
+                                    @endforeach</th>
                                 <th>{{ trans('admin.taken') }}:</th>
                                 <th> {{trans('admin.id')}}: {{$diagnosis->id}}</th>
                             </tr>
