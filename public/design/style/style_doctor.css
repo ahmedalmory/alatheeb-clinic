@@ -1202,3 +1202,214 @@ a.scrollup {
 }
 a.scrollup:hover {background-color: #225F24;}
 /* End Scrollup */
+/* Start Page num-teeth */
+
+
+
+section.num-teeth .content {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+section.num-teeth .content .img-teeth{
+    width: 100%;
+    height: auto;
+}
+section.num-teeth .content  input[type="checkbox"] {
+    width: 5px;
+    position: absolute;
+    outline: none !important;
+    height: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+section.num-teeth .content  input[type="checkbox"]::before {
+    content: "";
+    width: 27px !important;
+    position: absolute;
+    background-color: transparent;
+    left: 50%;
+    cursor: pointer;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    outline: none !important;
+    height: 27px !important;
+}
+section.num-teeth .content  input[type="checkbox"]::after {
+    content: "";
+    width: 10px !important;
+    cursor: pointer;
+    box-shadow: 0 0 7px 0 #36C6D3;
+    position: absolute;
+    background-color: #36C6D3;
+    left: 50%;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    outline: none !important;
+    height: 10px !important;
+}
+section.num-teeth .content  input[type="checkbox"]:checked:after {
+    content: "✓";
+    font-weight: 900;
+    outline: none !important;
+    font-family: "Font Awesome 6 Free";
+    box-shadow: 0 0 0 0 #36C6D3;
+    filter: drop-shadow(2px 4px 6px #36C6D3);
+    cursor: pointer;
+    font-size: 35px !important;
+    color: green;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (max-width:500px) {
+    section.num-teeth .content  input[type="checkbox"]::before {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    section.num-teeth .content  input[type="checkbox"]::after {
+        width: 5px !important;
+        height: 5px !important;
+    }
+    section.num-teeth .content  input[type="checkbox"]:checked:after {
+        font-size: 10px !important;
+    }
+}
+
+
+
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(1) {
+    left: 4.7%;
+    top: 39%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(2) {
+    left: 11.5%;
+    top: 40.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(3) {
+    left: 18.7%;
+    top: 41.7%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(4) {
+    left: 24.8%;
+    top: 43.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(5) {
+    left: 29.7%;
+    top: 44%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(6) {
+    left: 35.3%;
+    top: 44.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(7) {
+    left: 40.7%;
+    top: 45%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(8) {
+    left: 46.3%;
+    top: 45%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(9) {
+    left: 52.3%;
+    top: 44.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(10) {
+    left: 57.8%;
+    top: 44.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(11) {
+    left: 63.6%;
+    top: 44.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(12) {
+    left: 69%;
+    top: 44.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(13) {
+    left: 73.8%;
+    top: 44.3%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(14) {
+    left: 80.21%;
+    top: 43%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(15) {
+    left: 87.4%;
+    top: 41.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(16) {
+    left: 94.6%;
+    top: 39.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(17) {
+    left: 94.6%;
+    top: 51%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(18) {
+    left: 86.1%;
+    top: 52%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(19) {
+    left: 78.25%;
+    top: 54.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(20) {
+    left: 71.77%;
+    top: 56.1%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(21) {
+    left: 66.37%;
+    top: 56.7%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(22) {
+    left: 61%;
+    top: 57%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(23) {
+    left: 56.1%;
+    top: 57.3%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(24) {
+    left: 51.65%;
+    top: 57.7%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(25) {
+    left: 47%;
+    top: 57.5%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(26) {
+    left: 42.75%;
+    top: 57.3%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(27) {
+    left: 37.8%;
+    top: 57.3%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(28) {
+    left: 32.35%;
+    top: 56.7%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(29) {
+    left: 26.9%;
+    top: 56%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(30) {
+    left: 20.25%;
+    top: 54.6%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(31) {
+    left: 12.5%;
+    top: 51.6%;
+}
+section.num-teeth .content  input[type="checkbox"]:nth-of-type(32) {
+    left: 4.3%;
+    top: 50.5%;
+}
+/* End Page num-teeth */
