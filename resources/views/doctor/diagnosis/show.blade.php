@@ -31,7 +31,7 @@
           <tr>
             <th ><center>{{ trans('admin.TREATMENT_RECORD') }}</center></th>
             <th >{{ trans('admin.tooth') }} :@if ($diagnosis->tooth)
-                                    
+
               @foreach ($diagnosis->tooth as $tooth)
                   {{ $tooth }},
                   @endforeach

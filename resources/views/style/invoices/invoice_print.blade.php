@@ -7,7 +7,7 @@
                 window.top.close();
             }, 3000);*/
 
-        }
+        // }
     </script>
 @endpush
 

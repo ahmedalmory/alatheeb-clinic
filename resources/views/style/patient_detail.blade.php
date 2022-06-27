@@ -99,11 +99,7 @@ foreach ($patient as $item) { ?>
         <div class="col-md-2">
             الالإجمالي <h1 id="t_total">0</h1>
         </div>
-        <div class="col-md-3">
-            <button class="btn btn-success" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
-                وانهاء الجلسة
-            </button>
-        </div>
+
         <div class="col-md-12">
             <table class="table table-bordered">
                 <thead>
@@ -125,9 +121,13 @@ foreach ($patient as $item) { ?>
             <input type="hidden" name="patient_id" value="{{ $item->id }}" id="">
             <input type="hidden" name="appoint_status" value="6" id="">
             <input type="hidden" name="attend_status" value="attended" id="">
-            <button type="submit" class="btn btn-danger btn-lg pull-left">الغاء الجلسة</button>
+
+            <button type="submit" class="btn btn-right btn-danger btn-lg pull-right">الغاء الجلسة</button>
+            <button class="btn btn-success pull-left" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
+                وانهاء الجلسة
+            </button>
         </form>
-        
+
     </div>
 </div>
 <div id="bayanat" class="tabcontent">
