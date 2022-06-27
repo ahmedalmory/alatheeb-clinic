@@ -378,10 +378,12 @@
                                     <img src="{{ url('storage/images/patient_files/'.$file->image) }}"
                                         alt="{{ $file->file_name }}" style="width: 100px;">
                                 <td>
+                                    <div class="d-flex align-items-center gap-1">
                                     <a data-toggle="modal" data-target="#myModal-{{ $file->file_name }}" target="_blank"
                                         class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                     <a data-toggle="modal" data-target="#myModaldelete-{{ $file->file_name }}"
                                         target="_blank" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    </div>
                                     <br>
 
                                     <!-- Modal -->
