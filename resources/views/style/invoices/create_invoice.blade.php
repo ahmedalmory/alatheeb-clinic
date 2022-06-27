@@ -215,7 +215,7 @@
                     {{ setting()->tax_rate }}% ضريبة علي الفاتورة
                 </p>
             @endif
-            
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-8">
@@ -227,15 +227,15 @@
                         </div>
                         <div id="pat_detail">
                             <div class="col-md-4" style="margin-bottom:10px">
-                                {{__('admin.disease_name')}}    
+                                {{__('admin.disease_name')}}
                                 <input type="text" class="form-control" id="pat_name" name="pat_name" disabled>
                             </div>
                             <div class="col-md-4" style="margin-bottom:10px">
-                                {{__('admin.mobile')}}    
+                                {{__('admin.mobile')}}
                                 <input type="text" class="form-control" id="pat_mobile" name="pat_mobile" disabled>
                             </div>
-                            
-                            
+
+
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-4" style="margin-bottom:10px">
@@ -308,7 +308,7 @@
                         @else
                             <div class="row coodek-mg">
                                 <div class="col-md-5">
-                                    {{__('app.total')}} : 
+                                    {{__('app.total')}} :
                                 </div>
                                 <div class="col-md-7">
                                     <center> <span class="form-control" id="t_total">0</span></center>
@@ -317,7 +317,7 @@
                         @endif
                         <div class="row coodek-mg">
                             <div class="col-md-5">
-                                {{__('app.total_discount')}} : 
+                                {{__('app.total_discount')}} :
                             </div>
                             <div class="col-md-7">
                                 <center> <span class="form-control" id="t_discount">0</span></center>
@@ -333,7 +333,7 @@
                         </div>
                         <div class="row coodek-mg">
                             <div class="col-md-5">
-                                
+
                                 {{__('app.paid_in_internet')}} :
                             </div>
                             <div class="col-md-7">

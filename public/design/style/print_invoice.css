@@ -46,12 +46,12 @@ table tr td .lef {
     float: left;
     margin-right: 5px;
 }
-table tr td .cen {
+/* table tr td .cen {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 table,
 th,
 td {
@@ -75,7 +75,7 @@ table tr td.hidd-2 {
     background-color: #2fc2df;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    margin: 20px auto 0;
+    margin: 20px auto ;
     display: block;
     width: fit-content;
 }
@@ -100,8 +100,10 @@ table tr td.hidd-2 {
     table tr td .pir-l {
         margin-right: 25px;
     }
-    .print {
-        display: none;
+    .print,
+    .copy-rights,
+    .scrollup  {
+        display: none !important;
     }
     table,
     th,
@@ -109,4 +111,8 @@ table tr td.hidd-2 {
         border: 1px solid black;
         border-collapse: collapse;
     }
+    table {
+        font-size: 10px !important;
+    }
 }
+

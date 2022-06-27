@@ -1238,4 +1238,8 @@ a.scrollup:hover {background-color: #225F24;}
   .datespage {
       margin: 20px 0px;
     }
-  
+
+    .table-active {
+        background-color: #f9f9f9 !important;
+        width: 15% !important;
+    }

@@ -48,7 +48,7 @@ header {
   background: -ms-linear-gradient(270deg, #1e195f 0%, #130f40 100%); /* ie10+ */
   background: linear-gradient(180deg, #1e195f 0%, #130f40 100%); /* w3c */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e195f', endColorstr='#130f40',GradientType=0 ); /* ie6-9 */
-  padding: 15px 0;
+  /* padding: 15px 0; */
 }
 header .logo {float: right;}
 header a.controllink {
@@ -1413,3 +1413,4 @@ section.num-teeth .content  input[type="checkbox"]:nth-of-type(32) {
     top: 50.5%;
 }
 /* End Page num-teeth */
+
