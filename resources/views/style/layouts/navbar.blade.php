@@ -158,7 +158,7 @@
                         @end_user_can
                         <li>
                             <a href="{{url('lang?loc='.(app()->getLocale() == "ar"?"en":"ar"))}}" title="{{app()->getLocale() == "ar"?"English":"العربية"}}" style="color:#1c7d7e">
-                                <i class="fas fa-language" style="font-size:30px;color: white"></i>
+                                <i class="" style="font-size:30px;color: white"></i>
                             </a>
                         </li>
                     @endif

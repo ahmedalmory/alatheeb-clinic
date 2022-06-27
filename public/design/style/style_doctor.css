@@ -78,6 +78,30 @@ header a.controllink:hover {
   background: linear-gradient(180deg, #1e195f 0%, #352f84 100%); /* w3c */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e195f', endColorstr='#352f84',GradientType=0 ); /* ie6-9 */
 }
+header .container {
+    display: flex;
+    align-items: center;
+
+}
+header .group-link {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: -15px;
+}
+header .group-link li ,
+header .group-link a,
+header .group-link span{
+list-style: none;
+padding: 0;
+margin: 0;
+}
+header .group-link a{
+    display: flex;
+    align-items: center;
+
+}
 /* End header */
 
 /* homepage */
@@ -1414,3 +1438,15 @@ section.num-teeth .content  input[type="checkbox"]:nth-of-type(32) {
 }
 /* End Page num-teeth */
 
+@media (min-width:500px) {
+    .pull-xs-left {
+        float: left !important;
+    }
+}
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+.my-2 {
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+}

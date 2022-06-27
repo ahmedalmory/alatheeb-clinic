@@ -68,7 +68,7 @@
 </style>
 <style>.homepagetable2 {background-color: white; padding: 30px;}</style>
 <div class="row w-100 mx-0 mt-5 " style="display: flex;flex-wrap: wrap; justify-content: center; background-color: #fff; padding: 21px 0px 0; border-radius: 10px;">
-  <div class="col-md-4 col-lg-2 mb-3">
+  <div class=" col-xs-6 col-md-4 col-lg-2 mb-3">
     <div class="index-dd" >
       <i class="fas fa-user-injured fa-2x d-block mb-3" style="line-height: 1;"></i>
       <span class="translate">{{__('app.patients_count')}}
@@ -76,7 +76,7 @@
       <span class="badge bg-success-lt mx-2 mt-0">{{$total_patient}}</span>
     </div>
   </div>
-  <div class="col-md-4 col-lg-2 mb-3">
+  <div class="col-xs-6 col-md-4 col-lg-2 mb-3">
     <div class="index-dd" >
       <i class="fas fa-user-check fa-2x d-block mb-3" style="line-height: 1;"></i>
       <span class="translate">{{__('app.registered_today')}}
@@ -84,7 +84,7 @@
       <span class="badge bg-success-lt mx-2 mt-0">{{\App\Models\Patient::query()->whereDate('created_at',\Carbon\Carbon::today()->toDateTimeString())->count()}}</span>
     </div>
   </div>
-  <div class="col-md-4 col-lg-2 mb-3">
+  <div class="col-xs-6 col-md-4 col-lg-2 mb-3">
     <div class="index-dd" >
       <i class="fas fa-user-md fa-2x d-block mb-3" style="line-height: 1;"></i>
       <span class="translate">{{__('app.doctors_count')}}
@@ -92,7 +92,7 @@
       <span class="badge bg-success-lt mx-2 mt-0">{{$total_doctor}}</span>
     </div>
   </div>
-  <div class="col-md-4 col-lg-2 mb-3">
+  <div class="col-xs-6 col-md-4 col-lg-2 mb-3">
     <div class="index-dd" >
       <i class="fas fa-hospital-alt fa-2x d-block mb-3" style="line-height: 1;"></i>
       <span class="translate">{{__('app.departments_count')}}

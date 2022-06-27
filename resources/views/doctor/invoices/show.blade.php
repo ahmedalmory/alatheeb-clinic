@@ -20,7 +20,8 @@
       </div>
       <div class="portlet-body form">
           <div class="col-md-12">
-        <table class="table table-bordered table-hover table-striped">
+            <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
           <tr>
             <th>{{trans('admin.in_day')}}: {!! trans('admin.'.date('D',strtotime($diagnosis->in_day))) !!}</th>
             <th>{{ trans('admin.date') }}: {{ $diagnosis->in_day }}</th>
@@ -31,7 +32,7 @@
           <tr>
             <th ><center>{{ trans('admin.TREATMENT_RECORD') }}</center></th>
             <th >{{ trans('admin.tooth') }} :@if ($diagnosis->tooth)
-                                    
+
               @foreach ($diagnosis->tooth as $tooth)
                   {{ $tooth }},
                   @endforeach
@@ -49,6 +50,8 @@
 
 
         </table>
+            </div>
+
         <hr />
         <div class="clearfix"></div>
 

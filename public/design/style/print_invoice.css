@@ -115,4 +115,6 @@ table tr td.hidd-2 {
         font-size: 10px !important;
     }
 }
-
+.res-table {
+    overflow-x: auto;
+}
