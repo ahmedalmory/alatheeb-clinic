@@ -5,74 +5,15 @@ use App\Models\Appoint;
 
 function modelBox($modal_id = '', $boxTitle = '', $boxid, $status_msg = '', $form_name = '', $m_id = 'abc')
 {
-    try {
-
-        $drawBox = '
-        <div class="modal fade" id="' . $modal_id . '" tabindex="-1">
-       <div class="modal-dialog modal-lg" role="document" id="' . $m_id . '">
-           <div class="modal-content">
-               <div class="modal-header">
-                   <h5 class="modal-title">' . $boxTitle . '</h5>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-               </div>
-               <div class="modal-body p-b-0">
-                   <form id="' . $form_name . '">
-                       <div  id="' . $boxid . '">
-
-                           </div>
-
-               </div>
-               <div class="modal-footer"> <span id="' . $status_msg . '" class="float-left"></span>
-
-               </div>
-           </div>
-           </form>
-       </div>
-   </div>';
-        return $drawBox;
-    } catch (Exception $exc) {
-        // $this->tempVar = $exc->getMessage();
-        return false;
-    }
+    $data = compact('modal_id','boxTitle','boxid','status_msg','form_name','m_id');
+    return view('modals.modal-box',$data);
 }
 /* Large Modal
 */
 function modelBoxLarge($modal_id = '', $boxTitle = '', $boxid, $status_msg = '', $form_name = '', $m_id = 'abc')
 {
-    try {
-
-        $drawBox = '
-        <div class="modal fade" id="' . $modal_id . '" tabindex="-1">
-       <div class="modal-dialog modal-lg" role="document" id="' . $m_id . '">
-           <div class="modal-content">
-               <div class="modal-header">
-                   <h5 class="modal-title">' . $boxTitle . '</h5>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-               </div>
-               <div class="modal-body p-b-0">
-                   <form id="' . $form_name . '">
-                       <div  id="' . $boxid . '">
-
-                           </div>
-
-               </div>
-               <div class="modal-footer"> <span id="' . $status_msg . '" class="float-left"></span>
-                   <button type="submit" class="btn btn-primary">save</button>
-                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-               </div>
-           </div>
-           </form>
-       </div>
-   </div>';
-        return $drawBox;
-    } catch (Exception $exc) {
-        // $this->tempVar = $exc->getMessage();
-        return false;
-    }
+    $data = compact('modal_id','boxTitle','boxid','status_msg','form_name','m_id');
+    view('modals.modal-box-large',$data);
 }
 //get patient name
 function patient_name($id)
