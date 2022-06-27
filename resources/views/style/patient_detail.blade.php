@@ -37,9 +37,9 @@ foreach ($patient as $item) { ?>
     التشخيص : <textarea class="form-control" name="tratment" id="tratment"
                         placeholder="يعنى من الم في الاسنان....."></textarea>
     الاجراء المتخذ : <textarea class="form-control" id="taken" name="taken"></textarea></br>
-    <section class="num-teeth position-relative top-0 start-0">
-        <div class="toothArray content position-absolute top-0 start-0">
-            <img class="w-100" src="{{ asset('num.png') }}" alt="" />
+    <section class="num-teeth">
+        <div class="toothArray content ">
+            <img class="img-teeth" src="{{ asset('num.png') }}" alt="" />
             <input type="checkbox" name="tooth" id="" value="18">
             <input type="checkbox" name="tooth" id="" value="17">
 
