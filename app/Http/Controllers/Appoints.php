@@ -16,8 +16,9 @@ class Appoints extends Controller
 
     public function index()
     {
+        $appoints=Appoint::paginate(30);
         $departments = DB::select(DB::raw("SELECT * FROM departments "));
-        return view('style.appoints.index', compact('departments'));
+        return view('style.appoints.index', compact('departments','appoints'));
     }
     public function create()
     {
@@ -93,6 +94,13 @@ class Appoints extends Controller
 
             echo json_encode(array('text' => 'تمت الغاء الحجز بنجاح', 'cls' => 'success'));
         }
+    }
+
+
+    public function session_canceled(Request $r){
+        $appoint=Appoint::find($r->appoint_id);
+        $appoint->update($r->all());
+        return back()->with('success','تم إلغاء الجلسة بنجاح');
     }
 
     function confirm_change(Request $request)

@@ -563,8 +563,7 @@ WHERE id = $request->id"));
     {
         $doc_id = Auth::user()->id;
         $appoints =  DB::table('appoints')->where('user_id', $doc_id)->where('appoint_status', '1')->whereDate('in_day', DB::raw('CURDATE()'))->get();
-        $appoints_waiting =  DB::table('appoints')->where('user_id', $doc_id)->where('appoint_status', '!=', 3)->where('appoint_status', '!=', 1)->whereDate('in_day', DB::raw('CURDATE()'))->get();
-
+        $appoints_waiting =  DB::table('appoints')->where('user_id', $doc_id)->whereNotIn('appoint_status', [1,3,6])->whereDate('in_day', DB::raw('CURDATE()'))->get();
         return view('style.doctor_layout_1', compact('appoints', 'appoints_waiting'));
     }
 

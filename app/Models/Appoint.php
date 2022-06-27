@@ -78,4 +78,8 @@ class Appoint extends Model
       return $this->hasMany('App\Models\Diagnos', 'appoint_id', 'id')->where('patient_id', $this->patient_id)->count();
    }
 
+   public function new_patient(){
+      return $this->belongsTo(Patient::class);
+   }
+
 }

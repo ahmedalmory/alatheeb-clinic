@@ -76,7 +76,6 @@ foreach ($patient as $item) { ?>
             <input type="checkbox" name="tooth" id="" value="48">
         </div>
     </section>
-    <button type="button" class="btn btn-danger btn-lg pull-left">الغاء الجلسة</button>
 </div>
 
 <div id="isdar" class="tabcontent">
@@ -120,6 +119,15 @@ foreach ($patient as $item) { ?>
                 </tbody>
             </table>
         </div>
+        <form action="{{ route('session_canceled') }}" method="POST">
+            @csrf
+            <input type="hidden" name="appoint_id" value="{{ $appoint_id }}" id="">
+            <input type="hidden" name="patient_id" value="{{ $item->id }}" id="">
+            <input type="hidden" name="appoint_status" value="6" id="">
+            <input type="hidden" name="attend_status" value="attended" id="">
+            <button type="submit" class="btn btn-danger btn-lg pull-left">الغاء الجلسة</button>
+        </form>
+        
     </div>
 </div>
 <div id="bayanat" class="tabcontent">

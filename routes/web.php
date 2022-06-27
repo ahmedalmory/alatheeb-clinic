@@ -152,7 +152,8 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('get_appoints_new', 'Appoints@get_appoints_new');
         Route::post('patient_select', 'Appoints@patient_select');
         Route::post('confirm_booking', 'Appoints@confirm_booking');
-        Route::post('cancel_booking', 'Appoints@cancel_booking');
+        Route::post('cancel_booking', 'Appoints@cancel_booking')->name('cancel_booking');
+        Route::post('session_canceled', 'Appoints@session_canceled')->name('session_canceled');
         Route::post('change_status', 'Appoints@change_status');
         Route::post('confirm_change', 'Appoints@confirm_change');
         Route::post('confirm_call', 'Appoints@confirm_call');

@@ -14,6 +14,7 @@ class TransferController extends Controller
     }
     public function update($id){
         $appointment = Appoint::query()->find($id);
+        
         $appointment->update(\request()->except('_token','_method'));
         session()->flash('success','تم اعادة تحويل المريض بنجاح');
         return redirect('/transfered_patients');

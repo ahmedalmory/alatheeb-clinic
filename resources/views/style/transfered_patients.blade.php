@@ -1,24 +1,24 @@
 @extends('style.index')
 @section('content')
 @php
-  $appointments =  \App\Models\Appoint::query()->where(function ($q){
-    if (request()->dep_id){
-        $q->where('dep_id',request('dep_id'));
-    }
+$appointments = \App\Models\Appoint::query()->where(function ($q){
+if (request()->dep_id){
+$q->where('dep_id',request('dep_id'));
+}
 })->whereNotNull('patient_id')->orderByDesc('id')->paginate(10);
 @endphp
 
 <style media="screen">
-@media (max-width: 768px)
-{
-  .input-lg {
-    width: 118px!important;
-    margin-bottom: 15px;
-  }
-  .input-group {
-    margin-bottom: 10px;
-  }
-}
+    @media (max-width: 768px) {
+        .input-lg {
+            width: 118px !important;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+    }
 </style>
 <div class="homepagetable">
 
@@ -30,14 +30,14 @@
                 <br>
                 <br>
                 <a class="btn btn-success btn-sm " style="margin:5px" href="{{url()->current()}}">
-                       {{__('app.departments_all')}}
+                    {{__('app.departments_all')}}
                     <span class="badge badge-danger btn-sm">{{\App\Models\Appoint::query()->count()}}</span>
                 </a>
                 @foreach(\App\Models\Department::all() as $department)
-                    <a class="btn btn-success btn-sm " style="margin:5px" href="?dep_id={{$department->id}}">
-                        {{$department->dep_name}}
-                        <span class="badge badge-danger btn-sm">{{$department->appointments()->count()}}</span>
-                    </a>
+                <a class="btn btn-success btn-sm " style="margin:5px" href="?dep_id={{$department->id}}">
+                    {{$department->dep_name}}
+                    <span class="badge badge-danger btn-sm">{{$department->appointments()->count()}}</span>
+                </a>
                 @endforeach
                 <hr
                     style="padding-top: 2px; padding-bottom: 2px; margin-top: 6px; margin-bottom: 6px; border-color: #ccc;" />
@@ -92,6 +92,7 @@
                                 <th>{{ trans('admin.dr_id') }}</th>
                                 <th>{{ trans('admin.civil') }}</th>
                                 <th>تاريخ - وقت</th>
+                                <th>{{ __('admin.treatment') }}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -112,10 +113,12 @@
                                 <td>{{ $appointment->user->name ?? ""}}</td>
                                 <td>{{ $appointment->patient->civil }}</td>
                                 <td>{{ $appointment->in_day }} - {{$appointment->in_time}}</td>
+                                <td>{{get_status($appointment->appoint_status)}}</td>
                                 <td>
-                                    @user_can("specials-transfer_patients")
-                                    <a class="btn btn-primary btn-sm" href="{{url('transferred/edit/'.$appointment->id)}}">{{__('admin.reconversion')}}</a>
-                                    @end_user_can
+                                    {{-- @user_can("specials-transfer_patients")
+                                    <a class="btn btn-primary btn-sm"
+                                        href="{{url('transferred/edit/'.$appointment->id)}}">{{__('admin.reconversion')}}</a>
+                                    @end_user_can --}}
                                     @include('style.appointments.buttons.actions',['id'=>$appointment->id])
                                 </td>
                             </tr>
@@ -137,7 +140,6 @@
 {!! $appointments->appends(request()->all())->render() !!}
 </div><!-- end homepagetable -->
 <script>
-
     function add_file(id) {
         $("#status_msg").html('');
         try {

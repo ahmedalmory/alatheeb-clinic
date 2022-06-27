@@ -150,7 +150,9 @@ function get_status($id = null)
             echo ('مؤكد');
         } else if ($id == '5') {
             echo ('غير مؤكد');
-        } else {
+        } else if ($id == '6') {
+            echo ('تم إلغاء الجلسة');
+        }else {
             echo ('');
         }
     } else {
