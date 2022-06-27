@@ -29,6 +29,9 @@ class Diagnos extends Model
       'created_at',
       'updated_at',
    ];
+   protected $casts=[
+      'tooth'=>'json'
+  ];
    public function appointment(){
        return $this->belongsTo(Appoint::class,'appoint_id','id');
    }

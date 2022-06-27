@@ -625,6 +625,7 @@ WHERE id = $request->id"));
         $post->appoint_id = $request->appoint_id;
         $post->treatment = $request->treatment;
         $post->taken = $request->taken;
+        $post->tooth = $request->tooth;
         $post->in_time = $date = date('H:i');
         $msg = $post->save();
         if ($request->t_total > 0) {

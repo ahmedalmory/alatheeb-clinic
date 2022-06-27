@@ -84,6 +84,10 @@ $(document).ready(function () {
         };
 
 		 function save_treatment(patient_id,appoint_id){
+            var toothArray=[];
+            $(".toothArray input:checkbox[name=tooth]:checked").each(function(){
+                toothArray.push($(this).val());
+                });
 			 var treatment = $("#tratment").val();
 			 var taken = $("#taken").val();
 			 var t_total = $("#t_total").html();
@@ -112,7 +116,8 @@ $(document).ready(function () {
 						p_id:p_id_array,
 						p_cat:p_cat_array,
 						p_name:p_name_array,
-						p_price:p_price_array
+						p_price:p_price_array,
+                        tooth:toothArray
                     },
                     type: 'POST',
                     cache:false,

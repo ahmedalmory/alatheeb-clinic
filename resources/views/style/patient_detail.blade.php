@@ -37,6 +37,45 @@ foreach ($patient as $item) { ?>
     التشخيص : <textarea class="form-control" name="tratment" id="tratment"
                         placeholder="يعنى من الم في الاسنان....."></textarea>
     الاجراء المتخذ : <textarea class="form-control" id="taken" name="taken"></textarea></br>
+    <section class="num-teeth position-relative top-0 start-0">
+        <div class="toothArray content position-absolute top-0 start-0">
+            <img class="w-100" src="{{ asset('num.png') }}" alt="" />
+            <input type="checkbox" name="tooth" id="" value="18">
+            <input type="checkbox" name="tooth" id="" value="17">
+
+            <input type="checkbox" name="tooth" id="" value="16">
+
+            <input type="checkbox" name="tooth" id="" value="15">
+            <input type="checkbox" name="tooth" id="" value="14">
+            <input type="checkbox" name="tooth" id="" value="13">
+            <input type="checkbox" name="tooth" id="" value="12">
+            <input type="checkbox" name="tooth" id="" value="11">
+            <input type="checkbox" name="tooth" id="" value="21">
+            <input type="checkbox" name="tooth" id="" value="22">
+            <input type="checkbox" name="tooth" id="" value="23">
+            <input type="checkbox" name="tooth" id="" value="24">
+            <input type="checkbox" name="tooth" id="" value="25">
+            <input type="checkbox" name="tooth" id="" value="26">
+            <input type="checkbox" name="tooth" id="" value="27">
+            <input type="checkbox" name="tooth" id="" value="28">
+            <input type="checkbox" name="tooth" id="" value="38">
+            <input type="checkbox" name="tooth" id="" value="37">
+            <input type="checkbox" name="tooth" id="" value="36">
+            <input type="checkbox" name="tooth" id="" value="35">
+            <input type="checkbox" name="tooth" id="" value="34">
+            <input type="checkbox" name="tooth" id="" value="33">
+            <input type="checkbox" name="tooth" id="" value="32">
+            <input type="checkbox" name="tooth" id="" value="31">
+            <input type="checkbox" name="tooth" id="" value="41">
+            <input type="checkbox" name="tooth" id="" value="42">
+            <input type="checkbox" name="tooth" id="" value="43">
+            <input type="checkbox" name="tooth" id="" value="44">
+            <input type="checkbox" name="tooth" id="" value="45">
+            <input type="checkbox" name="tooth" id="" value="46">
+            <input type="checkbox" name="tooth" id="" value="47">
+            <input type="checkbox" name="tooth" id="" value="48">
+        </div>
+    </section>
     <button type="button" class="btn btn-danger btn-lg pull-left">الغاء الجلسة</button>
 </div>
 
