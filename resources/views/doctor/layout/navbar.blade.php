@@ -43,6 +43,8 @@
 
                 <li class=""><a href="{{ route('doctor.last,appointments') }}" title="#"><span></span>
                         <p>{{ trans('admin.Previous dates') }}</p></a></li>
+                <li class=""><a href="{{ route('doctor.invoices') }}" title="#"><span></span>
+                        <p>{{ trans('admin.invoices') }}</p></a></li>
 
                 <li><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span></span>

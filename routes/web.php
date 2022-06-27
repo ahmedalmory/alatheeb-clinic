@@ -29,6 +29,7 @@ Route::group(['middleware' => 'Lang'], function () {
             Route::get('patients/{id}', 'Doctor\PatientController@show');
             Route::post('patient/{id}/files', 'Doctor\PatientController@storeFiles');
             Route::get('appointments/last', 'Doctor\AppointmentController@last')->name('doctor.last,appointments');
+            Route::get('invoices', 'Doctor\InvoiceController@index')->name('doctor.invoices');
             Route::get('diagnosis', 'Doctor\DiagnosisController@index')->name('doctor.diagnosis');
             Route::get('diagnosis/{id}', 'Doctor\DiagnosisController@show')->name('doctor.diagnosis.show');
         });

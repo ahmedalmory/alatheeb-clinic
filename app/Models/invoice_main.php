@@ -19,6 +19,10 @@ protected $fillable = [
     {
         return $this->hasOne(\App\Models\Patient::class, 'id', 'patient_id');
     }
+    public function new_patient()
+    {
+        return $this->belongsTo(\App\Models\Patient::class,'patient_id');
+    }
 
     public function dep_id()
     {
@@ -30,6 +34,10 @@ protected $fillable = [
     {
         return $this->hasOne(\App\Models\User::class, 'id', 'doc_id');
     }
+    public function new_dr()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'doc_id');
+    }
     public function items(){
         return $this->hasMany(invoice_detail::class,'invoice_main_id','id');
     }
@@ -39,5 +47,9 @@ protected $fillable = [
     public function accountant_id()
     {
         return $this->hasOne(\App\Models\User::class, 'id', 'user_id');
+    }
+    public function new_accountant()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
 }
