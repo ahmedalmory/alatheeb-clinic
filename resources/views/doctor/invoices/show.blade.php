@@ -21,40 +21,53 @@
       <div class="portlet-body form">
           <div class="col-md-12">
             <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-          <tr>
-            <th>{{trans('admin.in_day')}}: {!! trans('admin.'.date('D',strtotime($diagnosis->in_day))) !!}</th>
-            <th>{{ trans('admin.date') }}: {{ $diagnosis->in_day }}</th>
-            <th>{{ trans('admin.in_time') }}: {{ $diagnosis->in_time }}</th>
-            <th>{{ trans('admin.treatment') }}: {{ $diagnosis->treatment }} </th>
+            <table class="table table-bordered table-hover  table-striped" style="min-width:1000px">
+                            <tr>
+                                <th>{{trans('admin.id')}}</th>
+                                <th>{{trans('admin.in_day')}}</th>
+                                <th>{{ trans('admin.date') }}</th>
+                                <th>{{ trans('admin.in_time') }}</th>
+                                <th>{{trans('admin.dr_id')}}</th>
+                                <th>
+                                {{trans('admin.patient_id')}}
+                                </th>
 
-          </tr>
-          <tr>
-            <th ><center>{{ trans('admin.TREATMENT_RECORD') }}</center></th>
-            <th >{{ trans('admin.tooth') }} :@if ($diagnosis->tooth)
-
-              @foreach ($diagnosis->tooth as $tooth)
-                  {{ $tooth }},
-                  @endforeach
-                  @else
-                  -
-                  @endif </th>
-            <th  >{{ trans('admin.taken') }}: </th>
-            <th > {{trans('admin.id')}}: {{$diagnosis->id}}</th>
-          </tr>
-          @if(!empty($diagnosis->admin_id))
-          <tr>
-            <th > {{trans('admin.admin_id')}}: {{ @App\Admin::find($diagnosis->admin_id)->name }}</th>
-          </tr>
-          @endif
-
-
-        </table>
+                            </tr>
+                                <tr>
+                                <td >{{$diagnosis->id}}#</td>
+                                    <td>  {!! trans('admin.'.date('D',strtotime($diagnosis->in_day))) !!}</td>
+                                    <td> {{ $diagnosis->in_day }}</td>
+                                    <td> {{ $diagnosis->in_time }}</td>
+                                    <td>
+                                    {!! $diagnosis->dr->name !!}
+                                    </td>
+                                    <td> {!! @$diagnosis->patient->first_name !!}  {!! @$diagnosis->patient->father_name !!}  {!! @$diagnosis->patient->grand_name !!} </td>
+                                </tr>
+                        </table>
+                        <table class="table table-bordered table-hover  " style="min-width:1000px">
+                            <tr >
+                                <th class="table-active">{{ trans('admin.tooth') }}  @if ($diagnosis->tooth)</th>
+                                <td>@foreach ($diagnosis->tooth as $tooth)
+                                        {{ $tooth }},
+                                        @endforeach
+                                        @else
+                                        -
+                                        @endif</td>
+                            </tr>
+                            <tr >
+                                <th class="table-active">{{ trans('admin.treatment') }}</th>
+                                <td>{{ $diagnosis->treatment }} </td>
+                            </tr>
+                            <tr >
+                                <th class="table-active">{{ trans('admin.taken') }}</th>
+                                <td>{{$diagnosis->taken}} </td>
+                            </tr>
+                        </table>
             </div>
 
-        <hr />
+        <!-- <hr /> -->
         <div class="clearfix"></div>
-
+<!--
           <div class="col-md-6 col-lg-6 col-xs-6">
             <b>{{trans('admin.dr_id')}} :</b>
             {!! $diagnosis->dr->name !!}
@@ -70,7 +83,7 @@
 
           <div class="clearfix"></div>
           <hr />
-
+ -->
 
         </div>
         <div class="clearfix"></div>

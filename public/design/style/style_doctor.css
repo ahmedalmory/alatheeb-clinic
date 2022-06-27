@@ -1450,3 +1450,7 @@ section.num-teeth .content  input[type="checkbox"]:nth-of-type(32) {
     margin-bottom: 0.5rem !important;
     margin-top: 0.5rem !important;
 }
+.table-active {
+    background-color: #f9f9f9 !important;
+    width: 15% !important;
+}

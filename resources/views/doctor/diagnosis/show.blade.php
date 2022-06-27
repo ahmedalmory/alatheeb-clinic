@@ -20,7 +20,8 @@
       </div>
       <div class="portlet-body form">
           <div class="col-md-12">
-          <table class="table table-bordered table-hover  table-striped" style="min-width:1000px">
+            <div class="table-responsive">
+            <table class="table table-bordered table-hover  table-striped" style="min-width:1000px">
                             <tr>
                                 <th>{{trans('admin.id')}}</th>
                                 <th>{{trans('admin.in_day')}}</th>
@@ -62,6 +63,8 @@
                                 <td>{{$diagnosis->taken}} </td>
                             </tr>
                         </table>
+            </div>
+
         <!-- <hr /> -->
         <div class="clearfix"></div>
 
