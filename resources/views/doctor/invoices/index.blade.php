@@ -1,7 +1,8 @@
 @extends('doctor.layout.index')
 @section('content')
-<a href="{{ route('doctor.invoices') }}" class="btn btn-primary">كل الفواتير</a>
-<a href="{{ route('doctor.invoices',['status'=>'unpaid']) }}" class="btn btn-primary">الفواتير الغير مسددة</a>
+<a href="{{ route('doctor.invoices') }}" class="btn btn-primary my-2">كل الفواتير</a>
+<a href="{{ route('doctor.invoices',['status'=>'unpaid']) }}" class="btn my-2 btn-primary">الفواتير الغير مسددة</a>
+<div class="table-responsive">
 <table class="table">
 	<thead>
 		<tr>
@@ -32,5 +33,7 @@
 
 	</tbody>
 </table>
+</div>
+
 
 @stop

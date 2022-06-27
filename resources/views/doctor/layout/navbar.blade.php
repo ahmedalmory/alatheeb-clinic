@@ -6,13 +6,16 @@
     </style>
     <div class="container">
         @if(auth()->user())
-            <span style="color:white; font-size:19px;"> {{ Auth::user()->name }}</span>
+        <div class="group-link">
+        <span style="color:white; font-size:19px;"> {{ Auth::user()->name }}</span>
             <li>
                 <a href="{{url('lang?loc='.(app()->getLocale() == "ar"?"en":"ar"))}}"
                    title="{{app()->getLocale() == "ar"?"English":"العربية"}}" style="color:#1c7d7e">
                     <i class="fas fa-language" style="font-size:30px;color: white"></i>
                 </a>
             </li>
+</div>
+
         @endif
         <div class="clearfix"></div>
     </div><!-- end container -->

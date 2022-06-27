@@ -12,6 +12,7 @@
 @endpush
 
 
+<div class="res-table">
 {{-- <div class="" style="max-width:1100px;margin:auto;background-color:#fff;padding:20px">
         <?php foreach ($invoice_main as $inv_main) { ?>
 
@@ -340,5 +341,6 @@
     </div>
     <a class="print" href="javascript:print()">طباعة</a>
 </section>
+</div>
 <?php } ?>
 @include('style.layouts.footer')

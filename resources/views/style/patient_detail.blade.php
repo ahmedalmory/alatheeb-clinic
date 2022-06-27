@@ -122,8 +122,8 @@ foreach ($patient as $item) { ?>
             <input type="hidden" name="appoint_status" value="6" id="">
             <input type="hidden" name="attend_status" value="attended" id="">
 
-            <button type="submit" class="btn btn-right btn-danger btn-lg pull-right">الغاء الجلسة</button>
-            <button class="btn btn-success pull-left" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
+            <button type="submit" class="btn mb-2  pull-right btn-danger btn-lg  ">الغاء الجلسة</button>
+            <button class="btn btn-success pull-right pull-xs-left mb-2" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
                 وانهاء الجلسة
             </button>
         </form>
@@ -131,6 +131,7 @@ foreach ($patient as $item) { ?>
     </div>
 </div>
 <div id="bayanat" class="tabcontent">
+    <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
             <th>رقم السجل</th>
@@ -153,6 +154,8 @@ foreach ($patient as $item) { ?>
             <td><a href="{{url('/doctor/patients/'.$item->id)}}" class="btn btn-info btn-sm">كامل البيانات</a></td>
         </tr>
     </table>
+    </div>
+
 </div>
 {{--<div id="sabiqa" class="tabcontent">--}}
 {{--    @php--}}
