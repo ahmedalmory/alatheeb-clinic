@@ -166,7 +166,7 @@ class InvoicesDataTable extends DataTable
          [
             'name'      => 'patient_id.first_name',
             'data'      => 'patient_id.first_name',
-            'title'     => trans('app.patient'),
+            'title'     => trans('admin.patient_name'),
             'orderable' => false,
          ],
          [
