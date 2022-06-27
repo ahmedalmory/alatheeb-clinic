@@ -193,4 +193,21 @@ class FileUploader extends Controller
          return 'mimes:ZIP,SITX,7Z,RAR,GZ,7Z,ZIPX';
       }
    }
+
+   function store_file($file,$path)
+{
+    $name = time().$file->getClientOriginalName();
+    return $value = $file->storeAs($path, $name, 'public');
+}
+function delete_file($file)
+{
+    if(Storage::disk('public')->exists($file)){
+        unlink('storage/'.$file);
+    }
+}
+function display_file($name)
+{
+    return asset('storage').'/'.$name;
+}
+
 }

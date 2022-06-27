@@ -47,8 +47,8 @@ class Dashboard extends Controller
          'postal_code'           => request('postal_code'),
          'extra_number'           => request('extra_number'),
       ];
-      request()->hasFile('logo') ? $data['logo'] = it()->upload('logo', 'settings') : '';
-      request()->hasFile('icon') ? $data['icon'] = it()->upload('icon', 'settings') : '';
+      request()->hasFile('logo') ? $data['logo'] = it()->store_file(request()->file('logo'),'settings') : '';
+      request()->hasFile('icon') ? $data['icon'] = it()->store_file(request()->file('icon'),'settings') : '';
       Setting::where('id', 1)->update($data);
       session()->flash('success', trans('admin.updated'));
       return back();
