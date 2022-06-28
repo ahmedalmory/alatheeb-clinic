@@ -7,8 +7,9 @@ body {
   background-image: url('./design/style/images/header.png');
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'cairo';
+  font-family: 'Droid Arabic Kufi' !important;
 }
+
 .social-login img {
   width: 24px;
 }
@@ -18,18 +19,20 @@ a {
 
 .card {
   font-family: sans-serif;
-  max-width: 360px;
-  width: 100%;
+  max-width: 850px;
   margin-left: auto;
+  display:flex;
+  align-items:center;
   margin-right: auto;
   margin-top: 3em;
   margin-bottom:3em;
   border-radius: 10px;
   background-color: #ffff;
-  padding: 1.8rem;
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
 }
-
+.loginpage .content {
+    padding: 15px 55px !important;
+}
 .title {
   text-align: center;
   font-weight: bold;
@@ -93,7 +96,7 @@ a {
 input[type="email"],
 input[type="text"],
 input[type="password"] {
-  padding: 15px 20px;
+  padding: 13px 15px;
   margin-top: 8px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -101,19 +104,24 @@ input[type="password"] {
   box-sizing: border-box;
   height: auto;
 }
-
+.header {
+    text-align:center;
+    font-size: 25px;
+    margin-bottom:10px;
+}
 .cta-btn {
-  background-color: rgb(69, 69, 185);
+  background-color: #64B274;
   color: white !important;
-  padding: 18px 20px !important;
-  margin-top: 10px;
+  padding: 13px 15px !important;
+  margin-top: 2rem !important;
   margin-bottom: 0;
   width: 100%;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   border: none !important;
   cursor: pointer;
   height: auto !important;
   line-height: 17px !important;
+  box-shadow:none !important;
 }
 
 .forget-pass {
@@ -132,56 +140,65 @@ input[type="password"] {
       background-color: #fff;
 }
 .pb-0 {
-  padding-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.inp-log {
+    border:0 !important;
+    border-radius: 4px !important;
+    border-bottom:1px solid #ddd !important;
+}
+
+.img-log {
+    width: 100%;
+}
+.px-0 {
+    padding-right:0 !important;
+    padding-left:0 !important;
 }
 </style>
 
 <br><br>
 <div class="" style="min-height:80vh">
 
-<div class ="card pb-0" >
-    <div class="row">
+<div class ="card row p-0" >
+    <div class="col-md-6 px-0">
+        <img class="img-log" src="{{url('design/style/images/Doctor.jpg')}}" alt="">
+    </div>
+    <div class="col-md-6 px-0">
       <div class="" style="background-color: #fff; padding: 0px;">
         <div class="loginpage">
           <!-- <div class="title" style="">   <img src="{{ it()->url(setting()->logo) }}" alt=""> </div> -->
            <div class="content">
                <!-- margin-right: 5px; margin-left: 5px; -->
-               <div class="row email-login" style="">
-                 <div class="" style="text-align: center;">
-                   <img class="logo-de" src="{{url('images/logo-light.png')}}" alt="">
-                 </div>
-                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                        <div class="" style="display:flex;align-items:center;justify-content: space-between;">
-                          <div class="header"> <b> {{__("app.employees_login_only")}}</b> </div>
-                          <div class="">
-                            <a href="{{url('lang?loc='.(app()->getLocale() == "ar"?"en":"ar"))}}" title="{{app()->getLocale() == "ar"?"English":"العربية"}}" style="color:#1c7d7e">
+
+                       <div class="" style="display:flex;align-items:center;justify-content: end;">
+                       <a href="{{url('lang?loc='.(app()->getLocale() == "ar"?"en":"ar"))}}" title="{{app()->getLocale() == "ar"?"English":"العربية"}}" style="color:#1c7d7e">
                               <i class="fas fa-language" style="font-size:30px"></i>
                             </a>
-                          </div>
+                    </div>
+                          <div class="header"> <b> {{__("app.employees_login_only")}}</b> </div>
+                          <div class="">
+
                         </div>
                         <form method="POST" action="{{ route('login') }}">
                             <div class="form-group">
-                              <label for="email">{{ trans('admin.email') }}</label>
-                              <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }} border10" name="email" value="{{ old('email') }}"   id="email">
+                              <input type="email" placeholder="{{ trans('admin.email') }}" name="email" class="inp-log form-control {{ $errors->has('email') ? ' is-invalid' : '' }} border10" name="email" value="{{ old('email') }}"   id="email">
                                 @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="form-group">
-                              <label for="exampleInputEmail2">{{ trans('admin.password') }}</label>
-                              <input id="password" type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }} border10" name="password" required >
+                              <input id="password" type="password" placeholder="{{ trans('admin.password') }}" class="inp-log form-control {{ $errors->has('password') ? ' is-invalid' : '' }} border10" name="password" required >
                               @if ($errors->has('password'))
                               <span class="invalid-feedback" role="alert">{{ $errors->first('password') }}</span>
                               @endif
                             </div>
 
-                            <button class=" cta-btn btn-block" type="submit">{{ trans('admin.login') }}</button>
+                            <button class="mt-4 cta-btn btn-block" type="submit">{{ trans('admin.login') }}</button>
                             <div class="hidden pull-left"><div class="fpass"><a href="{{ route('password.request') }}" title="#">{{ trans('admin.forgot_password') }} </a></div></div>
                             <div class="clearfix"></div>
                             @csrf
                         </form>
-                    </div>
-                </div>
             </div><!-- end loginpage -->
         </div><!-- end loginpage -->
       </div>  <!-- end col-lg-4 -->
