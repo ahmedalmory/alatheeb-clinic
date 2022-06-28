@@ -23,10 +23,11 @@
 			</div>
 			<div class="portlet-body form">
 				<div class="col-md-12">
-					{!! Form::open(['url'=>aurl('/relationship'),'id'=>'relationship','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
-					<div class="form-group">
-						{!! Form::label('re_name',trans('admin.re_name'),['class'=>'col-md-3 control-label']) !!}
-						<div class="col-md-9">
+                    {!! Form::open(['url'=>aurl('/relationship'),'id'=>'relationship','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
+                    <div class="form-group" style="    border-bottom: none !important;
+">
+                        <div class="col-md-3">
+                            {!! Form::label('re_name',trans('admin.re_name'),['class'=>'control-label']) !!}
 							{!! Form::text('re_name',old('re_name'),['class'=>'form-control','placeholder'=>trans('admin.re_name')]) !!}
 						</div>
 					</div>
@@ -35,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">
-									<div class="col-md-offset-3 col-md-9">
+									<div class=" col-md-12">
 										{!! Form::submit(trans('admin.add'),['class'=>'btn btn-success']) !!}
 									</div>
 								</div>

@@ -39,140 +39,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="separator hide"> </li>
 
-<li class="dropdown dropdown-extended dropdown-notification" id="cog_list">
-<a href="javascript:;"  class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-<i class="fa fa-paint-brush"></i>
-</a>
-<ul class="dropdown-menu">
-<li>
-    <a href="javascript:;" onclick="change_theme('1')">
-    <i class="fa fa-paint-brush"></i> {{trans('admin.theme1')}} </a>
-</li>
-<li>
-    <a href="javascript:;" onclick="change_theme('2')">
-    <i class="fa fa-paint-brush"></i> {{trans('admin.theme2')}} </a>
-</li>
-<li>
-    <a href="javascript:;" onclick="change_theme('3')">
-    <i class="fa fa-paint-brush"></i> {{trans('admin.theme3')}} </a>
-</li>
-</ul>
-</li>
 
-<li class="dropdown dropdown-extended dropdown-notification" id="lang_list">
-<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-<i class="fa fa-globe"></i>
-</a>
-<ul class="dropdown-menu">
-@foreach(L::all() as $l)
-<li>
-    <a href="{{aurl('lang/'.$l)}}">
-    <i class="fa fa-flag"></i> {{trans('admin.'.$l)}} </a>
-</li>
-@endforeach
-</ul>
-</li>
-
-                    <!-- BEGIN NOTIFICATION DROPDOWN -->
-                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <i class="fa fa-bell"></i>
-                            <span class="badge badge-success"> 7 </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="external">
-                                <h3>
-                                    <span class="bold">12 معلق</span> إشعارات</h3>
-                                <a href="page_user_profile_1.html">عرض الكل</a>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">الان</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-success">
-                                                    <i class="fa fa-plus"></i>
-                                                </span> مستخدم جديد مسجل. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 دقائق</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> خادم # 12 مثقلة. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">10 دقائق</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> الخادم رقم 2 لا يستجيب. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">14 hrs</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> خطأ في تطبيق. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">2 أيام</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> قاعدة البيانات حفالة 68%. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 أيام</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> تم حظر عنوان IP للمستخدم. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">4 أيام</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> خادم التخزين رقم 4 لا يستجيب DFDFDFD. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">5 أيام</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> خطأ في النظام. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">9 أيام</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> فشل خادم التخزين. </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- END NOTIFICATION DROPDOWN -->
                     <li class="separator hide"> </li>
                     <!-- BEGIN INBOX DROPDOWN -->
@@ -253,7 +120,7 @@
                     <li class="separator hide"> </li>
                     <!-- BEGIN   DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                  
+
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user dropdown-dark">

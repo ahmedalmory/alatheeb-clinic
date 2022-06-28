@@ -23,11 +23,12 @@
 				</div>
 				<div class="portlet-body form">
 								<div class="col-md-12">
-								
+
 {!! Form::open(['url'=>aurl('/nationalities'),'id'=>'nationalities','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
-<div class="form-group">
-    {!! Form::label('nat_name',trans('admin.nat_name'),['class'=>'col-md-3 control-label']) !!}
-    <div class="col-md-9">
+<div class="form-group" style="    border-bottom: none !important;
+">
+    <div class="col-md-3">
+        {!! Form::label('nat_name',trans('admin.nat_name'),['class'=>'control-label']) !!}
         {!! Form::text('nat_name',old('nat_name'),['class'=>'form-control','placeholder'=>trans('admin.nat_name')]) !!}
     </div>
 </div>
@@ -37,7 +38,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-offset-3 col-md-9">
+                <div class=" col-md-12">
 {!! Form::submit(trans('admin.add'),['class'=>'btn btn-success']) !!}
          </div>
             </div>
@@ -52,4 +53,4 @@
 		</div>
 	</div>
 	@stop
-	
+
