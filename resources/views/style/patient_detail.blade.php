@@ -99,10 +99,11 @@ foreach ($patient as $item) { ?>
         <div class="col-md-2">
             الالإجمالي <h1 id="t_total">0</h1>
         </div>
+        @user_can("specials-payments")
         <div class="col-md-2">
             تقصيد الفاتورة <input type="number" min="1" name="payments" value="1" id="payments">
         </div>
-
+@end_user_can
         <div class="col-md-12">
             <table class="table table-bordered">
                 <thead>

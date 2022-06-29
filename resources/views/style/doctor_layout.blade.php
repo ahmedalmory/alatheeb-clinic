@@ -90,6 +90,10 @@ $(document).ready(function () {
                 });
 			 var treatment = $("#tratment").val();
 			 var payments = $("#payments").val();
+             if(!payments){
+                payments=1
+             }
+
 			 var taken = $("#taken").val();
 			 var t_total = $("#t_total").html();
 			var p_id_array = new Array();
@@ -108,7 +112,7 @@ $(document).ready(function () {
 			$('input[name="p_price[]"]').each(function(){
 			p_price_array.push($(this).val());
 		});
-                $.ajax({
+                 $.ajax({
                     url: 'save_treatment',
                     data:{
                         _token: '{!! csrf_token() !!}',
@@ -133,7 +137,7 @@ $(document).ready(function () {
                     error: function(xhr){
                         alert(xhr.status+' '+xhr.statusText);
                     }
-                });
+                }); 
 
         };
 		 function add_item_invoice(){
