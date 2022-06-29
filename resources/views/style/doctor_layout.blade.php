@@ -89,6 +89,7 @@ $(document).ready(function () {
                 toothArray.push($(this).val());
                 });
 			 var treatment = $("#tratment").val();
+			 var payments = $("#payments").val();
 			 var taken = $("#taken").val();
 			 var t_total = $("#t_total").html();
 			var p_id_array = new Array();
@@ -117,7 +118,8 @@ $(document).ready(function () {
 						p_cat:p_cat_array,
 						p_name:p_name_array,
 						p_price:p_price_array,
-                        tooth:toothArray
+                        tooth:toothArray,
+                        payments:payments,
                     },
                     type: 'POST',
                     cache:false,
