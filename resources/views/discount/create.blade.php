@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="">{{__('app.discount_rate')}}</label>
-                            <input name="discount_rate" class="form-control" value="{{old('discount_rate')}}">
+                            <input type="number" name="discount_rate" class="form-control" value="{{old('discount_rate')}}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">{{__('app.show_discount_rate')}}</label>

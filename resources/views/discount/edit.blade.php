@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="">نسبة العرض</label>
-                            <input name="discount_rate" class="form-control" value="{{old('discount_rate',$edit->discount_rate)}}">
+                            <input  type="number" name="discount_rate" class="form-control" value="{{old('discount_rate',$edit->discount_rate)}}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">اظهار نسبة العرض في الفاتورة </label>
