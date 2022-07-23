@@ -28,7 +28,7 @@
 
 
 </table>
-      <div class="" style="overflow:auto">
+      <div class="" >
         <table border="1" style="background-color:white;text-align: center; min-width:800px" width="100%">
             <tr>
                 <th colspan="8" style="text-align: center;">بيانات الفواتير</th>

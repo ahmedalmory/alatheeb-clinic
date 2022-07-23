@@ -116,7 +116,7 @@
 
 
 </div>
-                    <div id="row" style="overflow:auto">
+                    <div id="row" >
 
                         <div id="appoints" style="min-width:1000px">
 

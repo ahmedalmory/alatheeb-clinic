@@ -3,14 +3,14 @@
 use App\Models\Appoint;
 
 
-function modelBox($modal_id = '', $boxTitle = '', $boxid, $status_msg = '', $form_name = '', $m_id = 'abc')
+function modelBox($boxid,$modal_id = '', $boxTitle = '',  $status_msg = '', $form_name = '', $m_id = 'abc')
 {
     $data = compact('modal_id','boxTitle','boxid','status_msg','form_name','m_id');
     return view('modals.modal-box',$data);
 }
 /* Large Modal
 */
-function modelBoxLarge($modal_id = '', $boxTitle = '', $boxid, $status_msg = '', $form_name = '', $m_id = 'abc')
+function modelBoxLarge($boxid,$modal_id = '', $boxTitle = '',  $status_msg = '', $form_name = '', $m_id = 'abc')
 {
     $data = compact('modal_id','boxTitle','boxid','status_msg','form_name','m_id');
     view('modals.modal-box-large',$data);
