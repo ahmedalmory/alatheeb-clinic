@@ -260,6 +260,12 @@
 
                     </li>
                     @end_user_can
+
+                    @user_can("specials-salaries")
+                    <li class="{{ request()->is("salaries") ? 'active':'' }}"><a
+                            href="{{ url('salaries') }}" title="#"><span></span>
+                            <p>{{ __('admin.salaries') }}</p></a></li>
+                    @end_user_can
                     <li><a href="{{ route('logout') }}"
                            onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span></span>
                             <p>{{ trans('admin.logout') }}</p></a></li>

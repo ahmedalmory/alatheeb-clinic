@@ -688,4 +688,9 @@ WHERE id = $request->id"));
     {
         return view('style.layouts.no_access');
     }
+
+    public function salaries(){
+        $users=User::paginate(10);
+        return view('style.salaries',compact('users'));
+    }
 }

@@ -22,6 +22,7 @@ Route::group(['middleware' => 'Lang'], function () {
     Route::group(['middleware' => ['auth']], function () {
         #####
         Route::resource('discounts', 'DiscountController');
+        Route::get('salaries', 'HomeController@salaries');
         Route::view('transfered_patients', 'style.transfered_patients');
         Route::get('transferred/edit/{id}', 'Front\TransferController@edit');
         Route::put('transferred/{id}', 'Front\TransferController@update');

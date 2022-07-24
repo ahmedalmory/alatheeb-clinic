@@ -106,6 +106,28 @@ $(document).ready(function(){
 					</div>
 					<br>
 					<div class="form-group">
+						{!! Form::label('salary',trans('admin.salary'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							{!! Form::number('salary',old('salary',$users->salary),['class'=>'form-control','placeholder'=>trans('admin.salary')]) !!}
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						{!! Form::label('rate',trans('admin.rate'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							{!! Form::number('rate',old('rate',$users->rate),['class'=>'form-control','placeholder'=>trans('admin.rate')]) !!}
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						{!! Form::label('rate_active',trans('admin.rate_active'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							<input type="checkbox" name="rate_active" {{ $users->rate_active?'checked':'' }} id="">
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group">
 						{!! Form::label('group_id',trans('admin.group_id'),['class'=>'col-md-3 control-label']) !!}
 						<div class="col-md-9">
 							{!! Form::select('group_id',App\Models\Group::pluck('group_name','id'), $users->group_id ,['class'=>'form-control','placeholder'=>trans('admin.group_id')]) !!}
