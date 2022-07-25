@@ -185,8 +185,8 @@
             });
         };
     </script>
-    {!! modelBox("addcompany","اضافة ملف","box","status_msg","save_company") !!}
-    {!! modelBox("editcompany","تحويل المريض الي طبيب","box_edit","status_update","update_company") !!}
+    {!! modelBox("box","addcompany","اضافة ملف","status_msg","save_company") !!}
+    {!! modelBox("box_edit","editcompany","تحويل المريض الي طبيب","status_update","update_company") !!}
 
 
 @endsection

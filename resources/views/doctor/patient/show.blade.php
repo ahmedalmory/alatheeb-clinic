@@ -415,5 +415,5 @@
         </div>
     </div>
     <!-- end container -->
-    {!! modelBox("addcompany","اضافة ملف","box","status_msg","save_company") !!}
+    {!! modelBox("box","addcompany","اضافة ملف","status_msg","save_company") !!}
 </div>

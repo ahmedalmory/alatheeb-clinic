@@ -96,10 +96,10 @@
 
             };
 
-            function get_due() {
+             function get_due() {
                 var cash_hand = $("#cash_hand").val();
                 var cash_card = $("#cash_card").val();
-                var t_toal = parseInt($("#t_total").html());
+                var t_toal = parseFloat($("#t_total").html());
                 $("#due").html(t_toal - cash_hand - cash_card);
 
             }

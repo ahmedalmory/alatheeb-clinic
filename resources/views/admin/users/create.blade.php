@@ -86,6 +86,27 @@ $(document).ready(function(){
 					</div>
 					<br>
 					<div class="form-group">
+						{!! Form::label('salary',trans('admin.salary'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							{!! Form::number('salary',old('salary'),['class'=>'form-control','placeholder'=>trans('admin.salary')]) !!}
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						{!! Form::label('rate',trans('admin.rate'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							{!! Form::number('rate',old('rate'),['class'=>'form-control','placeholder'=>trans('admin.rate')]) !!}
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						{!! Form::label('rate_active',trans('admin.rate_active'),['class'=>'col-md-3 control-label']) !!}
+						<div class="col-md-9">
+							<input type="checkbox" name="rate_active" id="">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
 						{!! Form::label('level',trans('admin.level'),['class'=>'col-md-3 control-label']) !!}
 						<div class="col-md-9">
 							{!! Form::select('level',['dr'=>trans('admin.dr'),'accountant'=>trans('admin.accountant'),'recep'=>trans('admin.recep')],old('level'),['class'=>'form-control','placeholder'=>trans('admin.level')]) !!}

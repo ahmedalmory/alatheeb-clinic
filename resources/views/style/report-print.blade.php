@@ -21,9 +21,10 @@
 
 
     <script type="text/javascript">
-        setTimeout(()=>{
-          $("#myDiv").print();
-        },1000)
+          window.print();
+          window.onafterprint = function () {
+            window.history.back()
+          }
     </script>
 
 
@@ -35,13 +36,13 @@
             <thead>
               <tr>
                 <td colspan="2">
-                  <table class="table" style="border:0 !important;">
+                  <table class="table text-center" style="border:0 !important;">
                      <tbody>
                         <tr class="selected-cc" style="border:0 !important;">
                            <td width="33%" style="border:0 !important;">
                               <div class="" style="text-align: center;max-width:300px">
                                  <div class="">
-                                    مجمع الميدان الطبي<br>
+                                    {{ setting()->sitename }}<br>
                                     <!-- http://ca.midan-c.com -->
                                     02145454-02145454-058458787
                                  </div>
@@ -57,7 +58,7 @@
                            <td width="33%" style="border:0 !important;">
                               <div class="" style="text-align: center;max-width:300px;margin-bottom:5px">
                                  <div class="">
-                                    Al-Maidan Medical Complex<br>
+                                    {{ setting()->sitename }}<br>
                                     <!-- http://ca.midan-c.com -->
                                     02145454-02145454-058458787
                                  </div>
@@ -75,28 +76,28 @@
             </thead>
             <tbody>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">نقدا</td>
-                <td style="padding:10px">{{$invoices->sum('paid_cash')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">نقدا</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('paid_cash')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">شبكة</td>
-                <td style="padding:10px">{{$invoices->sum('paid_card')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">شبكة</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('paid_card')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">المتبقي</td>
-                <td style="padding:10px">{{$invoices->sum('due')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">المتبقي</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('due')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">بدون ضريبة</td>
-                <td style="padding:10px">{{$invoices->sum(function ($item){ return ($item->tax_amount ? ($item->total_amount - $item->tax_amount) : $item->total_amount); })}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">بدون ضريبة</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum(function ($item){ return ($item->tax_amount ? ($item->total_amount - $item->tax_amount) : $item->total_amount); })}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">الإجمالى مع الضريبة</td>
-                <td style="padding:10px">{{$invoices->sum('total_amount')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">الإجمالى مع الضريبة</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('total_amount')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">اجمالي الضريبة</td>
-                <td style="padding:10px">{{$invoices->sum('tax_amount')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">اجمالي الضريبة</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('tax_amount')}}</td>
             </tr>
             </tbody>
         </table>

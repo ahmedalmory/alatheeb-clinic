@@ -50,6 +50,9 @@ class UsersController extends Controller
          'group_id' => 'required|numeric',
          'dep_id'   => 'required|numeric',
          'level'    => 'required|in:dr,accountant,recep',
+         'salary'    => 'required|numeric',
+         'rate_active'   => 'nullable',
+         'rate'   => 'nullable|numeric',
 
       ];
       $data = $this->validate(request(), $rules, [], [
@@ -59,11 +62,15 @@ class UsersController extends Controller
          'group_id' => trans('admin.group_id'),
          'dep_id'   => trans('admin.dep_id'),
          'level'    => trans('admin.level'),
+         'salary'    => trans('admin.salary'),
+         'rate'    => trans('admin.rate'),
+         'rate_active'    => trans('admin.rate_active'),
 
       ]);
       if (request()->has('password')) {
          $data['password'] = bcrypt(request('password'));
       }
+      $data['rate_active']=request('rate_active')?true:false;
       User::create($data);
 
       session()->flash('success', trans('admin.added'));
@@ -107,6 +114,9 @@ class UsersController extends Controller
          //'password' => '',
          'group_id' => 'required|numeric',
          'dep_id'   => 'required|numeric',
+         'salary'   => 'required|numeric',
+         'rate_active'   => 'nullable',
+         'rate'   => 'nullable|numeric',
          'level'    => 'required|in:dr,accountant,recep',
 
       ];
@@ -117,10 +127,14 @@ class UsersController extends Controller
          'group_id' => trans('admin.group_id'),
          'dep_id'   => trans('admin.dep_id'),
          'level'    => trans('admin.level'),
+         'salary'    => trans('admin.salary'),
+         'rate'    => trans('admin.rate'),
+         'rate_active'    => trans('admin.rate_active'),
       ]);
       if (request()->has('password')) {
          $data['password'] = bcrypt(request('password'));
       }
+      $data['rate_active']=request('rate_active')?true:false;
       User::where('id', $id)->update($data);
 
       session()->flash('success', trans('admin.updated'));

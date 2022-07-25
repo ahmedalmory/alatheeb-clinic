@@ -36,8 +36,20 @@
                 display: none;
               }
               .datespage .toparea .col-md-1 button {
-                background-color: #34c5d1; color: #fff; border: 0;margin-top: 10px
-              }
+                background-color: #34c5d1 !important;
+    color: #fff !important;
+    border: 0 !important;
+    margin-top: 10px !important;
+    width: fit-content !important;
+    margin-right: auto !important;
+    height: fit-content !important;
+    margin-left: 0 !important;
+    padding: 1rem !important;
+    margin-bottom: 5px !important;
+    border-radius: 4px !important;              }
+    select,input {
+                height: 40px !important;
+            }
             </style>
     <div class="datespage">
         <div class="title">{{__('admin.account_statement_khazina')}}</div>
@@ -46,11 +58,11 @@
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             {{__('admin.from')}}
                             <input type="date"  name="date_from" id="date_from" class="form-control">
                         </div>
-                        <div class="col-md-2">{{__('admin.to')}}
+                        <div class="col-md-3">{{__('admin.to')}}
                             <input type="date"  name="date_to" id="date_to" class="form-control">
                         </div>
                         <div class="col-md-2">
@@ -77,9 +89,11 @@
                                 <option value="evening">{{__('admin.evening')}}</option>
                             </select>
                         </div>
+                        <div class="col-xs-12 d-flex justify-content-center">
                         <div class="col-md-2">
                             <br>
                             <button class="btn btn-primary" onclick="get_khazina();">{{__('admin.show')}} </button>
+                        </div>
                         </div>
                       </div>
                     <div id="row">
@@ -100,5 +114,5 @@
 
 @endsection
 
-{!! modelBox("addpatient","حجز موعد / اختيار مريض","box_add","status_add","add_patient") !!}
-{!! modelBox("changestatus","تغير حالة الحجز","box_change","status_add","add_change") !!}
+{!! modelBox("box_add","addpatient","حجز موعد / اختيار مريض","status_add","add_patient") !!}
+{!! modelBox("box_change","changestatus","تغير حالة الحجز","status_add","add_change") !!}

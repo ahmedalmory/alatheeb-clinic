@@ -1,6 +1,7 @@
 <?php
 return  [
     'employees_login_only'  =>  'دخول الموظفين فقط',
+    'employee'  =>  'الموظف',
     'categories'    =>  'التصنيفات',
     'select_category'=>'اختر التصنيف',
     'discounts'    =>  'العروض',
@@ -108,7 +109,7 @@ return  [
     'total'=>'الاجمالي',
     'total_discount'=>'اجمالي الخصم',
     'tax_value'=>'قيمة الضريبة',
-    'paid_in_cash'=>'المدفوع كاش',
+    'paid_in_cash'=>'المدفوع نقدا',
     'paid_in_internet'=>'المدفوع شبكة',
     'rest'=>'المتبقي',
     'price'=>'السعر',

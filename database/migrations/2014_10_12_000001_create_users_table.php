@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
          $table->enum('level', ['dr', 'accountant', 'recep'])->nullable();
          $table->integer('dep_id')->unsigned()->nullable();
          $table->foreign('dep_id')->references('id')->on('departments')->onDelete('cascade');
+         $table->float('salary',10,2)->default(0)->nullable();
          $table->timestamps();
       });
    }

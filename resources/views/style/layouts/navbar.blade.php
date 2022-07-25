@@ -42,7 +42,7 @@
             border: 0 !important;
         }
     </style>
-    <nav class="navbar navbar-inverse" dir="rtl">
+    <nav class="navbar navbar-inverse not-print" dir="rtl">
         <div class="container" style="">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -176,7 +176,7 @@
     </nav>
 @endif
 
-<div class="container">
+<div class="container not-print">
     <div class="logo2 hidden">
         @if(auth()->user())
             <a href="{{ url('tasnefat') }}" class="btn btn-primary">التصنيفات</a>
@@ -259,6 +259,12 @@
                         </a>
 
                     </li>
+                    @end_user_can
+
+                    @user_can("specials-salaries")
+                    <li class="{{ request()->is("salaries") ? 'active':'' }}"><a
+                            href="{{ url('salaries') }}" title="#"><span></span>
+                            <p>{{ __('admin.salaries') }}</p></a></li>
                     @end_user_can
                     <li><a href="{{ route('logout') }}"
                            onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span></span>

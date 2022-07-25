@@ -21,6 +21,7 @@ a {
   font-family: sans-serif;
   max-width: 850px;
   margin-left: auto;
+  flex-wrap:wrap;
   display:flex;
   align-items:center;
   margin-right: auto;
@@ -30,6 +31,12 @@ a {
   background-color: #ffff;
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
 }
+@media (max-width:700px) {
+    .img-log {
+    max-height:150px;
+    object-fit: cover;
+}
+    }
 .loginpage .content {
     padding: 15px 55px !important;
 }
@@ -161,10 +168,10 @@ input[type="password"] {
 <div class="" style="min-height:80vh">
 
 <div class ="card row p-0" >
-    <div class="col-md-6 px-0">
+    <div class="col-xs-12 col-md-6 px-0">
         <img class="img-log" src="{{url('design/style/images/Doctor.jpg')}}" alt="">
     </div>
-    <div class="col-md-6 px-0">
+    <div class="col-xs-12 col-md-6 px-0">
       <div class="" style="background-color: #fff; padding: 0px;">
         <div class="loginpage">
           <!-- <div class="title" style="">   <img src="{{ it()->url(setting()->logo) }}" alt=""> </div> -->

@@ -113,8 +113,20 @@
                 display: none;
               }
               .datespage .toparea .col-md-1 button {
-                background-color: #34c5d1; color: #fff; border: 0;margin-top: 10px
-              }
+                background-color: #34c5d1 !important;
+    color: #fff !important;
+    border: 0 !important;
+    margin-top: 10px !important;
+    width: fit-content !important;
+    margin-right: auto !important;
+    height: fit-content !important;
+    margin-left: 0 !important;
+    padding: 1rem !important;
+    margin-bottom: 5px !important;
+    border-radius: 4px !important;              }
+    select,input {
+                height: 40px !important;
+            }
             </style>
     <div class="datespage">
         <div class="title">{{__('admin.patient_invoices_statement')}}</div>
@@ -164,8 +176,8 @@
                         </div>
                         <div class="clearfix"></div>
 
-                        <div class="col-md-3">
-                             {{__('admin.patient_file_number')}} 
+                        <div class="col-md-4">
+                             {{__('admin.patient_file_number')}}
                             <input type="text" class="form-control" id="pat_id" name="pat_id" onchange="get_patient()">
                         </div>
                         <div id="pat_detail">
@@ -173,18 +185,20 @@
                                 {{__('admin.patient_name')}}
                                 <input type="text" class="form-control" id="pat_name" name="pat_name" disabled>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 {{__('admin.mobile')}}
                                 <input type="text" class="form-control" id="pat_mobile" name="pat_mobile" disabled>
                             </div>
 
                         </div>
+                        <div class="col-xs-12 d-flex justify-content-center">
                         <div class="col-md-2">
                             <br>
                             <button class="btn btn-primary" onclick="get_patient_report();">{{__('admin.show')}} </button>
                         </div>
+                        </div>
 </div>
-                    <div id="row">
+                    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                         <div id="appoints">
 
@@ -202,5 +216,5 @@
 
 @endsection
 
-{!! modelBox("addpatient","حجز موعد / اختيار مريض","box_add","status_add","add_patient") !!}
-{!! modelBox("changestatus","تغير حالة الحجز","box_change","status_add","add_change") !!}
+{!! modelBox("box_add","addpatient","حجز موعد / اختيار مريض","status_add","add_patient") !!}
+{!! modelBox("box_change","changestatus","تغير حالة الحجز","status_add","add_change") !!}

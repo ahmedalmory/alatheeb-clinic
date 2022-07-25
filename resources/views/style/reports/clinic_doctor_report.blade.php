@@ -65,11 +65,20 @@
 
             .datespage .toparea .col-md-1 button {
                 background-color: #34c5d1;
-                color: #fff;
-                border: 0;
-                margin-top: 10px
+    color: #fff;
+    border: 0;
+    margin-top: 10px;
+    width: fit-content;
+    margin-right: auto;
+    height: fit-content;
+    margin-left: 0 !important;
+    padding: 1rem;
+    margin-bottom: 5px;
+    border-radius: 4px;
             }
-
+            select,input {
+                height: 40px !important;
+            }
         </style>
         <div class="datespage">
             <div class="title">{{__('admin.clinics_and_doctor_invoices_statement')}}</div>
@@ -78,7 +87,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="col-md-2">
-                                {{ __('admin.from') }}  
+                                {{ __('admin.from') }}
                                 <input class="form-control" id="date_from" name="date_from" type="date">
                             </div>
                             <div class="col-md-2">
@@ -111,7 +120,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 {{ __('app.doctor') }}
                                 <select class="form-control" id="doctors">
                                     <option value="-5">   {{ __('admin.undefined') }}</option>
@@ -123,14 +132,16 @@
                             </div>
 
 
+                            <div class="col-xs-12 d-flex justify-content-center">
                             <div class="col-md-2">
                                 <br>
                                 <button class="btn btn-primary" onclick="get_clinic_doctor_report();">{{ __('admin.show') }}</button>
                             </div>
+                            </div>
                             <div class="clearfix"></div>
 
                         </div>
-                        <div id="row">
+                        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                             <div id="appoints">
 
@@ -144,5 +155,5 @@
         </div><!-- end col-lg-10 -->
     @endsection
 
-    {!! modelBox('addpatient', 'حجز موعد / اختيار مريض', 'box_add', 'status_add', 'add_patient') !!}
-    {!! modelBox('changestatus', 'تغير حالة الحجز', 'box_change', 'status_add', 'add_change') !!}
+    {!! modelBox('box_add','addpatient', 'حجز موعد / اختيار مريض',  'status_add', 'add_patient') !!}
+    {!! modelBox('box_change','changestatus', 'تغير حالة الحجز',  'status_add', 'add_change') !!}

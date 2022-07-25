@@ -777,5 +777,5 @@
     </div>
 
     <div class="clearfix"></div>
-    {!! modelBox('editcompany', __('app.id_number_already_exists'), 'box_edit', 'status_update', 'update_company') !!}
+    {!! modelBox('box_edit', 'editcompany', __('app.id_number_already_exists'), 'status_update', 'update_company') !!}
 @stop

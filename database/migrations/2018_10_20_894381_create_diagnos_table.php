@@ -34,6 +34,7 @@ class CreateDiagnosTable extends Migration
          $table->integer('group_id')->unsigned();
          $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
          $table->integer('dep_id')->unsigned()->nullable();
+         $table->integer('payments')->default(1)->nullable();
          $table->foreign('dep_id')->references('id')->on('departments')->onDelete('cascade');
          $table->timestamps();
       });

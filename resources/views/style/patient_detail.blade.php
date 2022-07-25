@@ -99,7 +99,11 @@ foreach ($patient as $item) { ?>
         <div class="col-md-2">
             الالإجمالي <h1 id="t_total">0</h1>
         </div>
-
+        @user_can("specials-payments")
+        <div class="col-md-2">
+            تقصيد الفاتورة <input type="number" min="1" name="payments" value="1" id="payments">
+        </div>
+@end_user_can
         <div class="col-md-12">
             <table class="table table-bordered">
                 <thead>
@@ -123,10 +127,10 @@ foreach ($patient as $item) { ?>
             <input type="hidden" name="attend_status" value="attended" id="">
 
             <button type="submit" class="btn mb-2  pull-right btn-danger btn-lg  ">الغاء الجلسة</button>
-            <button class="btn btn-success pull-right pull-xs-left mb-2" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
-                وانهاء الجلسة
-            </button>
         </form>
+        <button class="btn btn-success pull-right pull-xs-left mb-2" onclick="save_treatment('<?=$item->id;?>','<?=$appoint_id;?>')">حفظ التشخيص
+            وانهاء الجلسة
+        </button>
 
     </div>
 </div>

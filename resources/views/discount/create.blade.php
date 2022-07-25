@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="">{{__('app.discount_rate')}}</label>
-                            <input name="discount_rate" class="form-control" value="{{old('discount_rate')}}">
+                            <input type="number" name="discount_rate" class="form-control" value="{{old('discount_rate')}}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">{{__('app.show_discount_rate')}}</label>
@@ -34,7 +34,7 @@
                         <div class="col-md-6 form-group">
                             <label for="">{{_the('app.product')}}</label>
                             <select class="form-control" name="product_id">
-                                <option {{old('product_id') == 0 ? "selected":""}} value="0">{{__('app.for_all').__('app.products')}}</option>
+                                <option {{old('product_id') == 0 ? "selected":""}} value="0">{{__('app.for_all').'  '.__('app.products')}}</option>
                                 @foreach(\App\Models\Product::all() as $product)
                                 <option {{old('product_id') == $product->id ? "selected":""}} value="{{$product->id}}">{{$product->p_name}}</option>
                                 @endforeach

@@ -116,7 +116,7 @@
 
 
 </div>
-                    <div id="row" style="overflow:auto">
+                    <div id="row" >
 
                         <div id="appoints" style="min-width:1000px">
 
@@ -134,5 +134,5 @@
 
 @endsection
 
-{!! modelBox("addpatient","حجز موعد / اختيار مريض","box_add","status_add","add_patient") !!}
-{!! modelBox("changestatus","تغير حالة الحجز","box_change","status_add","add_change") !!}
+{!! modelBox("box_add","addpatient","حجز موعد / اختيار مريض","status_add","add_patient") !!}
+{!! modelBox("box_change","changestatus","تغير حالة الحجز","status_add","add_change") !!}

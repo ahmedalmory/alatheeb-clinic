@@ -16,6 +16,7 @@ use App\Models\invoice_main;
 use App\Models\invoice_detail;
 use Carbon\Carbon;
 use App\Models\Patients_files;
+use App\Models\SalaryDiscount;
 use App\Models\User;
 use Validator;
 
@@ -609,6 +610,7 @@ WHERE id = $request->id"));
     //save tratment by doctor
     public function save_treatment(Request $request)
     {
+        
         $sum=0;
         for ($i = 0; $i < count($request->p_id); $i++) {
             $p = Product::findOrFail($request->p_id[$i]);
@@ -617,6 +619,7 @@ WHERE id = $request->id"));
 
         $post = new Diagnos;
         $post->patient_id = $request->patient_id;
+        $post->payments = $request->payments;
         $post->in_day = Carbon::now();
         $post->dr_id = Auth::user()->id;
         $post->group_id = Auth::user()->group_id;
@@ -628,9 +631,14 @@ WHERE id = $request->id"));
         $post->in_time = $date = date('H:i');
         $msg = $post->save();
         if ($request->t_total > 0) {
+            $total=number_format($request->t_total/$request->payments,2);
+            $tax=number_format(($request->t_total-$sum)/$request->payments,2);
+            for($i=1 ; $i <= $request->payments ; $i++){
+
             $post = new invoice_main;
-            $post->total_amount = $request->t_total;
-            $post->due = $request->t_total;
+            $post->total_amount = $request->t_total/$request->payments;
+            $post->due = $request->t_total/$request->payments;
+            $post->discount = $request->discount;
             $post->invoice_type = '2';
             $post->doc_id = Auth::user()->id;
             $post->group_id = Auth::user()->group_id;
@@ -639,24 +647,25 @@ WHERE id = $request->id"));
             $post->in_day = Carbon::now();
             $post->in_time = $date = date('H:i');
             $post->appoint_id = $request->appoint_id;
-            $post->tax_amount = $request->t_total-$sum;
+            $post->tax_amount = $tax;
 
             $msg = $post->save();
             $id = DB::getPdo()->lastInsertId();
-            for ($i = 0; $i < count($request->p_id); $i++) {
+            for ($j = 0; $j < count($request->p_id); $j++) {
                 $post = new invoice_detail;
-                $post->p_id = $request->p_id[$i];
-                $post->p_cat = $request->p_cat[$i];
-                $post->p_name = $request->p_name[$i];
-                $post->p_price = $request->p_price[$i];
+                $post->p_id = $request->p_id[$j];
+                $post->p_cat = $request->p_cat[$j];
+                $post->p_name = $request->p_name[$j];
+                $post->p_price = $request->p_price[$j];
                 $post->invoice_main_id = $id;
                 $msg = $post->save();
             }
         }
+
+        }
         if ($msg) {
             $post = Appoint::find($request->appoint_id);
-            $post->appoint_status = '3';
-            $msg = $post->save();
+            $post->update(['appoint_status'=>3]);
             echo json_encode(array('text' => 'تحت حفظ التشخيص واصدارالفاتورة بنجاح وانهاء الجلسة', 'cls' => 'success'));
         } else {
             echo json_encode(array('text' => 'not saved', 'cls' => 'error'));
@@ -681,4 +690,33 @@ WHERE id = $request->id"));
     {
         return view('style.layouts.no_access');
     }
+
+    public function salaries(){
+        $users=User::where(function($q){
+            if(request('user')){
+                $q->where('id',request('user'));
+            }
+        })->paginate(10);
+        $discounts=SalaryDiscount::whereMonth('date',Carbon::now()->month)->where(function($q){
+            if(request('user')){
+                $q->where('user_id',request('user'));
+            }
+        })->sum('amount');
+        return view('style.salaries',compact('users','discounts'));
+    }
+    public function salary_discount(){
+        $users=User::get();
+        return view('style.salary-discount',compact('users'));
+    }
+    public function salary_discount_post(Request $request){
+        $request->validate([
+            'user_id'=>'required|exists:users,id',
+            'amount'=>'required|numeric',
+            'reason'=>'required',
+            'date'=>'required',
+        ]);
+        $discount=SalaryDiscount::create($request->all());
+        return redirect()->route('salary')->with('success','تم إضافة الخصم بنجاح');
+    }
+    
 }

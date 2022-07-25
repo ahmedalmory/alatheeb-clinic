@@ -96,6 +96,7 @@ class GroupsController extends Controller
      */
     public function update($id)
     {
+        /* return request()->all(); */
         $rules = [
             'group_name' => 'required|string',
             'permissions' => '',

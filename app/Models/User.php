@@ -17,9 +17,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'group_id', 'level', 'dep_id',
+        'name', 'email', 'password', 'group_id', 'level', 'dep_id', 'salary', 'rate', 'rate_active'
     ];
-
+    protected $appends = ['monthly_income_from_invoices','monthly_discounts'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -61,13 +61,40 @@ class User extends Authenticatable
     {
         return $this->level === 'recep';
     }
-    public function todayAppointments(){
+    public function todayAppointments()
+    {
         return $this->appointments()->where('appoint_status', '1')
             ->whereDate('in_day', Carbon::today()->toDateString())->get();
     }
-    public function waitingAppointments(){
-        return $this->appointments()->whereNotIn('appoint_status',[1,3])
+    public function waitingAppointments()
+    {
+        return $this->appointments()->whereNotIn('appoint_status', [1, 3])
             ->whereDate('in_day', Carbon::today()->toDateString())->get();
     }
 
+    public function invoices()
+    {
+        return $this->hasMany(invoice_main::class, 'doc_id');
+    }
+    public function salaryDiscounts(){
+        return  $this->hasMany(SalaryDiscount::class,'user_id');
+    }
+    public function getMonthlyIncomeFromInvoicesAttribute()
+    {
+        $total_amount=$this->invoices()->whereMonth('created_at', Carbon::now()->month)->sum('total_amount');
+        return $total_amount*($this->rate/100);
+    }
+    public function getMonthlyDiscountsAttribute()
+    {
+        return $this->salaryDiscounts()->whereMonth('date', Carbon::now()->month)->sum('amount');
+    }
+    public static function TotalMonthlyIncome()
+    {
+        $users=User::get();
+    return $sum = array_reduce($users->toArray(), function ($carry, $item) {
+        $carry += $item['salary']+$item['monthly_income_from_invoices']-$item['monthly_discounts'];
+        return $carry;
+    });
+    }
+    
 }
