@@ -51,6 +51,9 @@ body {
 .justify-content-between {
     justify-content: space-between;
 }
+.justify-content-center {
+    justify-content: center;
+}
 .justify-content-end {
     justify-content: flex-end;
 }
@@ -78,6 +81,12 @@ body {
 }
 .row-gap-24 {
     row-gap: 24px;
+}
+.w-fit {
+    width: fit-content !important;
+}
+.h-fit {
+    height: fit-content !important;
 }
 /* = Start Code
 -------------------------------------------------------------- */
@@ -1762,4 +1771,11 @@ a.scrollup:hover {
 .table-active {
     background-color: #f9f9f9 !important;
     width: 15% !important;
+}
+
+/* Print */
+@media print {
+    .not-print {
+        display: none !important;
+    }
 }
