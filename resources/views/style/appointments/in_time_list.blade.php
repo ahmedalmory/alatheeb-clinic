@@ -28,7 +28,15 @@ for ($i = $open_time; $i < $close_time; $i += (60 * setting()->patient_exposure)
    $period_time = date("h:i", $i);
 
    $select_old = $select == $period_time ? 'checked' : '';
-   $check      = App\Models\Appoint::whereDate('in_day', $day)->where('in_time', $period_time)->first();
+   // FIXME :: baaaaaaaaaaaaaaaaaaaad code
+    // NOTE must to filter with  patient_id , user_id , dep_id
+   $check      = App\Models\Appoint::query()
+       ->whereDate('in_day', $day)
+       ->where('in_time', $period_time)
+        ->where('patient_id', $patient_id)
+        ->where('dep_id', $dep_id)
+        ->where('user_id', $user_id)
+       ->first();
    $output .= '<div class="md-radio">';
    if (!empty($check)) {
       $output .= "<input type='radio' checked id='radio" . $i . "' class='md-radiobtn' readonly disabled />

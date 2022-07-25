@@ -208,11 +208,13 @@ class Appointments extends Controller
          if (!empty($period) and $period > 0) {
             $last_period = Appoint::whereDate('in_day', request('day'))->pluck('in_time');
             return view('style.appointments.in_time_list', [
+               'patient_id'   => \request('patient_id'),
+               'dep_id'   => \request('dep_id'),
+               'user_id'   => \request('user_id'),
                'period'   => $period,
                'select'   => $select,
                'selected' => $period_select,
                'day'      => request('day'),
-
             ])->render();
          }
       }
