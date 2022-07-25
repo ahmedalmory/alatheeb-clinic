@@ -178,7 +178,7 @@ class InvoicesDataTable extends DataTable
          [
             'name'      => 'accountant_id.name',
             'data'      => 'accountant_id.name',
-            'title'     => _the('app.accountant'),
+            'title'     => __('app.employee'),
             'orderable' => false,
          ],
          [
@@ -191,7 +191,7 @@ class InvoicesDataTable extends DataTable
         [
             'name'      => 'total_amount',
             'data'      => 'total_amount',
-            'title'     => _the('app.total'),
+            'title'     => __('app.total'),
             'orderable' => false,
          ], [
             'name'      => 'invoice_status',

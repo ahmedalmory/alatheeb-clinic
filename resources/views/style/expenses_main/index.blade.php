@@ -136,5 +136,5 @@ function save_expense_main(){
         }
     };
 </script>
-{!! modelBox("addexpense_main","اضافة مصاريف رئيسية","box_add","status_add","add_expense_main") !!}
-{!! modelBox("editexpense_main","تغير مصرف الرئيسية","box_edit","status_edit","edit_expense_main") !!}
+{!! modelBox("box_add","addexpense_main","اضافة مصاريف رئيسية","status_add","add_expense_main") !!}
+{!! modelBox("box_edit","editexpense_main","تغير مصرف الرئيسية","status_edit","edit_expense_main") !!}

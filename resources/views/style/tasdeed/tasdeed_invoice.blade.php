@@ -210,7 +210,7 @@ function get_due(){
             </div>
 
             <div class="col-md-5">
-                المدفوع كاش :
+                المدفوع نقدا :
             </div>
             <div class="col-md-7">
                        <input type="text" id="cash_hand"  value="<?=$inv_main->paid_cash;?>" onkeyup= "get_due();" class="form-control">

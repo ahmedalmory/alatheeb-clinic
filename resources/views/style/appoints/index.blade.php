@@ -275,8 +275,8 @@
     </div><!-- end block4 -->
 </div><!-- end col-lg-10 -->
 
-{!! modelBox("addpatient",__('app.choose_patient').' / '.__('app.make_appointment'),"box_add","status_add","add_patient") !!}
-{!! modelBox("changestatus",__('app.change_appointment_statue'),"box_change","status_add","add_change") !!}
+{!! modelBox("box_add","addpatient",__('app.choose_patient').' / '.__('app.make_appointment'),"status_add","add_patient") !!}
+{!! modelBox("box_change","changestatus",__('app.change_appointment_statue'),"status_add","add_change") !!}
 
 
 @endsection

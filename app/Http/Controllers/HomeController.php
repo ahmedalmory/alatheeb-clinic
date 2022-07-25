@@ -637,6 +637,7 @@ WHERE id = $request->id"));
             $post = new invoice_main;
             $post->total_amount = $request->t_total/$request->payments;
             $post->due = $request->t_total/$request->payments;
+            $post->discount = $request->discount;
             $post->invoice_type = '2';
             $post->doc_id = Auth::user()->id;
             $post->group_id = Auth::user()->group_id;

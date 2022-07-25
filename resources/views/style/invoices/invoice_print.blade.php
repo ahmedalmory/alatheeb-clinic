@@ -269,7 +269,7 @@
         <tr>
             <td colspan="2">
                 <span class="rig pir-r"><strong>أجمالي الخصم</strong></span>
-                <span class="cen">0.00</span>
+                <span class="cen">{{ $inv_main->discount }}</span>
                 <span dir="ltr pir-l" class="lef"><strong>Discount</strong></span>
             </td>
             <td rowspan="2">

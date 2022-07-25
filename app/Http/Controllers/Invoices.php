@@ -350,7 +350,7 @@ WHERE id = $request->id"),
             $post->paid_card = $request->cash_card;
             $post->comments = $request->comments;
             $post->period = $request->period;
-            /* $post->discount_amount = $request->discount_amount; */
+            $post->discount = $request->discount_amount;
             $post->invoice_type = 1;
             $post->other = $request->other;
             if ($request->cash_hand > 0 || $request->cash_card > 0) {

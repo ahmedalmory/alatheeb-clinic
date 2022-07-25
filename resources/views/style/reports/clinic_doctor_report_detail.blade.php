@@ -42,17 +42,17 @@
                     رقم
                 </th>
                 <th style="text-align: center;">
-                    اسم الطبيب
+                     الطبيب
                 </th>
                 <th style="text-align: center;">
-              اسم المريض        </th>
+               المريض        </th>
                 <th style="text-align: center;">
                   الخدمة        </th>
                 <th style="text-align: center;">
-                    الالإجمالي
+                    الاجمالي
                 </th>
                 <th style="text-align: center;">
-                    كاش
+                    نقدا
                 </th>
                 <th style="text-align: center;">
                     شبكة
@@ -140,7 +140,7 @@
                 <td> <?=$total_amount;?></td>
             </tr>
             <tr>
-                <td>الإجمالي كاش</td>
+                <td>الإجمالي نقدا</td>
                 <td> <?=$total_cash;?></td>
             </tr>
             <tr>

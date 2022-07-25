@@ -98,23 +98,6 @@
 
                 </td>
                 <td>
-                    <?php if($s != '0'){?>
-                    <a class="btn btn-success btn-sm" onclick="confirm_call('<?php echo  $period_time; ?>','<?php echo  $clinic; ?>',
-                  '<?php echo  $doctor; ?>','<?php echo  $period; ?>','<?php echo  $appoint_date; ?>');"><i
-                            class="fas fa-phone-alt"></i></a>
-                    <?php } else{?>
-                    <a class="btn btn-success btn-sm" disabled><i class="fas fa-phone-alt"></i></a>
-                    <?php }  ?>
-                </td>
-                <td>
-                    <?php if($s != '0'){?>
-                    <a class="btn btn-primary btn-sm" onclick="change_status('<?php echo  $period_time; ?>','<?php echo  $clinic; ?>',
-                  '<?php echo  $doctor; ?>','<?php echo  $period; ?>','<?php echo  $appoint_date; ?>')">حالة</a>
-                    <?php } else{?>
-                    <a class="btn btn-primary btn-sm" disabled>حالة</a>
-                    <?php }  ?>
-                </td>
-                <td>
                     <?php if($s != '0'){
                   $message = " تنبية : هناك موعد يوم ".$appoint_date." الساعة ".$period_time." مع الدكتور ".\App\Models\User::query()->find($doctor)->name." في عيادة ".\App\Models\Department::find($clinic)->dep_name." الرجاء الحضور .";
                   ?>
@@ -125,6 +108,24 @@
                     <?php }?>
 
                 </td>
+                {{-- <td>
+                    <?php if($s != '0'){?>
+                    <a class="btn btn-success btn-sm" onclick="confirm_call('<?php echo  $period_time; ?>','<?php echo  $clinic; ?>',
+                  '<?php echo  $doctor; ?>','<?php echo  $period; ?>','<?php echo  $appoint_date; ?>');"><i
+                            class="fas fa-phone-alt"></i></a>
+                    <?php } else{?>
+                    <a class="btn btn-success btn-sm" disabled><i class="fas fa-phone-alt"></i></a>
+                    <?php }  ?>
+                </td> --}}
+                <td>
+                    <?php if($s != '0'){?>
+                    <a class="btn btn-primary btn-sm" onclick="change_status('<?php echo  $period_time; ?>','<?php echo  $clinic; ?>',
+                  '<?php echo  $doctor; ?>','<?php echo  $period; ?>','<?php echo  $appoint_date; ?>')">حالة</a>
+                    <?php } else{?>
+                    <a class="btn btn-primary btn-sm" disabled>حالة</a>
+                    <?php }  ?>
+                </td>
+                
 
             </tr>
             <?php  } ?>

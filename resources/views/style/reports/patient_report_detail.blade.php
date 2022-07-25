@@ -47,10 +47,10 @@
         <th style="text-align: center;">
 اسم المريض        </th>
         <th style="text-align: center;">
-            الالإجمالي
+            الاجمالي
         </th>
         <th style="text-align: center;">
-            كاش
+            نقدا
         </th>
         <th style="text-align: center;">
             شبكة
@@ -128,7 +128,7 @@ foreach($invoices as $inv) { $count ++;
                 <td> <?=$total_amount;?></td>
             </tr>
             <tr>
-                <td>الإجمالي كاش</td>
+                <td>الإجمالي نقدا</td>
                 <td> <?=$total_cash;?></td>
             </tr>
             <tr>

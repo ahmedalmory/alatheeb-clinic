@@ -138,5 +138,5 @@ function save_category(){
         }
     };
 </script>
-{!! modelBox("addcategory","اضافة التصنيف","box_add","status_add","add_category") !!}
-{!! modelBox("editcategory","تغير التصنيف","box_edit","status_edit","edit_category") !!}
+{!! modelBox("box_add","addcategory","اضافة التصنيف","status_add","add_category") !!}
+{!! modelBox("box_edit","editcategory","تغير التصنيف","status_edit","edit_category") !!}

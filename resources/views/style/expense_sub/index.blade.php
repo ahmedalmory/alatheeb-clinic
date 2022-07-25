@@ -147,5 +147,5 @@ function save_expense_sub(){
 	}
   };
 </script>
-{!! modelBox("addexpense_sub","اضافة مصرف الفرعي","box_add","status_add","add_expense_sub") !!}
-{!! modelBox("editexpense_sub","تغير مصرف الفرعي","box_edit","status_edit","edit_expense_sub") !!}
+{!! modelBox("box_add","addexpense_sub","اضافة مصرف الفرعي","status_add","add_expense_sub") !!}
+{!! modelBox("box_edit","editexpense_sub","تغير مصرف الفرعي","status_edit","edit_expense_sub") !!}

@@ -41,7 +41,7 @@
                            <td width="33%" style="border:0 !important;">
                               <div class="" style="text-align: center;max-width:300px">
                                  <div class="">
-                                    مجمع الميدان الطبي<br>
+                                    {{ setting()->sitename }}<br>
                                     <!-- http://ca.midan-c.com -->
                                     02145454-02145454-058458787
                                  </div>
@@ -57,7 +57,7 @@
                            <td width="33%" style="border:0 !important;">
                               <div class="" style="text-align: center;max-width:300px;margin-bottom:5px">
                                  <div class="">
-                                    Al-Maidan Medical Complex<br>
+                                    {{ setting()->sitename }}<br>
                                     <!-- http://ca.midan-c.com -->
                                     02145454-02145454-058458787
                                  </div>

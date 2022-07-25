@@ -162,5 +162,5 @@
     {!! Form::close() !!}
 @stop
 
- {!! modelBox("addproduct","اضافة الخدمة","box_add","status_add","add_product") !!} 
- {!! modelBox("editproduct","تغير الخدمة","box_edit","status_edit","edit_product") !!} 
+ {!! modelBox("box_add","addproduct","اضافة الخدمة","status_add","add_product") !!} 
+ {!! modelBox("box_edit","editproduct","تغير الخدمة","status_edit","edit_product") !!} 
