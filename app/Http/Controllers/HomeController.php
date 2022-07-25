@@ -16,6 +16,7 @@ use App\Models\invoice_main;
 use App\Models\invoice_detail;
 use Carbon\Carbon;
 use App\Models\Patients_files;
+use App\Models\SalaryDiscount;
 use App\Models\User;
 use Validator;
 
@@ -691,7 +692,31 @@ WHERE id = $request->id"));
     }
 
     public function salaries(){
-        $users=User::paginate(10);
-        return view('style.salaries',compact('users'));
+        $users=User::where(function($q){
+            if(request('user')){
+                $q->where('id',request('user'));
+            }
+        })->paginate(10);
+        $discounts=SalaryDiscount::whereMonth('date',Carbon::now()->month)->where(function($q){
+            if(request('user')){
+                $q->where('user_id',request('user'));
+            }
+        })->sum('amount');
+        return view('style.salaries',compact('users','discounts'));
     }
+    public function salary_discount(){
+        $users=User::get();
+        return view('style.salary-discount',compact('users'));
+    }
+    public function salary_discount_post(Request $request){
+        $request->validate([
+            'user_id'=>'required|exists:users,id',
+            'amount'=>'required|numeric',
+            'reason'=>'required',
+            'date'=>'required',
+        ]);
+        $discount=SalaryDiscount::create($request->all());
+        return redirect()->route('salary')->with('success','تم إضافة الخصم بنجاح');
+    }
+    
 }
