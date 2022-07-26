@@ -28,7 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = DB::select(DB::raw("SELECT * FROM category "));
-        return view('admin.products.create', ['title' => trans('admin.create'),'categories'=>$categories]);
+        return view('admin.products.create', ['title' => trans('admin.create'), 'categories' => $categories]);
     }
 
     /**
@@ -43,16 +43,16 @@ class ProductController extends Controller
             'p_name'     => 'required|string',
             'cat_id'    => 'required',
             'p_price' => 'required',
-         ];
-         $data = $this->validate(request(), $rules, [], [
+        ];
+        $data = $this->validate(request(), $rules, [], [
             'p_name'     => trans('admin.p_name'),
             'cat_id'    => trans('admin.cat_id'),
             'p_price' => trans('admin.p_price'),
-         ]);
-         Product::create($data);
-   
-         session()->flash('success', trans('admin.added'));
-         return redirect(aurl('products'));
+        ]);
+        Product::create($data);
+
+        session()->flash('success', trans('admin.added'));
+        return redirect(aurl('products'));
     }
 
     /**
@@ -61,9 +61,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $products = Product::find($id);
+        return view('admin.products.show', ['title' => trans('admin.show'), 'products' => $products]);
     }
 
     /**
@@ -72,9 +73,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = DB::select(DB::raw("SELECT * FROM category "));
+        return view('admin.products.edit', ['title' => trans('admin.edit'), 'product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -86,7 +89,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $rules = [
+            'p_name'     => 'required|string',
+            'cat_id'    => 'required',
+            'p_price' => 'required',
+        ];
+        $data = $this->validate(request(), $rules, [], [
+            'p_name'     => trans('admin.p_name'),
+            'cat_id'    => trans('admin.cat_id'),
+            'p_price' => trans('admin.p_price'),
+        ]);
+        $product->update($data);
+
+        session()->flash('success', trans('admin.added'));
+        return redirect(aurl('products'));
     }
 
     /**
@@ -95,8 +111,31 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        @$product->delete();
+        session()->flash('success', trans('admin.deleted'));
+        return back();
+    }
+
+    public function multi_delete(Request $r)
+    {
+        $data = $r->input('selected_data');
+        if (is_array($data)) {
+            foreach ($data as $id) {
+                $products = Product::find($id);
+
+                @$products->delete();
+            }
+            session()->flash('success', trans('admin.deleted'));
+            return back();
+        } else {
+            $products = Product::find($data);
+
+            @$products->delete();
+            session()->flash('success', trans('admin.deleted'));
+            return back();
+        }
     }
 }

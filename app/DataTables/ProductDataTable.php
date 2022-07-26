@@ -15,7 +15,7 @@ class ProductDataTable extends DataTable
    public function dataTable(DataTables $dataTables, $query)
    {
       return datatables($query)
-         ->addColumn('actions', 'style.products.buttons.actions')
+         ->addColumn('actions', 'admin.products.buttons.actions')
          ->addColumn('checkbox', '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
 			<input type="checkbox" class="selected_data" name="selected_data[]" value="{{ $id }}"> <span></span></label>')
          ->rawColumns(['checkbox', 'show_action', 'actions', 'period', 'user', 'date']);
@@ -61,8 +61,8 @@ class ProductDataTable extends DataTable
                   'text'      => '<i class="fa fa-plus"></i> ' . trans('admin.add'),
                   'className' => 'btn btn-primary',
                   'action'    => 'function(){
-                        	add_product();
-                        }',
+                     window.location.href =  "' . \URL::current() . '/create";
+                  }',
                ],
             ],
             'initComplete' => "function () {
