@@ -214,6 +214,30 @@
         </li>
     </ul>
 </li>
+<li class="nav-item start {{ active_link('products', 'active open') }} ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-group"></i>
+        <span class="title">{{ trans('admin.products') }} </span>
+        <span class="selected"></span>
+        <span class="arrow {{ active_link('products', 'open') }}"></span>
+    </a>
+    <ul class="sub-menu" style="{{ active_link('', 'block') }}">
+        <li class="nav-item start {{ active_link('products', 'active open') }}  ">
+            <a href="{{ aurl('products') }}" class="nav-link ">
+                <i class="fa fa-group"></i>
+                <span class="title">{{ trans('admin.products') }} </span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="nav-item start">
+            <a href="{{ aurl('products/create') }}" class="nav-link ">
+                <i class="fa fa-plus"></i>
+                <span class="title"> {{ trans('admin.create') }} </span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    </ul>
+</li>
 
 <li class="nav-item start {{ active_link('forms', 'active open') }} ">
     <a href="javascript:;" class="nav-link nav-toggle">

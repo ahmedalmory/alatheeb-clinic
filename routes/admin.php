@@ -60,6 +60,7 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
       Route::post('file/upload', 'Admin\PatientsController@upload_files');
       Route::post('delete/file', 'Admin\PatientsController@delete_files');
       Route::resource('departments', 'Admin\DepartmentsController');
+      Route::resource('products', 'Admin\ProductController');
 
       Route::resource('groups', 'Admin\GroupsController');
       Route::post('groups/multi_delete', 'Admin\GroupsController@multi_delete');
