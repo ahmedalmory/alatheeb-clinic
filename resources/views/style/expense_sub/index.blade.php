@@ -1,5 +1,7 @@
 @extends('style.index')
 @section('content')
+{!! modelBox("box_add","addexpense_sub","اضافة مصرف الفرعي","status_add","add_expense_sub") !!}
+{!! modelBox("box_edit","editexpense_sub","تغير مصرف الفرعي","status_edit","edit_expense_sub") !!}
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet light bordered">
@@ -147,5 +149,4 @@ function save_expense_sub(){
 	}
   };
 </script>
-{!! modelBox("box_add","addexpense_sub","اضافة مصرف الفرعي","status_add","add_expense_sub") !!}
-{!! modelBox("box_edit","editexpense_sub","تغير مصرف الفرعي","status_edit","edit_expense_sub") !!}
+

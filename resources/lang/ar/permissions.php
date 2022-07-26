@@ -8,7 +8,7 @@ return [
         'expenses'      =>  'المصاريف',
         'invoices'      =>  'الفواتير',
         'categories'      =>  'التصنيفات',
-        'products'      =>  'المنتجات',
+        'products'      =>  'الخدمات',
         'discounts'      =>  'العروض',
         'files'         =>  'ملفات المرضي',
     ],

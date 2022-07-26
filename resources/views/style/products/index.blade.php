@@ -1,5 +1,7 @@
 @extends('style.index')
 @section('content')
+ {!! modelBox("box_add","addproduct","اضافة الخدمة","status_add","add_product") !!} 
+ {!! modelBox("box_edit","editproduct","تغير الخدمة","status_edit","edit_product") !!} 
     <style>
 {{--         aloooo ????  --}}
         .dt-buttons{
@@ -162,5 +164,4 @@
     {!! Form::close() !!}
 @stop
 
- {!! modelBox("box_add","addproduct","اضافة الخدمة","status_add","add_product") !!} 
- {!! modelBox("box_edit","editproduct","تغير الخدمة","status_edit","edit_product") !!} 
+
