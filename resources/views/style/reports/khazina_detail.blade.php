@@ -3,18 +3,18 @@
     <div class="col-md-7">
     </div>
     <div class="col-md-1">
-        <button type="button" class="" onclick="jQuery('.print_invoices').print();"><i class="fa fa-print"></i></button>
+        <button type="button" class="" id="print-btn" data-print="print1"><i class="fa fa-print"></i></button>
     </div>
         <div class="col-md-3">
         </div>
     <div class="col-md-1">
-        <button type="button" class="" onclick="jQuery('.print_expense').print();"><i class="fa fa-print"></i></button>
+        <button type="button" class="" id="print-btn" data-print="print2"><i class="fa fa-print"></i></button>
     </div>
 
     <div class="clearfix"></div>
 
-    <div class="col-md-8 print_invoices">
-<table class="np" style="width:100% !important;">
+    <div class="col-md-8 print_invoices " id="print1">
+<table class="np" style="width:100% !important;" >
     <tr>
         <td width="40%"> {{ str_replace('|','-',setting()->phones) }} </td>
         <td width="50%"><h1>
@@ -23,18 +23,22 @@
         <td width="20%"><img src="{{ it()->url(setting()->logo) }}" alt="" width="100px" height="80px"> </td>
     </tr>
 </table>
-        <table class="np" style="width:100% !important;">
-    <tr>
-        <td width="10%"> من تاريخ :</td> <td><?=$from_date;?></td><td>الي :</td><td><?=$to_date;?></td><td width="10%"> نوع الدفع:</td><td><?=get_pay_report($pay_at)?></td><td>.....</td><td>الفترة :</td><td><?=get_period_report($period)?></td>
-    </tr>
-    </table>
+        <div class=" np"  style="width:100% !important;" dir="rtl">
+        <br>
+
+        <div class=""> <b>من تاريخ :</b> <?=$from_date;?></div>
+        <div class=""><b>الي :</b> <?=$to_date;?></div>
+        <div class=""> <b>نوع الدفع :</b> <?=get_pay_report($pay_at)?></div>
+        <div class=""><b>الفترة :</b> <?=get_period_report($period)?></div>
+        <br>
+</div>
 
 
 </table>
         <table border="1" style="background-color:white;text-align: center; " width="100%">
 
     <tr>
-        <th colspan="8" style="text-align: center;">بيانات الفواتير</th>
+        <th colspan="9" style="text-align: center;">بيانات الفواتير</th>
 
     </tr>
     <tr>
@@ -105,7 +109,7 @@ foreach($invoices as $inv) { $count ++;
             </tr>
 </table>
 </div>
-<div class="col-md-4 print_expense">
+<div class="col-md-4 print_expense" id="print2">
     <table class="np" style="width:100% !important;">
         <tr>
             <td width="40%"> {{ str_replace('|','-',setting()->phones) }} </td>
@@ -115,11 +119,12 @@ foreach($invoices as $inv) { $count ++;
             <td width="20%"><img src="{{ it()->url(setting()->logo) }}" alt="" width="100px" height="80px"> </td>
         </tr>
     </table>
-    <table class="np" style="width:100% !important;">
-        <tr>
-            <td width="10%"> من تاريخ :</td> <td><?=$from_date;?></td><td>الي :</td><td><?=$to_date;?></td>
-        </tr>
-    </table>
+    <div class="np" style="width:100% !important;" dir="rtl">
+    <br>
+
+            <div> من تاريخ :<?=$from_date;?></div><div>الي :<?=$to_date;?></div>
+            <br>
+    </div>
     <table border="1" style="background-color:white;text-align: center;  "width="100%">
         <tr>
             <th colspan="8" style="text-align: center;">بيانات المصاريف</th>
@@ -227,8 +232,23 @@ foreach($invoices as $inv) { $count ++;
         $('#popoverr').hide();
     }
 
+    document.querySelectorAll("#print-btn").forEach(function(btn) {
+        btn.addEventListener("click",function printData() {
+    let divToPrint = document.getElementById(btn.getAttribute("data-print"));
+
+    newWin = window.open("");
+    newWin.document.head.replaceWith(document.head.cloneNode(true));
+    newWin.document.body.appendChild(divToPrint.cloneNode(true));
+    setTimeout(() => {
+        newWin.print();
+        newWin.close();
+    }, 600);
+} );
+    })
+
+
 </script>
-<style>
+<style class="print-div">
 
     .popoverr{
 

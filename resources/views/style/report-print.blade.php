@@ -20,11 +20,12 @@
     @endphp
 
 
-    <script type="text/javascript">
+    <script>
           window.print();
-          window.onafterprint = function () {
+          window.addEventListener("beforeprint", function() {
             window.history.back()
-          }
+          });
+
     </script>
 
 

@@ -3,14 +3,14 @@
     <div class="col-md-11">
     </div>
     <div class="col-md-1">
-        <button type="button" style="background-color: #2c699e; border: 0; color: #fff;" class="" onclick="jQuery('.print_invoices').print();"><i class="fa fa-print"></i></button>
+        <button type="button" id="print-btn" data-print="print1" style="background-color: #2c699e; border: 0; color: #fff;" class="" onclick="jQuery('.print_invoices').print();"><i class="fa fa-print"></i></button>
     </div>
 
 
 
     <div class="clearfix"></div>
 
-    <div class="col-md-12 print_invoices">
+    <div class="col-md-12 print_invoices" id="print1">
 <table class="np" style="width:100% !important;">
     <tr>
         <td width="40%"> {{ str_replace('|','-',setting()->phones) }} </td>
@@ -20,11 +20,15 @@
         <td width="20%"><img src="{{ it()->url(setting()->logo) }}" alt="" width="100px" height="80px"> </td>
     </tr>
 </table>
-        <table class="np" style="width:100% !important;">
-    <tr>
-        <td width="8%"> من تاريخ </td> <td><?=$from_date;?></td><td>الي :</td><td><?=$to_date;?></td><td>.</td><td width="8%">الدفع:</td><td><?=get_pay_report($pay_at)?></td><td>..</td><td>الفترة :</td><td><?=get_period_report($period)?></td><td>..</td></td><td>العيادة :</td><td><?php if($dep_id != -5){echo clinic_name($dep_id);}?></td>
-    </tr>
-    </table>
+        <div class="np" style="width:100% !important;" dir="rtl">
+            <br>
+            <div> <b>من تاريخ </b> <?=$from_date;?></div>
+            <div><b>الي :</b> <?=$to_date;?></div>
+            <div ><b>الدفع:</b> <?=get_pay_report($pay_at)?></div>
+            <div><b>الفترة :</b> <?=get_period_report($period)?></div>
+            <div><b>العيادة :</b> <?php if($dep_id != -5){echo clinic_name($dep_id);}?></div>
+            <br>
+        </div>
 
 
 </table>
@@ -149,6 +153,20 @@ foreach($invoices as $inv) { $count ++;
     }
     $(document).ready(function() {
         //$( "#popoverr" ).draggable();
+    })
+                // Print
+                document.querySelectorAll("#print-btn").forEach(function(btn) {
+        btn.addEventListener("click",function printData() {
+    let divToPrint = document.getElementById(btn.getAttribute("data-print"));
+
+    newWin = window.open("");
+    newWin.document.head.replaceWith(document.head.cloneNode(true));
+    newWin.document.body.appendChild(divToPrint.cloneNode(true));
+    setTimeout(() => {
+        newWin.print();
+        newWin.close();
+    }, 600);
+} );
     })
 </script>
 <style>
