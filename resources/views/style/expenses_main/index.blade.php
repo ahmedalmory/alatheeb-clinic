@@ -1,6 +1,7 @@
 @extends('style.index')
 @section('content')
-
+{!! modelBox("box_add","addexpense_main","اضافة مصاريف رئيسية","status_add","add_expense_main") !!}
+{!! modelBox("box_edit","editexpense_main","تغير مصرف الرئيسية","status_edit","edit_expense_main") !!}
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet light bordered">
@@ -136,5 +137,4 @@ function save_expense_main(){
         }
     };
 </script>
-{!! modelBox("box_add","addexpense_main","اضافة مصاريف رئيسية","status_add","add_expense_main") !!}
-{!! modelBox("box_edit","editexpense_main","تغير مصرف الرئيسية","status_edit","edit_expense_main") !!}
+

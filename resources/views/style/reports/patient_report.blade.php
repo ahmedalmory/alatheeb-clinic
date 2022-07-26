@@ -213,8 +213,8 @@
 
 
 
+        {!! modelBox("box_add","addpatient","حجز موعد / اختيار مريض","status_add","add_patient") !!}
+        {!! modelBox("box_change","changestatus","تغير حالة الحجز","status_add","add_change") !!}
 
 @endsection
 
-{!! modelBox("box_add","addpatient","حجز موعد / اختيار مريض","status_add","add_patient") !!}
-{!! modelBox("box_change","changestatus","تغير حالة الحجز","status_add","add_change") !!}
