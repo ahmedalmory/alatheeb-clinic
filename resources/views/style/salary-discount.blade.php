@@ -4,29 +4,31 @@
 
     <h4>خصم راتب</h4>
     <div class="">
-      <form action="{{ route('salary_discount_post') }}" method="post">
+      <form class="row row-gap-24" action="{{ route('salary_discount_post') }}" method="post">
         @csrf
-        <div class="">
+        <div class="col-xs-12 col-md-4">
         <label>{{ __('admin.user_id') }}</label>
-        <select name="user_id" id="">
+        <select class="form-control" name="user_id" id="">
           @foreach ($users as $user)
             <option {{ request('user')==$user->id?'selected':'' }} value="{{ $user->id }}">{{ $user->name }}</option>
           @endforeach
         </select>
       </div>
-      <div class="">
+      <div class="col-xs-12 col-md-4">
         <label for="">{{ __('admin.amount') }}</label>
-        <input type="number" name="amount">
+        <input class="form-control" type="number" name="amount">
       </div>
-      <div class="">
+      <div class="col-xs-12 col-md-4">
         <label for="">{{ __('admin.date') }}</label>
-        <input type="date" name="date">
+        <input class="form-control" type="date" name="date">
       </div>
-      <div class="">
+      <div class="col-xs-12 col-md-12">
         <label for="">{{ __('admin.reason') }}</label>
-        <textarea name="reason"></textarea>
+        <textarea class="form-control" rows="5" name="reason"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">{{ __('admin.add') }}</button>
+      <div class="col-xs-12 d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">{{ __('admin.add') }}</button>
+      </div>
       </form>
     </div>
 @endsection

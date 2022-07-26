@@ -73,8 +73,11 @@
                     });
                 @endif
 
-                $(document).on('change', '.period,.in_day', function() {
+                $(document).on('change', '#patient_id,#dep_id,#user_id,.period,.in_day', function() {
                     var period = $('.period option:selected').val();
+                    var patient_id = $('#patient_id option:selected').val();
+                    var dep_id = $('#dep_id option:selected').val();
+                    var user_id = $('#user_id option:selected').val();
                     var day = $('.in_day').val();
                     $.ajax({
                         url: '{{ url('load/period') }}',
@@ -83,7 +86,10 @@
                         data: {
                             _token: '{{ csrf_token() }}',
                             day: day,
-                            period: period
+                            period: period,
+                            patient_id:patient_id,
+                            dep_id:dep_id,
+                            user_id:user_id,
                         },
                         beforeSend: function() {
                             $('.in_time_load').removeClass('hidden');
@@ -185,31 +191,12 @@
                                 <input class="form-control" v-model="patient_search" name="patient_search" value="{{old('patient_search')}}">
                                 <small style="color:#c33"><i class="fa fa-info"></i>
                                     {{ trans('admin.search_patient_at') }}</small>
-                                <select name="patient_id" class="form-control" v-if="patients_list.length">
+                                <select name="patient_id" class="form-control" id="patient_id" v-if="patients_list.length">
                                     <option v-for="patient in patients_list" :value="patient.id">
                                         @{{ patient.first_name }}
                                     </option>
                                 </select>
                             </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            {!! Form::label('period', trans('admin.period'), ['class' => 'col-md-3 control-label']) !!}
-                            <div class="col-md-9">
-                                {!! Form::select('period', ['morning' => trans('admin.morning'), 'evening' => trans('admin.evening')], old('period'), ['class' => 'form-control period', 'placeholder' => '...........']) !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            {!! Form::label('in_day', trans('admin.in_day'), ['class' => 'col-md-3 control-label']) !!}
-                            <div class="col-md-9">
-                                {!! Form::date('in_day', old('in_day') ? old('in_day') : date('Y-m-d'), ['class' => 'form-control in_day date-picker', 'placeholder' => trans('admin.in_day'), 'data-date' => date('Y-m-d'), 'data-date-format' => 'yyyy-mm-dd']) !!}
-                            </div>
-                        </div>
-
-                        <i class="fa fa-spinner fa-spin in_time_load hidden"></i>
-                        <div class="in_time">
                         </div>
 
                         <div class="form-group">
@@ -230,13 +217,31 @@
                                     @foreach (\App\Models\User::query()->where('group_id', 1)->get()
         as $doc)
                                         <option v-if="dep_id == '{{ $doc->dep_id }}'" value="{{ $doc->id }}" @if (old('user_id') && old('user_id')==$doc->id)
-                                            selected
-                                        @endif>
+                                        selected
+                                            @endif>
                                             {{ $doc->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('period', trans('admin.period'), ['class' => 'col-md-3 control-label']) !!}
+                            <div class="col-md-9">
+                                {!! Form::select('period', ['morning' => trans('admin.morning'), 'evening' => trans('admin.evening')], old('period'), ['class' => 'form-control period', 'placeholder' => '...........']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('in_day', trans('admin.in_day'), ['class' => 'col-md-3 control-label']) !!}
+                            <div class="col-md-9">
+                                {!! Form::date('in_day', old('in_day') ? old('in_day') : date('Y-m-d'), ['class' => 'form-control in_day date-picker', 'placeholder' => trans('admin.in_day'), 'data-date' => date('Y-m-d'), 'data-date-format' => 'yyyy-mm-dd']) !!}
+                            </div>
+                        </div>
+
+                        <i class="fa fa-spinner fa-spin in_time_load hidden"></i>
+                        <div class="in_time">
+                        </div>
+
                         <div class="form-group">
                             {!! Form::label('appoint_status', trans('admin.appoint_status'), ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
@@ -282,7 +287,7 @@
                     axios.get('{{ url('api/patients') }}?search=' + this.patient_search).then(res => {
                             this.patients_list = res.data;
                         });
-                    
+
                 }else{
                         this.patients_list = [];
                     }

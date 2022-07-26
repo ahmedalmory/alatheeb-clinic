@@ -29,7 +29,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Responsive Style -->
 	<link rel="stylesheet" href="{{url('design/style')}}/css/responsive.css">
-	<style type="text/css">
+
+
+    <style type="text/css">
+
 	.datepicker-dropdown {max-width: 230px;}
 	.datepicker {float: right}
 	.datepicker.dropdown-menu {right:auto}

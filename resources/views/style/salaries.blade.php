@@ -1,14 +1,9 @@
 @extends('style.index')
 
 @section('content')
-    <h4>رواتب الموظفين</h4>
-    <div class="">
-      <div class="">{{ __('admin.total_employee_salary') }} {{ $users->sum('salary') }}</div>
-      <div class="">{{ __('admin.salaries_paid') }}{{ App\Models\User::TotalMonthlyIncome() }}</div>
-      <div class="">{{ __('admin.financial_discount') }}  {{ $discounts }}</div>
-    </div>
-    <div class="">
-      <form action="{{ URL::current() }}">
+<div class="d-flex align-items-center justify-content-between gap-3  mb-3">
+    <h4 class="fw-bold">رواتب الموظفين</h4>
+    <form action="{{ URL::current() }}">
         <label>{{ __('admin.user_id') }}</label>
         <select name="user" id="" onchange="submit()">
           <option value="">كل  الموظفين</option>
@@ -17,9 +12,21 @@
           @endforeach
         </select>
       </form>
-    </div>
-    <a class="btn btn-primary" href="{{ route('salary_discount') }}">{{ __('admin.add_discount') }}</a>
-    <table class="table">
+</div>
+<div class="d-flex align-items-center justify-content-between gap-3 mb-2">
+    <div class="d-flex align-items-center justify-content-between gap-3">
+    <div class=""><b>{{ __('admin.total_employee_salary') }} </b> {{ $users->sum('salary') }}</div>
+    |
+    <div class=""><b>{{ __('admin.salaries_paid') }} </b> {{ App\Models\User::TotalMonthlyIncome() }}</div>
+    |
+    <div class=""><b>{{ __('admin.financial_discount') }} </b>  {{ $discounts }}</div>
+</div>
+<a class="btn btn-primary btn-sm" href="{{ route('salary_discount') }}">{{ __('admin.add_discount') }}</a>
+</div>
+
+
+ <div class="datespage table-responsive mt-0 ">
+ <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -34,10 +41,10 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                
+
           <tr>
-            <th scope="row">{{ $loop->index+1 }}</th>
-            <th scope="row">{{ __('admin.month') }} {{ now()->format('m') }}</th>
+            <td scope="row">{{ $loop->index+1 }}</td>
+            <td scope="row">{{ __('admin.month') }} {{ now()->format('m') }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->salary }}</td>
             <td>{{ $user->monthly_discounts }}</td>
@@ -49,4 +56,5 @@
           {{ $users->links() }}
         </tbody>
       </table>
+ </div>
 @endsection

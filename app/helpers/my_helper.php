@@ -19,7 +19,6 @@ function modelBoxLarge($boxid,$modal_id = '', $boxTitle = '',  $status_msg = '',
 function patient_name($id)
 {
     if ($id) {
-
         return DB::table('patients')->where('id', $id)->first()->first_name;
     } else {
         echo "";

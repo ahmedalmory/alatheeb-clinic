@@ -68,33 +68,33 @@
         </div>
     </div>
 
-    <div id="myDiv" class="mt-5" style="margin-top:50px">
-        <table class="table table-bordered">
+    <div id="myDiv" class="mt-5  table-responsive" style="margin-top:50px">
+        <table class="table table-bordered text-center">
 
             <tbody>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">{{__('app.cash')}}</td>
-                <td style="padding:10px">{{$invoices->sum('paid_cash')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">{{__('app.cash')}}</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('paid_cash')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">{{__('app.network')}}</td>
-                <td style="padding:10px">{{$invoices->sum('paid_card')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">{{__('app.network')}}</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('paid_card')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">{{__('app.okay')}}</td>
-                <td style="padding:10px">{{$invoices->sum('due')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">{{__('app.okay')}}</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum('due')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff"> {{__('app.without_tax')}}</td>
-                <td style="padding:10px">{{$invoices->sum(function ($item){ return ($item->tax_amount ? ($item->total_amount - $item->tax_amount) : $item->total_amount); })}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff"> {{__('app.without_tax')}}</td>
+                <td style="padding:10px  background-color:white; background-color:white;">{{$invoices->sum(function ($item){ return ($item->tax_amount ? ($item->total_amount - $item->tax_amount) : $item->total_amount); })}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">{{__('app.total_with_tax')}}</td>
-                <td style="padding:10px">{{$invoices->sum('total_amount')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">{{__('app.total_with_tax')}}</td>
+                <td style="padding:10px  background-color:white;  background-color:white;">{{$invoices->sum('total_amount')}}</td>
             </tr>
             <tr>
-                <td style="width:200px;background-color:#36c6d3;color:#fff">{{__('app.total_tax')}}</td>
-                <td style="padding:10px">{{$invoices->sum('tax_amount')}}</td>
+                <td style="width:200px;background-color:#8893B0;color:#fff">{{__('app.total_tax')}}</td>
+                <td style="padding:10px  background-color:white;  background-color:white;">{{$invoices->sum('tax_amount')}}</td>
             </tr>
             </tbody>
         </table>
